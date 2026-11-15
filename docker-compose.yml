@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  homeogen-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: homeogenalpha1
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-http://localhost:54321}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-anon-key}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY:-service-key}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - EXTRACTION_MODEL=gemini-2.0-flash
+      - EMBEDDING_MODEL=gemini-embedding-001
+      - EMBEDDING_DIM=768
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

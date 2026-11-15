@@ -1,0 +1,86 @@
+[
+  {
+    "id": "case_01",
+    "narrative": "Patient is extremely anxious about health, constantly washing hands, very fastidious and tidy, and asks for warm water to sip frequently.",
+    "clinician_chosen_rubrics": [
+      "Mind; Anxiety; health, about",
+      "Mind; Fastidious",
+      "Stomach; Desires; warm drinks",
+      "Stomach; Thirst; small quantities, for; often"
+    ]
+  },
+  {
+    "id": "case_02",
+    "narrative": "45-year-old male with severe morning irritability upon waking, angry when contradicted, chronic gas trouble and bloating worse 4 to 8 pm, craves sweets.",
+    "clinician_chosen_rubrics": [
+      "Mind; Irritability; morning; waking, on",
+      "Stomach; Distension, bloating; afternoon; 4 to 8 p.m.",
+      "Stomach; Desires; sweets"
+    ]
+  },
+  {
+    "id": "case_03",
+    "narrative": "Young woman weeping easily while explaining her grief. Feels much better when consoled by friends. Can't tolerate heat or warm rooms, and completely thirstless.",
+    "clinician_chosen_rubrics": [
+      "Mind; Weeping; consolation; amel.",
+      "Generalities; Warmth; agg.; warm room",
+      "Stomach; Thirstless"
+    ]
+  },
+  {
+    "id": "case_04",
+    "narrative": "Patient weeps but gets irritated and worse if anyone tries to console her. Craves salt, headaches pulsating like hammering.",
+    "clinician_chosen_rubrics": [
+      "Mind; Weeping; consolation; agg.",
+      "Head; Pain, headache; pulsating, throbbing"
+    ]
+  },
+  {
+    "id": "case_05",
+    "narrative": "Intense burning in soles of feet at night, puts feet out of bedcovers to cool them. Cannot stand warmth, loves sweet things.",
+    "clinician_chosen_rubrics": [
+      "Extremities; Heat; burning; feet; night; uncovers them",
+      "Generalities; Warmth; agg.; warm room",
+      "Stomach; Desires; sweets"
+    ]
+  },
+  {
+    "id": "case_06",
+    "narrative": "Patient has extreme restlessness at night, tossing in bed from anxiety, very chilly patient worse from becoming cold.",
+    "clinician_chosen_rubrics": [
+      "Mind; Restlessness, nervousness; night",
+      "Generalities; Cold; agg.; becoming cold"
+    ]
+  },
+  {
+    "id": "case_07",
+    "narrative": "Joint pains worse from the slightest motion, patient lies completely still. Unquenchable extreme thirst for large quantities of water.",
+    "clinician_chosen_rubrics": [
+      "Generalities; Motion; agg.",
+      "Stomach; Thirst; extreme; unquenchable"
+    ]
+  },
+  {
+    "id": "case_08",
+    "narrative": "Severe stiffness and joint pain, worse on beginning to move, but distinctly better from continued walking and motion.",
+    "clinician_chosen_rubrics": [
+      "Generalities; Motion; amel.; continued motion"
+    ]
+  },
+  {
+    "id": "case_09",
+    "narrative": "Very sympathetic and compassionate individual who feels other people's suffering deeply. Burning pain, craves ice-cold drinks.",
+    "clinician_chosen_rubrics": [
+      "Mind; Sympathetic, compassionate",
+      "Stomach; Desires; cold drinks, ice cold"
+    ]
+  },
+  {
+    "id": "case_10",
+    "narrative": "Digestive upset after eating rich fatty food, aversion to fat and butter, feels suffocated in closed warm rooms.",
+    "clinician_chosen_rubrics": [
+      "Stomach; Aversion; fat and rich food",
+      "Generalities; Warmth; agg.; warm room"
+    ]
+  }
+]

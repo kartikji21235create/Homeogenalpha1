@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #11140f;
+  --surface: #1b2016;
+  --surface-raised: #222a1c;
+  --border: #2b3224;
+  --text-primary: #f3efe4;
+  --text-secondary: #9aa68e;
+  --accent: #8fb996;
+  --accent-strong: #b7d9ad;
+  --warn: #d98c4a;
+  --danger: #c9634f;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

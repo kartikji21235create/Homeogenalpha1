@@ -1,0 +1,268 @@
+{
+  "remedies": [
+    { "common_name": "Arsenicum Album", "abbreviation": "Ars", "aliases": ["Arsenic", "Arsenicum", "Ars alb"] },
+    { "common_name": "Pulsatilla Pratensis", "abbreviation": "Puls", "aliases": ["Pulsatilla", "Puls nig"] },
+    { "common_name": "Nux Vomica", "abbreviation": "Nux-v", "aliases": ["Nux", "Nux vom"] },
+    { "common_name": "Sulphur", "abbreviation": "Sulph", "aliases": ["Sulfur", "Sulf"] },
+    { "common_name": "Lycopodium Clavatum", "abbreviation": "Lyc", "aliases": ["Lycopodium", "Lyc clav"] },
+    { "common_name": "Bryonia Alba", "abbreviation": "Bry", "aliases": ["Bryonia", "Bry alb"] },
+    { "common_name": "Phosphorus", "abbreviation": "Phos", "aliases": ["Phosphor"] },
+    { "common_name": "Belladonna", "abbreviation": "Bell", "aliases": ["Atropa belladonna"] },
+    { "common_name": "Rhus Toxicodendron", "abbreviation": "Rhus-t", "aliases": ["Rhus tox"] },
+    { "common_name": "Natrum Muriaticum", "abbreviation": "Nat-m", "aliases": ["Natrum mur", "Nat mur"] },
+    { "common_name": "Sepia Officinalis", "abbreviation": "Sep", "aliases": ["Sepia"] },
+    { "common_name": "Calcarea Carbonica", "abbreviation": "Calc", "aliases": ["Calc carb"] },
+    { "common_name": "Aconitum Napellus", "abbreviation": "Acon", "aliases": ["Aconite"] },
+    { "common_name": "Silicea Terra", "abbreviation": "Sil", "aliases": ["Silica"] },
+    { "common_name": "Causticum", "abbreviation": "Caust", "aliases": ["Caust"] },
+    { "common_name": "Natrum Carbonicum", "abbreviation": "Nat-c", "aliases": ["Nat carb"] },
+    { "common_name": "Apis Mellifica", "abbreviation": "Apis", "aliases": ["Apis mel"] },
+    { "common_name": "Chelidonium Majus", "abbreviation": "Chel", "aliases": ["Chelidonium"] },
+    { "common_name": "Argentum Nitricum", "abbreviation": "Arg-n", "aliases": ["Arg nit"] },
+    { "common_name": "Veratrum Album", "abbreviation": "Verat", "aliases": ["Veratrum"] },
+    { "common_name": "Carbo Vegetabilis", "abbreviation": "Carb-v", "aliases": ["Carbo veg"] },
+    { "common_name": "Helleborus Niger", "abbreviation": "Hell", "aliases": ["Helleborus"] },
+    { "common_name": "Glonoine", "abbreviation": "Glon", "aliases": ["Glonoinum"] },
+    { "common_name": "Chamomilla", "abbreviation": "Cham", "aliases": ["Chamomilla recutita"] },
+    { "common_name": "Medorrhinum", "abbreviation": "Med", "aliases": ["Medorrhin"] },
+    { "common_name": "Hyoscyamus Niger", "abbreviation": "Hyos", "aliases": ["Hyoscyamus"] }
+  ],
+  "rubrics": [
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Anxiety; health, about",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "6" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Phos", "grade": 3 },
+        { "abbrev": "Calc", "grade": 3 },
+        { "abbrev": "Nux-v", "grade": 2 },
+        { "abbrev": "Puls", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Restlessness, nervousness; night",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "72" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 4 },
+        { "abbrev": "Rhus-t", "grade": 3 },
+        { "abbrev": "Acon", "grade": 3 },
+        { "abbrev": "Bell", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Fastidious",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "44" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Nux-v", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Irritability; morning; waking, on",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "58" }],
+      "mappings": [
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Lyc", "grade": 3 },
+        { "abbrev": "Sulph", "grade": 2 },
+        { "abbrev": "Nat-m", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Weeping; consolation; agg.",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "93" }],
+      "mappings": [
+        { "abbrev": "Nat-m", "grade": 3 },
+        { "abbrev": "Sep", "grade": 2 },
+        { "abbrev": "Sil", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Weeping; consolation; amel.",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "93" }],
+      "mappings": [
+        { "abbrev": "Puls", "grade": 3 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Sympathetic, compassionate",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "86" }],
+      "mappings": [
+        { "abbrev": "Phos", "grade": 3 },
+        { "abbrev": "Caust", "grade": 3 },
+        { "abbrev": "Nat-c", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Warmth; agg.; warm room",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1412" }],
+      "mappings": [
+        { "abbrev": "Puls", "grade": 3 },
+        { "abbrev": "Sulph", "grade": 3 },
+        { "abbrev": "Apis", "grade": 3 },
+        { "abbrev": "Lyc", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Cold; agg.; becoming cold",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1346" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Calc", "grade": 3 },
+        { "abbrev": "Rhus-t", "grade": 3 },
+        { "abbrev": "Sep", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Motion; agg.",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1376" }],
+      "mappings": [
+        { "abbrev": "Bry", "grade": 3 },
+        { "abbrev": "Bell", "grade": 2 },
+        { "abbrev": "Nux-v", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Motion; amel.; continued motion",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1378" }],
+      "mappings": [
+        { "abbrev": "Rhus-t", "grade": 3 },
+        { "abbrev": "Puls", "grade": 2 },
+        { "abbrev": "Sep", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Thirst; extreme; unquenchable",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "528" }],
+      "mappings": [
+        { "abbrev": "Bry", "grade": 3 },
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Phos", "grade": 3 },
+        { "abbrev": "Sulph", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Thirst; small quantities, for; often",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "530" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Bell", "grade": 2 },
+        { "abbrev": "Hyos", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Thirstless",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "531" }],
+      "mappings": [
+        { "abbrev": "Puls", "grade": 3 },
+        { "abbrev": "Apis", "grade": 3 },
+        { "abbrev": "Sep", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Desires; warm drinks",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "486" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 2 },
+        { "abbrev": "Nux-v", "grade": 1 },
+        { "abbrev": "Chel", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Desires; sweets",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "485" }],
+      "mappings": [
+        { "abbrev": "Lyc", "grade": 3 },
+        { "abbrev": "Sulph", "grade": 3 },
+        { "abbrev": "Arg-n", "grade": 3 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Desires; cold drinks, ice cold",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "484" }],
+      "mappings": [
+        { "abbrev": "Phos", "grade": 3 },
+        { "abbrev": "Verat", "grade": 3 },
+        { "abbrev": "Acon", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Aversion; fat and rich food",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "480" }],
+      "mappings": [
+        { "abbrev": "Puls", "grade": 3 },
+        { "abbrev": "Carb-v", "grade": 2 },
+        { "abbrev": "Nat-m", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Distension, bloating; afternoon; 4 to 8 p.m.",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "495" }],
+      "mappings": [
+        { "abbrev": "Lyc", "grade": 3 },
+        { "abbrev": "Hell", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Head",
+      "rubric_path": "Head; Pain, headache; pulsating, throbbing",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "150" }],
+      "mappings": [
+        { "abbrev": "Bell", "grade": 3 },
+        { "abbrev": "Glon", "grade": 3 },
+        { "abbrev": "Nat-m", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Extremities",
+      "rubric_path": "Extremities; Heat; burning; feet; night; uncovers them",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1002" }],
+      "mappings": [
+        { "abbrev": "Sulph", "grade": 3 },
+        { "abbrev": "Cham", "grade": 2 },
+        { "abbrev": "Med", "grade": 2 },
+        { "abbrev": "Puls", "grade": 2 }
+      ]
+    }
+  ],
+  "synonyms": [
+    { "phrase": "gas trouble", "canonical_phrase": "Stomach; Distension, bloating", "locale": "en-IN" },
+    { "phrase": "loose motions", "canonical_phrase": "Rectum; Diarrhoea", "locale": "en-IN" },
+    { "phrase": "motions", "canonical_phrase": "Stool", "locale": "en-IN" },
+    { "phrase": "acidity and heartburn", "canonical_phrase": "Stomach; Eructations; acidity", "locale": "en-IN" },
+    { "phrase": "burning in soles", "canonical_phrase": "Extremities; Heat; burning; feet", "locale": "en-IN" },
+    { "phrase": "burning feet at night", "canonical_phrase": "Extremities; Heat; burning; feet; night; uncovers them", "locale": "en-IN" },
+    { "phrase": "cannot tolerate heat", "canonical_phrase": "Generalities; Warmth; agg.; warm room", "locale": "en" },
+    { "phrase": "hot patient", "canonical_phrase": "Generalities; Warmth; agg.; warm room", "locale": "en-IN" },
+    { "phrase": "chilly patient", "canonical_phrase": "Generalities; Cold; agg.; becoming cold", "locale": "en-IN" },
+    { "phrase": "wants warm water", "canonical_phrase": "Stomach; Desires; warm drinks", "locale": "en-IN" },
+    { "phrase": "craves sweets and sugar", "canonical_phrase": "Stomach; Desires; sweets", "locale": "en" },
+    { "phrase": "sweet tooth", "canonical_phrase": "Stomach; Desires; sweets", "locale": "en-IN" },
+    { "phrase": "feels worse in evening around 4 to 8 pm", "canonical_phrase": "Stomach; Distension, bloating; afternoon; 4 to 8 p.m.", "locale": "en" },
+    { "phrase": "cries when someone consoles", "canonical_phrase": "Mind; Weeping; consolation; agg.", "locale": "en" },
+    { "phrase": "feels better when consoled", "canonical_phrase": "Mind; Weeping; consolation; amel.", "locale": "en" },
+    { "phrase": "excessive thirst for cold water", "canonical_phrase": "Stomach; Desires; cold drinks, ice cold", "locale": "en" },
+    { "phrase": "sips of water frequently", "canonical_phrase": "Stomach; Thirst; small quantities, for; often", "locale": "en" },
+    { "phrase": "restless tossing about in bed", "canonical_phrase": "Mind; Restlessness, nervousness; night", "locale": "en" },
+    { "phrase": "cannot stand messy or untidy things", "canonical_phrase": "Mind; Fastidious", "locale": "en" }
+  ]
+}
