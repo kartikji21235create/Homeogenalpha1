@@ -1,15 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useMachine } from "@xstate/react";
 import { consultationMachine } from "./machine";
 import { Stepper } from "./Stepper";
 import { RubricSearchModal } from "./RubricSearchModal";
 
 export function ConsultationScreen() {
+  const searchParams = useSearchParams();
   const [state, send] = useMachine(consultationMachine);
   const [narrativeInput, setNarrativeInput] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const urlPatientId = searchParams.get("patientId");
+    const urlPatientName = searchParams.get("name");
+    if (urlPatientId && urlPatientName) {
+      send({
+        type: "SET_PATIENT",
+        patientId: urlPatientId,
+        patientDisplayName: urlPatientName,
+      });
+    }
+  }, [searchParams, send]);
 
   // Prescription form local state
   const [potencyInput, setPotencyInput] = useState("200C");
@@ -225,12 +239,43 @@ export function ConsultationScreen() {
             <div>
               <strong className="font-semibold">Notice:</strong> {errorMessage}
             </div>
-            <button
-              onClick={() => send({ type: "CONFIRM_RUBRICS_START" })}
-              className="text-xs underline ml-4 hover:opacity-80"
-            >
-              Retry
-            </button>
+            <div className="flex items-center gap-3 shrink-0 ml-4">
+              {current === "INTAKE" && (
+                <button
+                  type="button"
+                  onClick={handleSubmitNarrative}
+                  className="text-xs underline hover:opacity-80 font-medium"
+                >
+                  Retry Analysis
+                </button>
+              )}
+              {current === "REVIEW_RUBRICS" && (
+                <button
+                  type="button"
+                  onClick={handleConfirmRubricsAndScore}
+                  className="text-xs underline hover:opacity-80 font-medium"
+                >
+                  Retry Scoring
+                </button>
+              )}
+              {current === "PRESCRIBING" && (
+                <button
+                  type="button"
+                  onClick={handleSavePrescription}
+                  className="text-xs underline hover:opacity-80 font-medium"
+                >
+                  Retry Save
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => send({ type: "CLEAR_ERROR" })}
+                className="text-xs hover:opacity-80 text-text-secondary"
+                title="Dismiss"
+              >
+                ✕
+              </button>
+            </div>
           </div>
         )}
 

@@ -14,13 +14,13 @@ export default function RepertoryBrowserPage() {
   const [results, setResults] = useState<RubricItem[]>([]);
   const [loading, setLoading] = useState(false);
 
-  async function handleSearch(e: React.FormEvent) {
-    e.preventDefault();
-    if (!searchTerm.trim()) return;
+  async function searchRubrics(term: string) {
+    if (!term.trim()) return;
 
     setLoading(true);
+    setSearchTerm(term);
     try {
-      const res = await fetch(`/api/rubrics/search?q=${encodeURIComponent(searchTerm)}`);
+      const res = await fetch(`/api/rubrics/search?q=${encodeURIComponent(term)}`);
       const data = await res.json();
       if (data.ok) {
         setResults(data.data.rubrics);
@@ -30,6 +30,11 @@ export default function RepertoryBrowserPage() {
     } finally {
       setLoading(false);
     }
+  }
+
+  async function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    searchRubrics(searchTerm);
   }
 
   return (
@@ -91,7 +96,7 @@ export default function RepertoryBrowserPage() {
                 <div
                   key={chapter}
                   onClick={() => {
-                    setSearchTerm(chapter);
+                    searchRubrics(chapter);
                   }}
                   className="p-4 rounded-lg border border-border bg-surface hover:border-accent cursor-pointer transition text-center space-y-1"
                 >

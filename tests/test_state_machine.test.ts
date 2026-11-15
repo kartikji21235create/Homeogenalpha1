@@ -183,5 +183,12 @@ describe("Consultation State Machine (Phase 4)", () => {
     actor.send({ type: "SAVE_PRESCRIPTION_SUCCESS", prescriptionId: "rx_123" });
     assert.equal(actor.getSnapshot().value, "DONE");
     assert.equal(actor.getSnapshot().context.prescriptionId, "rx_123");
+
+    // 8. DONE -> RESET_TO_INTAKE returns to pristine INTAKE state
+    actor.send({ type: "RESET_TO_INTAKE" });
+    assert.equal(actor.getSnapshot().value, "INTAKE");
+    assert.equal(actor.getSnapshot().context.consultationId, null);
+    assert.equal(actor.getSnapshot().context.prescriptionId, null);
+    assert.equal(actor.getSnapshot().context.dpdpConsent, false);
   });
 });

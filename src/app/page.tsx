@@ -22,12 +22,12 @@ export default function HomePage() {
           >
             Start New Consultation &rarr;
           </Link>
-          <a
+          <Link
             href="/repertory"
             className="rounded-lg border border-border bg-surface px-6 py-3 text-sm font-medium text-text-primary hover:border-accent transition-all"
           >
             Browse Repertory
-          </a>
+          </Link>
         </div>
       </section>
 

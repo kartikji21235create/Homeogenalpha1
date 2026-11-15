@@ -153,7 +153,7 @@ export default function PatientsPage() {
                   <td className="py-3 px-4 text-xs text-text-secondary">{p.year_of_birth || "—"}</td>
                   <td className="py-3 px-4 text-right space-x-3">
                     <Link
-                      href="/consultation"
+                      href={`/consultation?patientId=${p.id}&name=${encodeURIComponent(p.display_name)}`}
                       className="text-xs text-accent hover:underline font-medium"
                     >
                       New Consultation

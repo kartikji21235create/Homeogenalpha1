@@ -79,6 +79,8 @@ export const initialConsultationContext: ConsultationContext = {
 
 export type ConsultationEvent =
   | { type: "SET_CONSENT"; consent: boolean }
+  | { type: "SET_PATIENT"; patientId: string; patientDisplayName: string }
+  | { type: "CLEAR_ERROR" }
   | { type: "SUBMIT_NARRATIVE"; text: string }
   | {
       type: "ANALYSIS_SUCCESS";
@@ -125,6 +127,12 @@ export const consultationMachine = setup({
   actions: {
     setConsent: assign({
       dpdpConsent: ({ event }) => (event.type === "SET_CONSENT" ? event.consent : false),
+    }),
+    setPatient: assign({
+      patientId: ({ event }) =>
+        event.type === "SET_PATIENT" ? event.patientId : "00000000-0000-0000-0000-000000000002",
+      patientDisplayName: ({ event }) =>
+        event.type === "SET_PATIENT" ? event.patientDisplayName : "Aarav Sharma",
     }),
     recordError: assign({
       errorMessage: ({ event }) => ("message" in event ? event.message : "An error occurred"),
@@ -246,6 +254,8 @@ export const consultationMachine = setup({
     INTAKE: {
       on: {
         SET_CONSENT: { actions: "setConsent" },
+        SET_PATIENT: { actions: "setPatient" },
+        CLEAR_ERROR: { actions: "clearError" },
         SUBMIT_NARRATIVE: {
           guard: ({ context }) => context.dpdpConsent,
           target: "PROCESSING",
@@ -286,6 +296,7 @@ export const consultationMachine = setup({
 
     REVIEW_RUBRICS: {
       on: {
+        CLEAR_ERROR: { actions: "clearError" },
         SET_RUBRIC_WEIGHT: { actions: "updateWeight" },
         REMOVE_RUBRIC: { actions: "removeRubric" },
         ADD_MANUAL_RUBRIC: { actions: "addManualRubric" },
@@ -335,6 +346,7 @@ export const consultationMachine = setup({
 
     PRESCRIBING: {
       on: {
+        CLEAR_ERROR: { actions: "clearError" },
         SET_PRESCRIPTION_DETAILS: {
           actions: "setPrescriptionDetails",
         },
@@ -349,7 +361,12 @@ export const consultationMachine = setup({
     },
 
     DONE: {
-      type: "final",
+      on: {
+        RESET_TO_INTAKE: {
+          target: "INTAKE",
+          actions: assign(() => ({ ...initialConsultationContext })),
+        },
+      },
     },
   },
 });
