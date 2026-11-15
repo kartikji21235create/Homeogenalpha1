@@ -115,3 +115,25 @@ npx tsx evals/eval_harness.ts
 | **Phase 3** | Doctor cross-tenant isolation | 403 on foreign patient | 403 returned | **PASS** |
 | **Phase 4** | XState v5 consultation flow | INTAKE &rarr; DONE loop | All transitions pass | **PASS** |
 | **Phase 4** | Optimistic scoring rollback | Rollback to REVIEW_RUBRICS | Verified with error toast | **PASS** |
+| **Phase 5** | Production Next.js Build | Standalone artifact output | Built with 0 errors | **PASS** |
+| **Phase 5** | Lint & Typecheck | Zero warnings/errors | Passing `tsc` and `eslint` | **PASS** |
+| **Phase 5** | DPDP Cascading Erasure | Patient delete cascades | All records erased | **PASS** |
+
+---
+
+## 5. Deployment & Containerization
+
+### Docker Build & Run
+```bash
+docker build -t homeogenalpha1:latest .
+docker run -p 3000:3000 -e NEXT_PUBLIC_SUPABASE_URL=... -e NEXT_PUBLIC_SUPABASE_ANON_KEY=... homeogenalpha1:latest
+```
+
+### Docker Compose
+```bash
+docker-compose up -d
+```
+
+Detailed deployment instructions and disaster recovery runbooks:
+- [Deployment Runbook](ops/runbooks/deployment.md)
+- [Disaster Recovery Restore Drill](ops/runbooks/restore_drill.md)
