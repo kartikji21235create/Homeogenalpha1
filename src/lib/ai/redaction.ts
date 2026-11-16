@@ -45,10 +45,15 @@ export function assertNoIdentifiersLeaked(
   text: string,
   patientDisplayName?: string | null
 ): void {
-  if (EMAIL_REGEX.test(text)) {
+  // Use fresh regex instances without /g to avoid lastIndex state bug (Problem 22 hardening).
+  // The module-level /g regexes are only for .replace() in redactIdentifiers().
+  const emailCheck = /[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}/;
+  const phoneCheck = /(?:\+?\d{1,3}[-.\s]?)?(?:\d{10}|\d{3}[-.\s]\d{3}[-.\s]\d{4})/;
+
+  if (emailCheck.test(text)) {
     throw new Error("Redaction check failed: an email pattern was detected in payload.");
   }
-  if (PHONE_REGEX.test(text)) {
+  if (phoneCheck.test(text)) {
     throw new Error("Redaction check failed: a phone pattern was detected in payload.");
   }
   if (patientDisplayName && patientDisplayName.trim().length >= 3) {

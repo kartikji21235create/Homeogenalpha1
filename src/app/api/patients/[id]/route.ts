@@ -1,15 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { deletePatientCascading } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function DELETE(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await context.params;
-    const doctorId = "00000000-0000-0000-0000-000000000001";
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
 
-    const result = await deletePatientCascading(id, doctorId);
+    const { id } = await context.params;
+
+    const result = await deletePatientCascading(id, auth.doctorId);
 
     return NextResponse.json({
       ok: true,

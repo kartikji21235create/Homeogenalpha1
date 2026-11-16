@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { getDoctorFullExport } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function GET() {
   try {
-    const doctorId = "00000000-0000-0000-0000-000000000001";
-    const exportData = await getDoctorFullExport(doctorId);
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
+    const exportData = await getDoctorFullExport(auth.doctorId);
 
     return new NextResponse(JSON.stringify(exportData, null, 2), {
       status: 200,

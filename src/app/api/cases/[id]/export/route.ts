@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getConsultation, getConfirmedRubrics, db } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function GET(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const { id } = await context.params;
     const consultation = await getConsultation(id);
 
@@ -13,6 +17,14 @@ export async function GET(
       return NextResponse.json(
         { ok: false, error: { code: "not_found", message: "Case consultation not found." } },
         { status: 404 }
+      );
+    }
+
+    // Verify ownership
+    if (consultation.doctor_id !== auth.doctorId) {
+      return NextResponse.json(
+        { ok: false, error: { code: "forbidden", message: "You do not own this consultation." } },
+        { status: 403 }
       );
     }
 

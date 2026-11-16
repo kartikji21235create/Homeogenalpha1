@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listPatients, createPatient } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function GET(req: NextRequest) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const { searchParams } = new URL(req.url);
     const search = searchParams.get("search") || undefined;
-    const doctorId = "00000000-0000-0000-0000-000000000001";
 
-    const patients = await listPatients(doctorId, search);
+    const patients = await listPatients(auth.doctorId, search);
 
     return NextResponse.json({
       ok: true,
@@ -25,6 +28,9 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const body = await req.json();
     const { display_name, sex, year_of_birth } = body;
 
@@ -35,8 +41,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const doctorId = "00000000-0000-0000-0000-000000000001";
-    const patient = await createPatient(doctorId, {
+    const patient = await createPatient(auth.doctorId, {
       display_name,
       sex,
       year_of_birth: year_of_birth ? Number(year_of_birth) : undefined,

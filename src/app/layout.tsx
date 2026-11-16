@@ -1,11 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Homeogenalpha1 — Clinical Decision Support for Homoeopathy",
   description:
     "Reproducible, deterministic repertorisation and case management platform built on verified open data.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#11140f",
 };
 
 export default function RootLayout({
@@ -48,13 +56,15 @@ export default function RootLayout({
               </Link>
               <div className="flex items-center gap-2 pl-4 border-l border-border">
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs text-text-secondary">Dr. Hahnemann</span>
+                <span className="text-xs text-text-secondary">Doctor</span>
               </div>
             </nav>
           </div>
         </header>
 
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
       </body>
     </html>
   );

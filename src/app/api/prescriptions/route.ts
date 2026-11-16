@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createPrescriptionRecord } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const body = await req.json();
     const {
       consultation_id,
@@ -26,12 +30,25 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const doctorId = "00000000-0000-0000-0000-000000000001";
-    const patientId = patient_id || "00000000-0000-0000-0000-000000000002";
+    // Require patient_id — no silent fallback
+    if (!patient_id || typeof patient_id !== "string") {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: {
+            code: "missing_patient",
+            message: "patient_id is required.",
+          },
+        },
+        { status: 422 }
+      );
+    }
+
+    const doctorId = auth.doctorId;
 
     const prescription = await createPrescriptionRecord({
       consultation_id,
-      patient_id: patientId,
+      patient_id,
       doctor_id: doctorId,
       medicine_id: Number(medicine_id),
       potency: String(potency),
@@ -63,7 +80,6 @@ export async function POST(req: NextRequest) {
     }
 
     if (err.code === "unconfirmed_rubric" || err.code === "missing_weights") {
-      // Maps trigger / integrity check error to friendly 422
       return NextResponse.json(
         { ok: false, error: { code: "unconfirmed_rubric", message: err.message } },
         { status: 422 }

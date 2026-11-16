@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getConsultation, getConfirmedRubrics, db } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
+import { escapeHtml } from "@/lib/utils/html";
 
 export async function GET(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const { id } = await context.params;
     const consultation = await getConsultation(id);
 
@@ -16,6 +21,14 @@ export async function GET(
       );
     }
 
+    // Verify ownership
+    if (consultation.doctor_id !== auth.doctorId) {
+      return NextResponse.json(
+        { ok: false, error: { code: "forbidden", message: "You do not own this consultation." } },
+        { status: 403 }
+      );
+    }
+
     const patient = db.patients.get(consultation.patient_id);
     const doctor = db.doctors.get(consultation.doctor_id);
     const confirmed = await getConfirmedRubrics(id);
@@ -23,12 +36,14 @@ export async function GET(
       (p) => p.consultation_id === id
     );
 
-    // Problem 24: Embedded Devanagari font (Noto Serif Devanagari) to guarantee proper Hindi glyph rendering
+    // All dynamic values are HTML-escaped to prevent XSS (Problem 24 hardening)
+    const e = escapeHtml;
+
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Clinical Case Report — ${patient?.display_name || "Patient"}</title>
+  <title>Clinical Case Report — ${e(patient?.display_name || "Patient")}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -84,28 +99,28 @@ export async function GET(
       <div class="meta">Homoeopathic Clinical Decision Support &middot; Public Domain Kent 1897 Data</div>
     </div>
     <div style="text-align: right;">
-      <div style="font-weight: bold;">${doctor?.full_name || "Dr. Hahnemann"}</div>
-      <div class="meta">Reg: ${doctor?.registration_number || "HOM-IND-1897"}</div>
+      <div style="font-weight: bold;">${e(doctor?.full_name || "Dr. Hahnemann")}</div>
+      <div class="meta">Reg: ${e(doctor?.registration_number || "HOM-IND-1897")}</div>
     </div>
   </div>
 
   <div class="grid">
     <div class="box">
       <div class="label">Patient Information</div>
-      <div class="value">${patient?.display_name || "Patient Record"}</div>
-      <div class="meta">ID: ${patient?.patient_number || "P-1001"} &middot; Sex: ${patient?.sex || "MALE"} &middot; YOB: ${patient?.year_of_birth || "1985"}</div>
+      <div class="value">${e(patient?.display_name || "Patient Record")}</div>
+      <div class="meta">ID: ${e(patient?.patient_number || "P-1001")} &middot; Sex: ${e(patient?.sex || "MALE")} &middot; YOB: ${e(String(patient?.year_of_birth || "1985"))}</div>
     </div>
     <div class="box">
       <div class="label">Consultation Session</div>
-      <div class="value">Case #${consultation.id}</div>
-      <div class="meta">Date: ${new Date(consultation.created_at).toLocaleDateString()} &middot; Revision: ${consultation.rubric_revision}</div>
+      <div class="value">Case #${e(consultation.id)}</div>
+      <div class="meta">Date: ${e(new Date(consultation.created_at).toLocaleDateString())} &middot; Revision: ${consultation.rubric_revision}</div>
     </div>
   </div>
 
   <div style="margin-bottom: 20px;">
     <div class="label">Verified Consultation Transcript</div>
     <div style="background: #faf5ff; border: 1px solid #e9d8fd; border-radius: 6px; padding: 12px; font-size: 13px; margin-top: 4px;">
-      ${consultation.transcript || "No transcript recorded."}
+      ${e(consultation.transcript || "No transcript recorded.")}
     </div>
   </div>
 
@@ -123,7 +138,7 @@ export async function GET(
         ${confirmed
           .map(
             (cr) => `<tr>
-              <td><strong>${db.rubricPathLookup.get(cr.rubric_id) || "Rubric #" + cr.rubric_id}</strong></td>
+              <td><strong>${e(db.rubricPathLookup.get(cr.rubric_id) || "Rubric #" + cr.rubric_id)}</strong></td>
               <td><span class="badge">Weight ${cr.weight}</span></td>
               <td>Kent 1897</td>
             </tr>`
@@ -138,14 +153,14 @@ export async function GET(
       ? `<div class="rx-box">
           <div class="label" style="color: #22543d;">Confirmed Prescription</div>
           <div style="font-size: 18px; font-weight: bold; color: #22543d; margin-top: 4px;">
-            ${prescription.scoring_snapshot?.ranked?.[0]?.common_name || "Remedy"} ${prescription.potency}
+            ${e(prescription.scoring_snapshot?.ranked?.[0]?.common_name || "Remedy")} ${e(prescription.potency)}
           </div>
           <div style="margin-top: 8px; font-size: 13px;">
-            <strong>Dosage:</strong> ${prescription.dosage_instructions}
+            <strong>Dosage:</strong> ${e(prescription.dosage_instructions)}
           </div>
           ${
             prescription.notes
-              ? `<div style="margin-top: 4px; font-size: 13px;"><strong>Notes:</strong> ${prescription.notes}</div>`
+              ? `<div style="margin-top: 4px; font-size: 13px;"><strong>Notes:</strong> ${e(prescription.notes)}</div>`
               : ""
           }
           <div style="margin-top: 12px; font-size: 11px; color: #4a5568;">

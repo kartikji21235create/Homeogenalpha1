@@ -4,12 +4,16 @@ import {
   saveConsultation,
   saveConfirmedRubrics,
 } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function PUT(
   req: NextRequest,
   context: { params: Promise<{ consultationId: string }> }
 ) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const { consultationId } = await context.params;
     const body = await req.json();
     const { base_revision, confirmed_rubrics } = body;
@@ -19,6 +23,14 @@ export async function PUT(
       return NextResponse.json(
         { ok: false, error: { code: "not_found", message: "Consultation not found." } },
         { status: 404 }
+      );
+    }
+
+    // Verify ownership
+    if (consultation.doctor_id !== auth.doctorId) {
+      return NextResponse.json(
+        { ok: false, error: { code: "forbidden", message: "You do not own this consultation." } },
+        { status: 403 }
       );
     }
 
@@ -68,7 +80,7 @@ export async function PUT(
     await saveConfirmedRubrics(
       consultationId,
       consultation.doctor_id,
-      confirmed_rubrics.map((r) => ({
+      confirmed_rubrics.map((r: any) => ({
         rubric_id: Number(r.rubric_id),
         weight: Number(r.weight),
         doctor_edited: Boolean(r.doctor_edited ?? true),

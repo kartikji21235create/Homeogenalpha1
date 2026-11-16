@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 
 interface RateLimitRecord {
   count: number;
@@ -7,10 +8,15 @@ interface RateLimitRecord {
 }
 
 // In-memory rate limiting map: ip/token -> record
+// NOTE: In serverless environments (Vercel, Cloud Run), this map resets on each
+// cold start. For multi-instance production, use Redis or Vercel KV.
 const rateLimitMap = new Map<string, RateLimitRecord>();
 
 const WINDOW_MS = 60 * 1000; // 1 minute window
-const MAX_REQUESTS_PER_MINUTE = 60; // 60 requests per minute per client
+const MAX_REQUESTS_PER_MINUTE = 60;
+
+// Routes that do NOT require authentication
+const PUBLIC_ROUTES = ["/login", "/privacy-notice", "/api/auth"];
 
 function getClientIdentifier(req: NextRequest): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -19,9 +25,15 @@ function getClientIdentifier(req: NextRequest): string {
   return authHeader ? `${ip}_${authHeader.slice(-16)}` : ip;
 }
 
-export function middleware(req: NextRequest) {
-  // Apply rate limiting specifically to API routes
-  if (req.nextUrl.pathname.startsWith("/api")) {
+function isPublicRoute(pathname: string): boolean {
+  return PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
+}
+
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // 1. Rate limiting for API routes
+  if (pathname.startsWith("/api")) {
     const clientKey = getClientIdentifier(req);
     const now = Date.now();
 
@@ -66,9 +78,68 @@ export function middleware(req: NextRequest) {
     return response;
   }
 
-  return NextResponse.next();
+  // 2. Auth protection for non-public page routes
+  // Skip in development bypass mode
+  if (
+    process.env.AUTH_BYPASS === "true" ||
+    (process.env.NODE_ENV === "development" && !process.env.SUPABASE_AUTH_REQUIRED)
+  ) {
+    return NextResponse.next();
+  }
+
+  // Skip public routes
+  if (isPublicRoute(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Skip static assets & Next.js internals
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon") ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
+  // Check for authenticated session via Supabase cookie
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "http://127.0.0.1:54321";
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "dummy-anon-key";
+
+    const response = NextResponse.next();
+    const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+      cookies: {
+        getAll() {
+          return req.cookies.getAll();
+        },
+        setAll(cookiesToSet: Array<{ name: string; value: string; options?: any }>) {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            response.cookies.set(name, value, options);
+          });
+        },
+      },
+    });
+
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      const loginUrl = new URL("/login", req.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    return response;
+  } catch {
+    // If auth check fails, allow through in dev mode
+    if (process.env.NODE_ENV === "development") {
+      return NextResponse.next();
+    }
+
+    const loginUrl = new URL("/login", req.url);
+    return NextResponse.redirect(loginUrl);
+  }
 }
 
 export const config = {
-  matcher: ["/api/:path*"],
+  matcher: ["/api/:path*", "/((?!_next/static|_next/image|favicon.ico).*)"],
 };

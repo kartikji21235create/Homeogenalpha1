@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runConsultationAnalyzePipeline } from "@/lib/ai/pipeline";
 import { db, saveConsultation, ConsultationRecord } from "@/lib/db/store";
+import { requireAuth } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   try {
+    const [auth, authError] = await requireAuth();
+    if (authError) return authError;
+
     const body = await req.json();
     const { text, patient_id, dpdp_consent, patient_display_name } = body;
 
@@ -34,9 +38,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Default or session doctor ID
-    const doctorId = "00000000-0000-0000-0000-000000000001";
-    const patientId = patient_id || "00000000-0000-0000-0000-000000000002";
+    // Require patient_id — no silent fallback to a hardcoded default
+    if (!patient_id || typeof patient_id !== "string") {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: {
+            code: "missing_patient",
+            message: "patient_id is required.",
+          },
+        },
+        { status: 422 }
+      );
+    }
+
+    const doctorId = auth.doctorId;
+    const patientId = patient_id;
 
     // Run Stage B Pipeline: Extract -> Retrieve -> Select
     const apiKey = process.env.GEMINI_API_KEY;

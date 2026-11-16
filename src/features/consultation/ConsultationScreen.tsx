@@ -47,6 +47,7 @@ export function ConsultationScreen() {
     staleServerRevision,
     prescriptionId,
     scoringSnapshot,
+    savingPrescription,
   } = state.context;
 
   const current = state.value as string;
@@ -631,9 +632,10 @@ export function ConsultationScreen() {
               <button
                 type="button"
                 onClick={handleSavePrescription}
-                className="rounded-lg bg-accent px-6 py-2.5 text-sm font-semibold text-bg hover:bg-accent-strong transition"
+                disabled={savingPrescription}
+                className="rounded-lg bg-accent px-6 py-2.5 text-sm font-semibold text-bg hover:bg-accent-strong disabled:opacity-50 transition"
               >
-                Finalize &amp; Save Prescription
+                {savingPrescription ? "Saving..." : "Finalize & Save Prescription"}
               </button>
             </div>
           </section>

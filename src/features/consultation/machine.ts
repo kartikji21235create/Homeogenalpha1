@@ -46,6 +46,7 @@ export interface ConsultationContext {
   dosageInstructions: string;
   prescriptionNotes: string;
   prescriptionId: string | null;
+  savingPrescription: boolean;
   scoringSnapshot: ScoringSnapshot | null;
   missingInfo: string[];
   emergencyCheck: EmergencyCheckResult | null;
@@ -70,6 +71,7 @@ export const initialConsultationContext: ConsultationContext = {
   dosageInstructions: "",
   prescriptionNotes: "",
   prescriptionId: null,
+  savingPrescription: false,
   scoringSnapshot: null,
   missingInfo: [],
   emergencyCheck: null,
@@ -244,6 +246,14 @@ export const consultationMachine = setup({
     handlePrescriptionSaved: assign({
       prescriptionId: ({ event }) =>
         event.type === "SAVE_PRESCRIPTION_SUCCESS" ? event.prescriptionId : null,
+      savingPrescription: () => false,
+    }),
+    startSavingPrescription: assign({
+      savingPrescription: () => true,
+      errorMessage: () => null,
+    }),
+    stopSavingPrescription: assign({
+      savingPrescription: () => false,
     }),
   },
 }).createMachine({
@@ -350,12 +360,15 @@ export const consultationMachine = setup({
         SET_PRESCRIPTION_DETAILS: {
           actions: "setPrescriptionDetails",
         },
+        SAVE_PRESCRIPTION_START: {
+          actions: "startSavingPrescription",
+        },
         SAVE_PRESCRIPTION_SUCCESS: {
           target: "DONE",
           actions: "handlePrescriptionSaved",
         },
         SAVE_PRESCRIPTION_FAILURE: {
-          actions: "recordError",
+          actions: ["recordError", "stopSavingPrescription"],
         },
       },
     },
