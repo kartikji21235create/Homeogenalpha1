@@ -16,7 +16,7 @@ const WINDOW_MS = 60 * 1000; // 1 minute window
 const MAX_REQUESTS_PER_MINUTE = 60;
 
 // Routes that do NOT require authentication
-const PUBLIC_ROUTES = ["/login", "/privacy-notice", "/api/auth"];
+const PUBLIC_ROUTES = ["/login", "/privacy-notice", "/api/auth", "/share"];
 
 function getClientIdentifier(req: NextRequest): string {
   const forwarded = req.headers.get("x-forwarded-for");

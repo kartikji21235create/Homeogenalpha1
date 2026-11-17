@@ -5,7 +5,7 @@ import { requireAuth } from "@/lib/auth";
 export async function GET() {
   try {
     const [auth, authError] = await requireAuth();
-    if (authError) return authError;
+    if (authError || !auth) return authError!;
 
     const exportData = await getDoctorFullExport(auth.doctorId);
 

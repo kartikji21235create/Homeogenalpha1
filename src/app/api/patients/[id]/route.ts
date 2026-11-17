@@ -8,7 +8,7 @@ export async function DELETE(
 ) {
   try {
     const [auth, authError] = await requireAuth();
-    if (authError) return authError;
+    if (authError || !auth) return authError!;
 
     const { id } = await context.params;
 

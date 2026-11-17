@@ -6,7 +6,7 @@ import { requireAuth } from "@/lib/auth";
 export async function POST(req: NextRequest) {
   try {
     const [auth, authError] = await requireAuth();
-    if (authError) return authError;
+    if (authError || !auth) return authError!;
 
     const body = await req.json();
     const { text, patient_id, dpdp_consent, patient_display_name } = body;

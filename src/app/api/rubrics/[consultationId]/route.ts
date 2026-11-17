@@ -12,7 +12,7 @@ export async function PUT(
 ) {
   try {
     const [auth, authError] = await requireAuth();
-    if (authError) return authError;
+    if (authError || !auth) return authError!;
 
     const { consultationId } = await context.params;
     const body = await req.json();

@@ -22,11 +22,19 @@ export interface RemedyItem {
   abbreviation?: string;
 }
 
+export interface RubricContribution {
+  rubric_id: number;
+  grade: number; // 1 to 4
+  weight: number; // 1 to 4
+  subtotal: number; // grade * weight
+}
+
 export interface RankedMedicineResult {
   medicine_id: number;
   common_name: string;
   score: number;
   rubrics_covered: number;
+  breakdown?: RubricContribution[];
 }
 
 export interface ScoringSnapshot {
@@ -71,7 +79,10 @@ export function calculateRepertorizationScore(
   }
 
   // Group by medicine_id
-  const scores = new Map<number, { score: number; coveredRubrics: Set<number> }>();
+  const scores = new Map<
+    number,
+    { score: number; coveredRubrics: Set<number>; breakdown: RubricContribution[] }
+  >();
 
   for (const mapping of remedyMappings) {
     const weight = rubricWeightMap.get(mapping.rubric_id);
@@ -80,12 +91,23 @@ export function calculateRepertorizationScore(
     }
 
     if (!scores.has(mapping.medicine_id)) {
-      scores.set(mapping.medicine_id, { score: 0, coveredRubrics: new Set<number>() });
+      scores.set(mapping.medicine_id, {
+        score: 0,
+        coveredRubrics: new Set<number>(),
+        breakdown: [],
+      });
     }
 
     const current = scores.get(mapping.medicine_id)!;
-    current.score += mapping.grade * weight;
+    const subtotal = mapping.grade * weight;
+    current.score += subtotal;
     current.coveredRubrics.add(mapping.rubric_id);
+    current.breakdown.push({
+      rubric_id: mapping.rubric_id,
+      grade: mapping.grade,
+      weight,
+      subtotal,
+    });
   }
 
   // Convert to array
@@ -99,6 +121,7 @@ export function calculateRepertorizationScore(
       common_name: remedy.common_name,
       score: data.score,
       rubrics_covered: data.coveredRubrics.size,
+      breakdown: data.breakdown,
     });
   }
 

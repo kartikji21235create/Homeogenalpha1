@@ -51,6 +51,9 @@ export default function RootLayout({
               <Link href="/repertory" className="text-text-secondary hover:text-text-primary transition">
                 Repertory Library
               </Link>
+              <Link href="/usage" className="text-text-secondary hover:text-text-primary transition">
+                Usage &amp; Credits
+              </Link>
               <Link href="/privacy-notice" className="text-text-secondary hover:text-text-primary transition text-xs">
                 DPDP
               </Link>

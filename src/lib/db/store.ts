@@ -67,12 +67,55 @@ export interface PrescriptionRecord {
   created_at: string;
 }
 
+export interface CaseEventRecord {
+  id: string;
+  consultation_id: string;
+  patient_id: string;
+  doctor_id: string;
+  event_type: "consultation" | "prescription" | "follow_up" | "potency_change";
+  title: string;
+  description: string;
+  response_assessment?: "amelioration" | "aggravation" | "status_quo" | "new_symptoms";
+  created_at: string;
+}
+
+export interface CaseFolderRecord {
+  id: string;
+  doctor_id: string;
+  name: string;
+  color: string;
+  created_at: string;
+}
+
+export interface ShareRecord {
+  token: string;
+  consultation_id: string;
+  doctor_id: string;
+  expires_at: string;
+  created_at: string;
+}
+
+export interface CustomRubricRecord {
+  id: number;
+  doctor_id: string;
+  rubric_path: string;
+  chapter: string;
+  notes?: string;
+  contributor: string;
+  created_at: string;
+}
+
 class InMemoryDb {
   public doctors = new Map<string, DoctorRecord>();
   public patients = new Map<string, PatientRecord>();
   public consultations = new Map<string, ConsultationRecord>();
   public confirmedRubrics = new Map<string, ConfirmedRubricRecord[]>(); // consultation_id -> rubrics
   public prescriptions = new Map<string, PrescriptionRecord>();
+  public caseEvents = new Map<string, CaseEventRecord[]>(); // consultation_id -> events
+  public caseFolders = new Map<string, CaseFolderRecord>();
+  public consultationFolderMap = new Map<string, string>(); // consultation_id -> folder_id
+  public shares = new Map<string, ShareRecord>(); // token -> ShareRecord
+  public customRubrics: CustomRubricRecord[] = [];
   public rubrics: StoredRubric[] = [];
   public remedies: any[] = [];
   public remedyMappings: any[] = [];
@@ -308,6 +351,16 @@ export async function createPrescriptionRecord(
   consultation.updated_at = new Date().toISOString();
   await saveConsultation(consultation);
 
+  // Automatically record prescription event in case timeline
+  const remedyName = db.remedies.find((r) => r.id === payload.medicine_id)?.common_name || "Remedy";
+  await addCaseEvent(payload.consultation_id, {
+    patient_id: payload.patient_id,
+    doctor_id: payload.doctor_id,
+    event_type: "prescription",
+    title: `Prescribed ${remedyName} ${payload.potency}`,
+    description: `Dosage: ${payload.dosage_instructions}${payload.notes ? " | Notes: " + payload.notes : ""}`,
+  });
+
   return prescription;
 }
 
@@ -411,4 +464,151 @@ export async function getDoctorFullExport(doctorId: string): Promise<{
     prescriptions,
     exported_at: new Date().toISOString(),
   };
+}
+
+/**
+ * Case Timeline & Follow-ups (PRD Section 11, 19 & Phase 5)
+ */
+export async function addCaseEvent(
+  consultationId: string,
+  event: {
+    patient_id: string;
+    doctor_id: string;
+    event_type: "consultation" | "prescription" | "follow_up" | "potency_change";
+    title: string;
+    description: string;
+    response_assessment?: "amelioration" | "aggravation" | "status_quo" | "new_symptoms";
+  }
+): Promise<CaseEventRecord> {
+  const newEvent: CaseEventRecord = {
+    id: `ev_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+    consultation_id: consultationId,
+    patient_id: event.patient_id,
+    doctor_id: event.doctor_id,
+    event_type: event.event_type,
+    title: event.title,
+    description: event.description,
+    response_assessment: event.response_assessment,
+    created_at: new Date().toISOString(),
+  };
+
+  const list = db.caseEvents.get(consultationId) || [];
+  list.push(newEvent);
+  db.caseEvents.set(consultationId, list);
+
+  return newEvent;
+}
+
+export async function listCaseEvents(consultationId: string): Promise<CaseEventRecord[]> {
+  return db.caseEvents.get(consultationId) || [];
+}
+
+/**
+ * Case Folders & Tagging (PRD Section 11 & Phase 5)
+ */
+export async function createCaseFolder(
+  doctorId: string,
+  name: string,
+  color = "#8fb996"
+): Promise<CaseFolderRecord> {
+  const id = `fld_${Date.now()}`;
+  const folder: CaseFolderRecord = {
+    id,
+    doctor_id: doctorId,
+    name,
+    color,
+    created_at: new Date().toISOString(),
+  };
+  db.caseFolders.set(id, folder);
+  return folder;
+}
+
+export async function listCaseFolders(doctorId: string): Promise<CaseFolderRecord[]> {
+  return Array.from(db.caseFolders.values()).filter((f) => f.doctor_id === doctorId);
+}
+
+export async function assignCaseFolder(consultationId: string, folderId: string): Promise<void> {
+  db.consultationFolderMap.set(consultationId, folderId);
+}
+
+export async function getCaseFolder(consultationId: string): Promise<CaseFolderRecord | null> {
+  const fId = db.consultationFolderMap.get(consultationId);
+  return fId ? db.caseFolders.get(fId) || null : null;
+}
+
+/**
+ * Expiring Read-Only Case Sharing (PRD Section 11, 12, 19 & Phase 5)
+ */
+export async function createShareLink(
+  consultationId: string,
+  doctorId: string,
+  durationHours = 168 // 7 days default
+): Promise<ShareRecord> {
+  const token = `sh_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+  const expiresAt = new Date(Date.now() + durationHours * 3600 * 1000).toISOString();
+
+  const share: ShareRecord = {
+    token,
+    consultation_id: consultationId,
+    doctor_id: doctorId,
+    expires_at: expiresAt,
+    created_at: new Date().toISOString(),
+  };
+
+  db.shares.set(token, share);
+  return share;
+}
+
+export async function getShareLink(token: string): Promise<ShareRecord | null> {
+  const share = db.shares.get(token);
+  if (!share) return null;
+
+  // Check expiration
+  if (new Date(share.expires_at).getTime() < Date.now()) {
+    db.shares.delete(token);
+    return null;
+  }
+
+  return share;
+}
+
+/**
+ * Doctor Custom Rubrics (PRD Section 11, 19)
+ */
+export async function createCustomRubric(
+  doctorId: string,
+  data: {
+    rubric_path: string;
+    chapter: string;
+    notes?: string;
+    contributor: string;
+  }
+): Promise<CustomRubricRecord> {
+  const id = 10000 + db.customRubrics.length + 1;
+  const custom: CustomRubricRecord = {
+    id,
+    doctor_id: doctorId,
+    rubric_path: data.rubric_path,
+    chapter: data.chapter,
+    notes: data.notes,
+    contributor: data.contributor,
+    created_at: new Date().toISOString(),
+  };
+
+  db.customRubrics.push(custom);
+  db.rubricPathLookup.set(id, data.rubric_path);
+
+  // Also add to searchable rubrics
+  db.rubrics.push({
+    id,
+    chapter: data.chapter,
+    rubric_path: data.rubric_path,
+    embedding: generateNormalizedEmbedding(data.rubric_path, 768),
+  });
+
+  return custom;
+}
+
+export async function listCustomRubrics(doctorId: string): Promise<CustomRubricRecord[]> {
+  return db.customRubrics.filter((r) => r.doctor_id === doctorId);
 }

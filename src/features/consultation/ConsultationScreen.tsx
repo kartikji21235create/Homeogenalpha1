@@ -12,6 +12,10 @@ export function ConsultationScreen() {
   const [state, send] = useMachine(consultationMachine);
   const [narrativeInput, setNarrativeInput] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<"cards" | "matrix">("matrix");
+  const [shareUrl, setShareUrl] = useState<string | null>(null);
+  const [isSharing, setIsSharing] = useState(false);
+  const [copiedShare, setCopiedShare] = useState(false);
 
   useEffect(() => {
     const urlPatientId = searchParams.get("patientId");
@@ -218,6 +222,34 @@ export function ConsultationScreen() {
         message: err.message || "Network error while saving prescription.",
       });
     }
+  }
+
+  // Generate read-only expiring share link
+  async function handleCreateShareLink() {
+    if (!consultationId) return;
+    setIsSharing(true);
+    try {
+      const res = await fetch(`/api/cases/${consultationId}/share`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ durationHours: 168 }),
+      });
+      const data = await res.json();
+      if (res.ok && data.ok) {
+        setShareUrl(data.data.share_url);
+      }
+    } catch {
+      // silently handle
+    } finally {
+      setIsSharing(false);
+    }
+  }
+
+  function handleCopyShare() {
+    if (!shareUrl) return;
+    navigator.clipboard.writeText(shareUrl);
+    setCopiedShare(true);
+    setTimeout(() => setCopiedShare(false), 2500);
   }
 
   return (
@@ -522,53 +554,166 @@ export function ConsultationScreen() {
         {/* 6. REVIEW_MEDICINES STATE */}
         {current === "REVIEW_MEDICINES" && (
           <section className="bg-surface rounded-xl border border-border p-6 space-y-6">
-            <div className="flex items-center justify-between pb-2 border-b border-border">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-border">
               <div>
                 <h1 className="font-display text-2xl text-text-primary">Ranked Remedies (Repertorization Grid)</h1>
                 <p className="text-sm text-text-secondary mt-0.5">
                   Ordered by score DESC, rubrics covered DESC, remedy ID ASC. Click a remedy to prescribe.
                 </p>
               </div>
-              <button
-                onClick={() => send({ type: "CONFIRM_RUBRICS_START" })}
-                className="text-xs text-accent hover:underline"
-              >
-                &larr; Modify Rubrics
-              </button>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="flex items-center bg-surface-raised rounded-lg border border-border p-0.5 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode("cards")}
+                    className={`rounded-md px-3 py-1 font-semibold transition ${
+                      viewMode === "cards"
+                        ? "bg-accent text-bg"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  >
+                    Cards
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode("matrix")}
+                    className={`rounded-md px-3 py-1 font-semibold transition ${
+                      viewMode === "matrix"
+                        ? "bg-accent text-bg"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  >
+                    Matrix View
+                  </button>
+                </div>
+
+                <button
+                  onClick={() => send({ type: "CONFIRM_RUBRICS_START" })}
+                  className="text-xs text-accent hover:underline font-medium"
+                >
+                  &larr; Modify Rubrics
+                </button>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {rankedMedicines.map((remedy, idx) => (
-                <div
-                  key={remedy.medicine_id}
-                  onClick={() =>
-                    send({
-                      type: "CHOOSE_MEDICINE",
-                      medicineId: remedy.medicine_id,
-                      medicineName: remedy.common_name,
-                    })
-                  }
-                  className="flex items-center justify-between p-4 rounded-lg border border-border bg-surface-raised hover:border-accent hover:bg-accent/5 cursor-pointer transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-surface border border-border text-xs font-bold text-accent">
-                      {idx + 1}
-                    </span>
-                    <div>
-                      <h3 className="font-display font-semibold text-text-primary">{remedy.common_name}</h3>
-                      <p className="text-xs text-text-secondary">
-                        Covered {remedy.rubrics_covered} of {confirmedRubrics.length} rubrics
-                      </p>
+            {viewMode === "matrix" ? (
+              <div className="overflow-x-auto rounded-lg border border-border bg-surface-raised max-h-[500px]">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead className="sticky top-0 bg-surface z-20 shadow-sm">
+                    <tr className="border-b border-border text-text-secondary">
+                      <th className="p-3 sticky left-0 bg-surface z-30 font-bold min-w-[170px] border-r border-border">
+                        Rank &amp; Remedy
+                      </th>
+                      <th className="p-3 font-bold text-center min-w-[70px] border-r border-border">Score</th>
+                      <th className="p-3 font-bold text-center min-w-[90px] border-r border-border">Covered</th>
+                      {confirmedRubrics.map((rubric) => (
+                        <th
+                          key={rubric.rubric_id}
+                          className="p-3 font-medium min-w-[150px] max-w-[220px] border-r border-border/60 text-[11px]"
+                          title={`${rubric.chapter} > ${rubric.rubric_path}`}
+                        >
+                          <div className="line-clamp-2 text-text-primary font-semibold">{rubric.rubric_path}</div>
+                          <span className="inline-block mt-1 rounded bg-accent/20 px-1.5 py-0.5 text-[9px] font-bold text-accent">
+                            Weight: {rubric.weight}
+                          </span>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/60">
+                    {rankedMedicines.map((remedy, idx) => (
+                      <tr
+                        key={remedy.medicine_id}
+                        onClick={() =>
+                          send({
+                            type: "CHOOSE_MEDICINE",
+                            medicineId: remedy.medicine_id,
+                            medicineName: remedy.common_name,
+                          })
+                        }
+                        className="hover:bg-accent/10 cursor-pointer transition-colors group"
+                      >
+                        <td className="p-3 sticky left-0 bg-surface-raised group-hover:bg-accent/10 z-10 font-medium text-text-primary flex items-center gap-2 border-r border-border">
+                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-surface border border-border text-[10px] font-bold text-accent shrink-0">
+                            {idx + 1}
+                          </span>
+                          <span className="font-semibold">{remedy.common_name}</span>
+                        </td>
+                        <td className="p-3 text-center font-bold text-accent-strong text-sm border-r border-border">
+                          {remedy.score}
+                        </td>
+                        <td className="p-3 text-center text-text-secondary border-r border-border">
+                          {remedy.rubrics_covered} / {confirmedRubrics.length}
+                        </td>
+                        {confirmedRubrics.map((rubric) => {
+                          const contrib = remedy.breakdown?.find((b) => b.rubric_id === rubric.rubric_id);
+                          return (
+                            <td
+                              key={rubric.rubric_id}
+                              className="p-3 text-center border-r border-border/60"
+                            >
+                              {contrib ? (
+                                <span
+                                  className={`inline-flex items-center justify-center rounded px-2 py-0.5 text-xs font-bold ${
+                                    contrib.grade >= 3
+                                      ? "bg-accent/20 text-accent font-extrabold"
+                                      : contrib.grade === 2
+                                      ? "bg-warn/20 text-warn"
+                                      : "bg-surface text-text-primary border border-border"
+                                  }`}
+                                  title={`Grade ${contrib.grade} × Weight ${contrib.weight} = ${contrib.subtotal}`}
+                                >
+                                  Gr.{contrib.grade}
+                                  <span className="text-[10px] font-normal opacity-80 ml-1">
+                                    (+{contrib.subtotal})
+                                  </span>
+                                </span>
+                              ) : (
+                                <span className="text-text-secondary/30">&mdash;</span>
+                              )}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {rankedMedicines.map((remedy, idx) => (
+                  <div
+                    key={remedy.medicine_id}
+                    onClick={() =>
+                      send({
+                        type: "CHOOSE_MEDICINE",
+                        medicineId: remedy.medicine_id,
+                        medicineName: remedy.common_name,
+                      })
+                    }
+                    className="flex items-center justify-between p-4 rounded-lg border border-border bg-surface-raised hover:border-accent hover:bg-accent/5 cursor-pointer transition-all"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-surface border border-border text-xs font-bold text-accent">
+                        {idx + 1}
+                      </span>
+                      <div>
+                        <h3 className="font-display font-semibold text-text-primary">{remedy.common_name}</h3>
+                        <p className="text-xs text-text-secondary">
+                          Covered {remedy.rubrics_covered} of {confirmedRubrics.length} rubrics
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="text-right">
+                      <span className="text-base font-bold text-accent-strong">{remedy.score}</span>
+                      <span className="text-xs text-text-secondary block">total score</span>
                     </div>
                   </div>
-
-                  <div className="text-right">
-                    <span className="text-base font-bold text-accent-strong">{remedy.score}</span>
-                    <span className="text-xs text-text-secondary block">total score</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
 
@@ -667,6 +812,47 @@ export function ConsultationScreen() {
               <p>
                 <strong className="text-text-primary">Audit:</strong> Scoring snapshot committed with immutable hash.
               </p>
+            </div>
+
+            {/* Read-Only Expiring Share Link Section */}
+            <div className="max-w-md mx-auto rounded-lg border border-accent/30 bg-surface-raised p-4 space-y-3 text-left">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-accent uppercase tracking-wider">
+                  Read-Only Case Sharing
+                </span>
+                <span className="text-[10px] text-text-secondary">Auto-expires in 7 days</span>
+              </div>
+              {shareUrl ? (
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      readOnly
+                      value={shareUrl}
+                      className="w-full rounded border border-border bg-bg px-2.5 py-1.5 text-xs text-text-primary select-all"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleCopyShare}
+                      className="shrink-0 rounded bg-accent px-3 py-1.5 text-xs font-semibold text-bg hover:bg-accent-strong transition"
+                    >
+                      {copiedShare ? "Copied!" : "Copy"}
+                    </button>
+                  </div>
+                  <p className="text-[10px] text-text-secondary">
+                    Recipients can view the verified prescription, symptoms, and confirmed rubrics securely without needing an account.
+                  </p>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  disabled={isSharing}
+                  onClick={handleCreateShareLink}
+                  className="w-full rounded-md border border-accent/50 bg-accent/10 px-4 py-2 text-xs font-semibold text-accent hover:bg-accent hover:text-bg transition"
+                >
+                  {isSharing ? "Generating link..." : "🔗 Generate Expiring Share Link"}
+                </button>
+              )}
             </div>
 
             <div className="flex justify-center gap-4 pt-4">
