@@ -56,11 +56,34 @@ describe("Cascading Patient Deletion & Data Erasure (PRD Section 11, Rule 6 & Ph
     });
     assert.ok(rx.id);
 
+    // Also add a case event, folder mapping, and share link
+    db.caseEvents.set(consultationId, [{
+      id: "ev_test_1",
+      consultation_id: consultationId,
+      patient_id: patient.id,
+      doctor_id: doctorId,
+      event_type: "follow_up",
+      title: "Test Event",
+      description: "Note",
+      created_at: new Date().toISOString()
+    }]);
+    db.consultationFolderMap.set(consultationId, "fld_test_1");
+    db.shares.set("sh_test_token_1", {
+      token: "sh_test_token_1",
+      consultation_id: consultationId,
+      doctor_id: doctorId,
+      expires_at: new Date(Date.now() + 100000).toISOString(),
+      created_at: new Date().toISOString()
+    });
+
     // Verify records exist before delete
     assert.ok(db.patients.has(patient.id));
     assert.ok(await getConsultation(consultationId));
     assert.equal((await getConfirmedRubrics(consultationId)).length, 1);
     assert.ok(db.prescriptions.has(rx.id));
+    assert.ok(db.caseEvents.has(consultationId));
+    assert.ok(db.consultationFolderMap.has(consultationId));
+    assert.ok(db.shares.has("sh_test_token_1"));
 
     // 5. Execute cascading patient deletion
     const result = await deletePatientCascading(patient.id, doctorId);
@@ -68,10 +91,13 @@ describe("Cascading Patient Deletion & Data Erasure (PRD Section 11, Rule 6 & Ph
     assert.equal(result.consultationsDeleted, 1);
     assert.equal(result.prescriptionsDeleted, 1);
 
-    // 6. Assert everything is purged
+    // 6. Assert everything is purged under DPDP
     assert.equal(db.patients.has(patient.id), false);
     assert.equal(await getConsultation(consultationId), null);
     assert.equal((await getConfirmedRubrics(consultationId)).length, 0);
     assert.equal(db.prescriptions.has(rx.id), false);
+    assert.equal(db.caseEvents.has(consultationId), false);
+    assert.equal(db.consultationFolderMap.has(consultationId), false);
+    assert.equal(db.shares.has("sh_test_token_1"), false);
   });
 });

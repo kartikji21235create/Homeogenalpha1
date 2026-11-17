@@ -418,6 +418,16 @@ export async function deletePatientCascading(
   for (const c of patientConsultations) {
     db.consultations.delete(c.id);
     db.confirmedRubrics.delete(c.id);
+    db.caseEvents.delete(c.id);
+    db.consultationFolderMap.delete(c.id);
+
+    // Invalidate all active expiring shares for this consultation under DPDP erasure
+    for (const [token, share] of db.shares.entries()) {
+      if (share.consultation_id === c.id) {
+        db.shares.delete(token);
+      }
+    }
+
     consultationsDeleted++;
   }
 

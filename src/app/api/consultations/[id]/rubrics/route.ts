@@ -15,7 +15,13 @@ export async function PUT(
     if (authError || !auth) return authError!;
 
     const { id } = await context.params;
-    const body = await req.json();
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      return NextResponse.json(
+        { ok: false, error: { code: "invalid_json", message: "Request body must be valid JSON." } },
+        { status: 400 }
+      );
+    }
     const { base_revision, confirmed_rubrics } = body;
 
     const consultation = await getConsultation(id);

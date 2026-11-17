@@ -252,6 +252,16 @@ export function ConsultationScreen() {
     setTimeout(() => setCopiedShare(false), 2500);
   }
 
+  function handleResetToNewConsultation() {
+    setNarrativeInput("");
+    setShareUrl(null);
+    setCopiedShare(false);
+    setPotencyInput("200C");
+    setDosageInput("3 globules once daily at bedtime for 3 days");
+    setNotesInput("Advised to avoid coffee and strong aromatics. Review in 14 days.");
+    send({ type: "RESET_TO_INTAKE" });
+  }
+
   return (
     <div className="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-[220px_1fr] gap-8 px-4 py-8">
       {/* Sidebar: Clinical Stepper */}
@@ -400,7 +410,7 @@ export function ConsultationScreen() {
                 </p>
               </div>
               <button
-                onClick={() => send({ type: "RESET_TO_INTAKE" })}
+                onClick={handleResetToNewConsultation}
                 className="text-xs text-text-secondary hover:text-text-primary underline"
               >
                 Re-enter
@@ -865,7 +875,7 @@ export function ConsultationScreen() {
                 Export Case Report (JSON)
               </a>
               <button
-                onClick={() => send({ type: "RESET_TO_INTAKE" })}
+                onClick={handleResetToNewConsultation}
                 className="rounded-lg bg-accent px-5 py-2 text-xs font-semibold text-bg hover:bg-accent-strong transition"
               >
                 New Consultation

@@ -8,7 +8,13 @@ export async function POST(req: NextRequest) {
     const [auth, authError] = await requireAuth();
     if (authError || !auth) return authError!;
 
-    const body = await req.json();
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      return NextResponse.json(
+        { ok: false, error: { code: "invalid_json", message: "Request body must be valid JSON." } },
+        { status: 400 }
+      );
+    }
     const { text, patient_id, dpdp_consent, patient_display_name } = body;
 
     // Consent check (PRD Section 11, Rule 8)

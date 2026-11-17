@@ -31,7 +31,13 @@ export async function POST(req: NextRequest) {
     const [auth, authError] = await requireAuth();
     if (authError || !auth) return authError!;
 
-    const body = await req.json();
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      return NextResponse.json(
+        { ok: false, error: { code: "invalid_json", message: "Request body must be valid JSON." } },
+        { status: 400 }
+      );
+    }
     const { name, color } = body;
 
     if (!name) {
@@ -62,7 +68,13 @@ export async function PUT(req: NextRequest) {
     const [auth, authError] = await requireAuth();
     if (authError || !auth) return authError!;
 
-    const body = await req.json();
+    const body = await req.json().catch(() => null);
+    if (!body) {
+      return NextResponse.json(
+        { ok: false, error: { code: "invalid_json", message: "Request body must be valid JSON." } },
+        { status: 400 }
+      );
+    }
     const { consultation_id, folder_id } = body;
 
     if (!consultation_id || !folder_id) {

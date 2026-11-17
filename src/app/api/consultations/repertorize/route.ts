@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     const [auth, authError] = await requireAuth();
     if (authError || !auth) return authError!;
 
-    const body = await req.json();
+    const body = await req.json().catch(() => ({}));
     const { consultation_id, base_revision, repertory_id = "kent_1897" } = body;
 
     if (!consultation_id) {

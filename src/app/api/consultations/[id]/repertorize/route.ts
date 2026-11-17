@@ -11,7 +11,7 @@ export async function POST(
     if (authError || !auth) return authError!;
 
     const { id } = await context.params;
-    const body = await req.json();
+    const body = await req.json().catch(() => ({}));
     const { base_revision, repertory_id = "kent_1897" } = body;
 
     const consultation = await getConsultation(id);
