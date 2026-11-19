@@ -2,11 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 
+interface RubricSource {
+  book: string;
+  edition: string;
+  year?: number;
+  page?: string | number;
+  licence?: string;
+  url?: string;
+}
+
 interface RubricItem {
   rubric_id: number;
   rubric_path: string;
   chapter: string;
   rrf_score: number;
+  repertory_id?: string;
+  sources?: RubricSource[];
 }
 
 interface CustomRubricItem {
@@ -53,8 +64,17 @@ const KENT_CHAPTERS = [
   "Generalities",
 ];
 
+const OPEN_REPERTORIES = [
+  { id: "all", name: "All Open Repertories", short: "All Sources", badge: "Multi-Source" },
+  { id: "kent_1897", name: "Kent's Repertory (1897)", short: "Kent 1897", badge: "J.T. Kent" },
+  { id: "knerr_hering", name: "Knerr's Hering Repertory (1896)", short: "Knerr 1896", badge: "C.B. Knerr" },
+  { id: "boericke_rep", name: "Boericke's Pocket Repertory (1927)", short: "Boericke 1927", badge: "W. Boericke" },
+  { id: "boenninghausen_rep", name: "Boenninghausen Pocket Book (1846)", short: "Boenninghausen 1846", badge: "C. Boenninghausen" },
+];
+
 export default function RepertoryBrowserPage() {
-  const [activeTab, setActiveTab] = useState<"kent" | "custom">("kent");
+  const [activeTab, setActiveTab] = useState<"repertory" | "custom">("repertory");
+  const [selectedRep, setSelectedRep] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<RubricItem[]>([]);
   const [loading, setLoading] = useState(false);
@@ -79,13 +99,13 @@ export default function RepertoryBrowserPage() {
       .catch((err) => console.error(err));
   }, []);
 
-  async function searchRubrics(term: string) {
+  async function searchRubrics(term: string, repId: string = selectedRep) {
     if (!term.trim()) return;
 
     setLoading(true);
     setSearchTerm(term);
     try {
-      const res = await fetch(`/api/rubrics/search?q=${encodeURIComponent(term)}`);
+      const res = await fetch(`/api/rubrics/search?q=${encodeURIComponent(term)}&repertory_id=${encodeURIComponent(repId)}`);
       const data = await res.json();
       if (data.ok) {
         setResults(data.data.rubrics);
@@ -99,7 +119,14 @@ export default function RepertoryBrowserPage() {
 
   async function handleSearch(e: React.FormEvent) {
     e.preventDefault();
-    searchRubrics(searchTerm);
+    searchRubrics(searchTerm, selectedRep);
+  }
+
+  function handleRepertoryChange(repId: string) {
+    setSelectedRep(repId);
+    if (searchTerm.trim()) {
+      searchRubrics(searchTerm, repId);
+    }
   }
 
   async function handleCreateCustomRubric(e: React.FormEvent) {
@@ -140,13 +167,13 @@ export default function RepertoryBrowserPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-            Repertory of the Homoeopathic Materia Medica
+            Canonical Open-Source Repertories
           </span>
           <h1 className="font-display text-3xl font-bold text-text-primary mt-1">
-            Kent&apos;s Repertory (1897) Explorer
+            Open Repertory Explorer
           </h1>
           <p className="text-sm text-text-secondary mt-1">
-            Explore canonical rubrics, chapter hierarchies, and clinician-verified custom rubrics.
+            Search across Kent 1897, Knerr&apos;s Hering 1896, Boericke 1927, and Boenninghausen 1846 with verified public domain provenance.
           </p>
         </div>
 
@@ -163,14 +190,14 @@ export default function RepertoryBrowserPage() {
       <div className="flex items-center gap-2 border-b border-border pb-2">
         <button
           type="button"
-          onClick={() => setActiveTab("kent")}
+          onClick={() => setActiveTab("repertory")}
           className={`rounded-lg px-4 py-2 text-xs font-semibold transition ${
-            activeTab === "kent"
+            activeTab === "repertory"
               ? "bg-surface border border-accent/40 text-accent"
               : "text-text-secondary hover:text-text-primary"
           }`}
         >
-          Kent&apos;s Canonical 1897 Repertory
+          Open Public Repertories
         </button>
         <button
           type="button"
@@ -188,15 +215,39 @@ export default function RepertoryBrowserPage() {
         </button>
       </div>
 
-      {activeTab === "kent" ? (
+      {activeTab === "repertory" ? (
         <>
+          {/* Repertory Filter Chips */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
+            <span className="text-text-secondary text-[11px] font-medium mr-1 shrink-0">Repertory:</span>
+            {OPEN_REPERTORIES.map((rep) => (
+              <button
+                key={rep.id}
+                type="button"
+                onClick={() => handleRepertoryChange(rep.id)}
+                className={`rounded-full px-3 py-1 font-semibold transition shrink-0 flex items-center gap-1.5 ${
+                  selectedRep === rep.id
+                    ? "bg-accent text-bg shadow-sm"
+                    : "border border-border bg-surface text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                <span>{rep.short}</span>
+                <span className={`text-[9px] px-1.5 py-0.2 rounded-full ${
+                  selectedRep === rep.id ? "bg-bg/20 text-bg" : "bg-border text-text-secondary"
+                }`}>
+                  {rep.badge}
+                </span>
+              </button>
+            ))}
+          </div>
+
           {/* Search Form */}
           <form onSubmit={handleSearch} className="flex gap-3">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search by chapter, symptom, or colloquial phrase (e.g. anxiety, sweet tooth, burning feet)..."
+              placeholder="Search by chapter, symptom, or colloquial phrase (e.g. anxiety, sweet tooth, burning feet, headache)..."
               className="flex-1 rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text-primary focus:outline-none focus:border-accent"
             />
             <button
@@ -210,27 +261,75 @@ export default function RepertoryBrowserPage() {
 
           {/* Results or Featured Chapters */}
           <section className="space-y-4">
-            <h2 className="font-display font-semibold text-lg text-text-primary">
-              {results.length > 0 ? `Results (${results.length})` : "Featured Chapters"}
-            </h2>
+            <div className="flex items-center justify-between">
+              <h2 className="font-display font-semibold text-lg text-text-primary">
+                {results.length > 0 ? `Results (${results.length})` : "Featured Chapters"}
+              </h2>
+              {results.length > 0 && (
+                <span className="text-xs text-text-secondary">
+                  Filtered by: {OPEN_REPERTORIES.find((r) => r.id === selectedRep)?.name}
+                </span>
+              )}
+            </div>
 
             {results.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {results.map((r) => (
-                  <div
-                    key={r.rubric_id}
-                    className="p-4 rounded-lg border border-border bg-surface hover:border-accent/50 transition-all space-y-1"
-                  >
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-accent uppercase tracking-wider">{r.chapter}</span>
-                      <span className="text-text-secondary">Rubric #{r.rubric_id}</span>
+                {results.map((r) => {
+                  const source = r.sources?.[0];
+                  const bookName = source?.book || (
+                    r.repertory_id === "knerr_hering" ? "Knerr's Repertory of Hering's Guiding Symptoms" :
+                    r.repertory_id === "boericke_rep" ? "Boericke's Pocket Repertory" :
+                    r.repertory_id === "boenninghausen_rep" ? "Boenninghausen's Pocket Book" :
+                    "Kent's Repertory"
+                  );
+                  const editionYear = source?.edition || (
+                    r.repertory_id === "knerr_hering" ? "1896" :
+                    r.repertory_id === "boericke_rep" ? "1927" :
+                    r.repertory_id === "boenninghausen_rep" ? "1846" :
+                    "1897"
+                  );
+                  return (
+                    <div
+                      key={r.rubric_id}
+                      className="p-4 rounded-lg border border-border bg-surface hover:border-accent/50 transition-all space-y-2 flex flex-col justify-between"
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="font-bold text-accent uppercase tracking-wider">{r.chapter}</span>
+                          <span className="text-text-secondary font-mono text-[11px]">Rubric #{r.rubric_id}</span>
+                        </div>
+                        <p className="text-sm font-medium text-text-primary leading-snug">{r.rubric_path}</p>
+                      </div>
+
+                      <div className="pt-2 border-t border-border/50 flex items-center justify-between text-[11px] text-text-secondary flex-wrap gap-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-semibold text-accent-strong">{bookName}</span>
+                          <span>&middot;</span>
+                          <span>{editionYear}</span>
+                          {source?.page && (
+                            <>
+                              <span>&middot;</span>
+                              <span>p. {source.page}</span>
+                            </>
+                          )}
+                          <span>&middot;</span>
+                          <span className="text-[10px] uppercase tracking-wide text-text-secondary/70">
+                            {source?.licence || "Public Domain"}
+                          </span>
+                        </div>
+                        <a
+                          href={`/materia-medica?search=${encodeURIComponent(r.chapter)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-accent hover:underline inline-flex items-center gap-0.5"
+                          title="Look up remedies for this rubric in Materia Medica"
+                        >
+                          MM &rarr;
+                        </a>
+                      </div>
                     </div>
-                    <p className="text-sm font-medium text-text-primary">{r.rubric_path}</p>
-                    <span className="text-[11px] text-text-secondary block">
-                      Kent Rep. 1897 &middot; Public Domain
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

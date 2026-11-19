@@ -45,6 +45,8 @@ export interface CandidateRubric {
   rrf_score: number;
   fts_rank?: number;
   vector_rank?: number;
+  repertory_id?: string;
+  sources?: Array<{ book: string; edition?: string; page?: string }>;
 }
 
 export interface StoredRubric {
@@ -52,6 +54,8 @@ export interface StoredRubric {
   chapter: string;
   rubric_path: string;
   embedding: number[];
+  repertory_id?: string;
+  sources?: Array<{ book: string; edition?: string; page?: string }>;
 }
 
 export interface SynonymEntry {
@@ -165,6 +169,8 @@ export function hybridSearch(
       rrf_score: rrf,
       fts_rank: fRank,
       vector_rank: vRank,
+      repertory_id: r.repertory_id,
+      sources: r.sources,
     };
   });
 

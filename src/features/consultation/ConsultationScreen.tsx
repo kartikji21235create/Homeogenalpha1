@@ -644,11 +644,23 @@ export function ConsultationScreen() {
                         }
                         className="hover:bg-accent/10 cursor-pointer transition-colors group"
                       >
-                        <td className="p-3 sticky left-0 bg-surface-raised group-hover:bg-accent/10 z-10 font-medium text-text-primary flex items-center gap-2 border-r border-border">
-                          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-surface border border-border text-[10px] font-bold text-accent shrink-0">
-                            {idx + 1}
-                          </span>
-                          <span className="font-semibold">{remedy.common_name}</span>
+                        <td className="p-3 sticky left-0 bg-surface-raised group-hover:bg-accent/10 z-10 font-medium text-text-primary flex items-center justify-between gap-2 border-r border-border">
+                          <div className="flex items-center gap-2">
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-surface border border-border text-[10px] font-bold text-accent shrink-0">
+                              {idx + 1}
+                            </span>
+                            <span className="font-semibold">{remedy.common_name}</span>
+                          </div>
+                          <a
+                            href={`/materia-medica?search=${encodeURIComponent(remedy.common_name)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[10px] px-1.5 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 transition shrink-0"
+                            title="Open Materia Medica monograph"
+                          >
+                            MM ↗
+                          </a>
                         </td>
                         <td className="p-3 text-center font-bold text-accent-strong text-sm border-r border-border">
                           {remedy.score}
@@ -709,7 +721,19 @@ export function ConsultationScreen() {
                         {idx + 1}
                       </span>
                       <div>
-                        <h3 className="font-display font-semibold text-text-primary">{remedy.common_name}</h3>
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-display font-semibold text-text-primary">{remedy.common_name}</h3>
+                          <a
+                            href={`/materia-medica?search=${encodeURIComponent(remedy.common_name)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[10px] px-1.5 py-0.5 rounded border border-accent/40 text-accent hover:bg-accent/10 transition"
+                            title="Open Materia Medica monograph"
+                          >
+                            MM Monograph ↗
+                          </a>
+                        </div>
                         <p className="text-xs text-text-secondary">
                           Covered {remedy.rubrics_covered} of {confirmedRubrics.length} rubrics
                         </p>

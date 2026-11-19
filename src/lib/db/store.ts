@@ -105,6 +105,45 @@ export interface CustomRubricRecord {
   created_at: string;
 }
 
+export interface DataSourceRecord {
+  repertory_id: string;
+  source_name: string;
+  author?: string;
+  edition?: string;
+  year?: number;
+  type: "repertory" | "materia_medica";
+  licence: string;
+  source_url?: string;
+  acquisition_date: string;
+  licence_note: string;
+}
+
+export interface MateriaMedicaPassage {
+  book: string;
+  author: string;
+  edition?: string;
+  section: string;
+  text: string;
+  page?: string;
+}
+
+export interface MateriaMedicaRecord {
+  id: string;
+  common_name: string;
+  abbreviation: string;
+  latin_name: string;
+  source_origin: string;
+  constitution: string;
+  mind: string;
+  keynotes: string[];
+  modalities: {
+    aggravation: string;
+    amelioration: string;
+  };
+  relationships: string;
+  cited_passages: MateriaMedicaPassage[];
+}
+
 class InMemoryDb {
   public doctors = new Map<string, DoctorRecord>();
   public patients = new Map<string, PatientRecord>();
@@ -116,6 +155,8 @@ class InMemoryDb {
   public consultationFolderMap = new Map<string, string>(); // consultation_id -> folder_id
   public shares = new Map<string, ShareRecord>(); // token -> ShareRecord
   public customRubrics: CustomRubricRecord[] = [];
+  public dataSources: DataSourceRecord[] = [];
+  public materiaMedica: MateriaMedicaRecord[] = [];
   public rubrics: StoredRubric[] = [];
   public remedies: any[] = [];
   public remedyMappings: any[] = [];
@@ -128,6 +169,19 @@ class InMemoryDb {
 
   private initSeedData() {
     try {
+      // 1. Load Data Sources (PRD Section 6)
+      const sourcesPath = path.join(process.cwd(), "seed/data_sources.json");
+      if (fs.existsSync(sourcesPath)) {
+        this.dataSources = JSON.parse(fs.readFileSync(sourcesPath, "utf-8"));
+      }
+
+      // 2. Load Materia Medica (PRD Section 6, 10, 14, 19)
+      const mmPath = path.join(process.cwd(), "seed/materia_medica.json");
+      if (fs.existsSync(mmPath)) {
+        this.materiaMedica = JSON.parse(fs.readFileSync(mmPath, "utf-8"));
+      }
+
+      // 3. Load Seed Data (Remedies, Rubrics, Synonyms)
       const seedPath = path.join(process.cwd(), "seed/seed_data.json");
       if (fs.existsSync(seedPath)) {
         const data = JSON.parse(fs.readFileSync(seedPath, "utf-8"));
@@ -158,6 +212,8 @@ class InMemoryDb {
             chapter: r.chapter,
             rubric_path: r.rubric_path,
             embedding: generateNormalizedEmbedding(r.rubric_path, 768),
+            repertory_id: r.repertory_id || "kent_1897",
+            sources: r.sources || [{ book: "Kent", edition: "1897" }],
           };
         });
 
@@ -621,4 +677,81 @@ export async function createCustomRubric(
 
 export async function listCustomRubrics(doctorId: string): Promise<CustomRubricRecord[]> {
   return db.customRubrics.filter((r) => r.doctor_id === doctorId);
+}
+
+/**
+ * Data Sources & Provenance Catalog (PRD Section 6)
+ */
+export async function listDataSources(): Promise<DataSourceRecord[]> {
+  return db.dataSources;
+}
+
+/**
+ * Materia Medica Library & Passage Search (PRD Section 6, 10, 14, 19)
+ */
+export async function listMateriaMedica(search?: string): Promise<MateriaMedicaRecord[]> {
+  if (!search) {
+    return db.materiaMedica;
+  }
+  const q = search.toLowerCase().trim();
+  return db.materiaMedica.filter(
+    (m) =>
+      m.common_name.toLowerCase().includes(q) ||
+      m.abbreviation.toLowerCase().includes(q) ||
+      m.latin_name.toLowerCase().includes(q) ||
+      m.keynotes.some((k) => k.toLowerCase().includes(q))
+  );
+}
+
+export async function getMateriaMedicaMonograph(idOrName: string): Promise<MateriaMedicaRecord | null> {
+  const raw = idOrName.toLowerCase().trim();
+  const slug = raw.replace(/[_-]/g, " ");
+  const match = db.materiaMedica.find(
+    (m) =>
+      m.id.toLowerCase() === raw ||
+      m.abbreviation.toLowerCase().replace(/\.$/, "") === raw.replace(/\.$/, "") ||
+      m.common_name.toLowerCase() === raw ||
+      m.common_name.toLowerCase() === slug ||
+      m.latin_name.toLowerCase().includes(slug) ||
+      m.common_name.toLowerCase().startsWith(slug)
+  );
+  return match || null;
+}
+
+export async function searchMateriaMedicaPassages(query: string): Promise<
+  Array<{
+    remedy_id: string;
+    common_name: string;
+    abbreviation: string;
+    passage: MateriaMedicaPassage;
+  }>
+> {
+  if (!query || !query.trim()) return [];
+  const q = query.toLowerCase().trim();
+  const results: Array<{
+    remedy_id: string;
+    common_name: string;
+    abbreviation: string;
+    passage: MateriaMedicaPassage;
+  }> = [];
+
+  for (const remedy of db.materiaMedica) {
+    for (const passage of remedy.cited_passages) {
+      if (
+        passage.text.toLowerCase().includes(q) ||
+        passage.section.toLowerCase().includes(q) ||
+        remedy.common_name.toLowerCase().includes(q) ||
+        remedy.keynotes.some((k) => k.toLowerCase().includes(q))
+      ) {
+        results.push({
+          remedy_id: remedy.id,
+          common_name: remedy.common_name,
+          abbreviation: remedy.abbreviation,
+          passage,
+        });
+      }
+    }
+  }
+
+  return results;
 }

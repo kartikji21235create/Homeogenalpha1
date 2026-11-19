@@ -31,6 +31,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Anxiety; health, about",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "6" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 3 },
@@ -43,6 +44,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Restlessness, nervousness; night",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "72" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 4 },
@@ -54,6 +56,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Fastidious",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "44" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 3 },
@@ -63,6 +66,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Irritability; morning; waking, on",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "58" }],
       "mappings": [
         { "abbrev": "Nux-v", "grade": 3 },
@@ -74,6 +78,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Weeping; consolation; agg.",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "93" }],
       "mappings": [
         { "abbrev": "Nat-m", "grade": 3 },
@@ -84,6 +89,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Weeping; consolation; amel.",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "93" }],
       "mappings": [
         { "abbrev": "Puls", "grade": 3 }
@@ -92,6 +98,7 @@
     {
       "chapter": "Mind",
       "rubric_path": "Mind; Sympathetic, compassionate",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "86" }],
       "mappings": [
         { "abbrev": "Phos", "grade": 3 },
@@ -102,6 +109,7 @@
     {
       "chapter": "Generalities",
       "rubric_path": "Generalities; Warmth; agg.; warm room",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "1412" }],
       "mappings": [
         { "abbrev": "Puls", "grade": 3 },
@@ -113,6 +121,7 @@
     {
       "chapter": "Generalities",
       "rubric_path": "Generalities; Cold; agg.; becoming cold",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "1346" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 3 },
@@ -125,6 +134,7 @@
     {
       "chapter": "Generalities",
       "rubric_path": "Generalities; Motion; agg.",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "1376" }],
       "mappings": [
         { "abbrev": "Bry", "grade": 3 },
@@ -135,6 +145,7 @@
     {
       "chapter": "Generalities",
       "rubric_path": "Generalities; Motion; amel.; continued motion",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "1378" }],
       "mappings": [
         { "abbrev": "Rhus-t", "grade": 3 },
@@ -145,6 +156,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Thirst; extreme; unquenchable",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "528" }],
       "mappings": [
         { "abbrev": "Bry", "grade": 3 },
@@ -156,6 +168,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Thirst; small quantities, for; often",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "530" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 3 },
@@ -166,6 +179,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Thirstless",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "531" }],
       "mappings": [
         { "abbrev": "Puls", "grade": 3 },
@@ -176,6 +190,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Desires; warm drinks",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "486" }],
       "mappings": [
         { "abbrev": "Ars", "grade": 2 },
@@ -186,6 +201,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Desires; sweets",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "485" }],
       "mappings": [
         { "abbrev": "Lyc", "grade": 3 },
@@ -196,6 +212,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Desires; cold drinks, ice cold",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "484" }],
       "mappings": [
         { "abbrev": "Phos", "grade": 3 },
@@ -206,6 +223,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Aversion; fat and rich food",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "480" }],
       "mappings": [
         { "abbrev": "Puls", "grade": 3 },
@@ -216,6 +234,7 @@
     {
       "chapter": "Stomach",
       "rubric_path": "Stomach; Distension, bloating; afternoon; 4 to 8 p.m.",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "495" }],
       "mappings": [
         { "abbrev": "Lyc", "grade": 3 },
@@ -225,6 +244,7 @@
     {
       "chapter": "Head",
       "rubric_path": "Head; Pain, headache; pulsating, throbbing",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "150" }],
       "mappings": [
         { "abbrev": "Bell", "grade": 3 },
@@ -235,12 +255,105 @@
     {
       "chapter": "Extremities",
       "rubric_path": "Extremities; Heat; burning; feet; night; uncovers them",
+      "repertory_id": "kent_1897",
       "sources": [{ "book": "Kent", "edition": "1897", "page": "1002" }],
       "mappings": [
         { "abbrev": "Sulph", "grade": 3 },
         { "abbrev": "Cham", "grade": 2 },
         { "abbrev": "Med", "grade": 2 },
         { "abbrev": "Puls", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Fear; dark, of",
+      "repertory_id": "knerr_hering",
+      "sources": [{ "book": "Knerr", "edition": "1896", "page": "22" }],
+      "mappings": [
+        { "abbrev": "Phos", "grade": 3 },
+        { "abbrev": "Bell", "grade": 3 },
+        { "abbrev": "Puls", "grade": 2 },
+        { "abbrev": "Calc", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Chest",
+      "rubric_path": "Chest; Palpitation; anxiety, with",
+      "repertory_id": "knerr_hering",
+      "sources": [{ "book": "Knerr", "edition": "1896", "page": "412" }],
+      "mappings": [
+        { "abbrev": "Acon", "grade": 3 },
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Phos", "grade": 2 },
+        { "abbrev": "Sulph", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Sleep",
+      "rubric_path": "Sleep; Sleeplessness; thoughts, from rush of",
+      "repertory_id": "knerr_hering",
+      "sources": [{ "book": "Knerr", "edition": "1896", "page": "890" }],
+      "mappings": [
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Lyc", "grade": 2 },
+        { "abbrev": "Calc", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Mind",
+      "rubric_path": "Mind; Irritability; contradiction, cannot bear",
+      "repertory_id": "boericke_rep",
+      "sources": [{ "book": "Boericke", "edition": "1927", "page": "14" }],
+      "mappings": [
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Lyc", "grade": 3 },
+        { "abbrev": "Sep", "grade": 2 },
+        { "abbrev": "Bry", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Dyspepsia; coffee and stimulants, from",
+      "repertory_id": "boericke_rep",
+      "sources": [{ "book": "Boericke", "edition": "1927", "page": "218" }],
+      "mappings": [
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Cham", "grade": 2 },
+        { "abbrev": "Sulph", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Exhaustion; prostration, sudden",
+      "repertory_id": "boericke_rep",
+      "sources": [{ "book": "Boericke", "edition": "1927", "page": "512" }],
+      "mappings": [
+        { "abbrev": "Ars", "grade": 3 },
+        { "abbrev": "Carb-v", "grade": 3 },
+        { "abbrev": "Verat", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Aggravation; cold, dry air",
+      "repertory_id": "boenninghausen_rep",
+      "sources": [{ "book": "Boenninghausen", "edition": "1846", "page": "145" }],
+      "mappings": [
+        { "abbrev": "Acon", "grade": 3 },
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Bry", "grade": 2 },
+        { "abbrev": "Caust", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Generalities",
+      "rubric_path": "Generalities; Amelioration; motion, continued",
+      "repertory_id": "boenninghausen_rep",
+      "sources": [{ "book": "Boenninghausen", "edition": "1846", "page": "132" }],
+      "mappings": [
+        { "abbrev": "Rhus-t", "grade": 3 },
+        { "abbrev": "Puls", "grade": 2 },
+        { "abbrev": "Sep", "grade": 2 }
       ]
     }
   ],

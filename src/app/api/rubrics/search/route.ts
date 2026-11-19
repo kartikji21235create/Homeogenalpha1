@@ -6,6 +6,7 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const query = searchParams.get("q") || "";
+    const repertoryId = searchParams.get("repertory_id") || searchParams.get("source") || "all";
 
     if (!query.trim()) {
       return NextResponse.json(
@@ -14,18 +15,25 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const candidates = hybridSearch(query, db.rubrics, db.synonyms, { limit: 20 });
+    const targetRubrics = repertoryId !== "all"
+      ? db.rubrics.filter((r) => r.repertory_id === repertoryId)
+      : db.rubrics;
+
+    const candidates = hybridSearch(query, targetRubrics, db.synonyms, { limit: 20 });
 
     return NextResponse.json({
       ok: true,
       data: {
         query,
+        repertory_id: repertoryId,
         count: candidates.length,
         rubrics: candidates.map((c) => ({
           rubric_id: c.rubric_id,
           rubric_path: c.rubric_path,
           chapter: c.chapter,
           rrf_score: c.rrf_score,
+          repertory_id: c.repertory_id || "kent_1897",
+          sources: c.sources || [],
         })),
       },
     });

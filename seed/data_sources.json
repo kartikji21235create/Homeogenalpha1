@@ -1,12 +1,134 @@
 [
   {
     "repertory_id": "kent_1897",
-    "source_name": "Repertory of the Homoeopathic Materia Medica (J.T. Kent)",
+    "source_name": "Repertory of the Homoeopathic Materia Medica",
+    "author": "James Tyler Kent, A.M., M.D.",
     "edition": "1st Edition",
     "year": 1897,
+    "type": "repertory",
     "licence": "public_domain",
     "source_url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-0213123-bk",
     "acquisition_date": "2026-11-15",
-    "licence_note": "Public domain under US and Indian copyright laws (author died 1916, published 1897). Free of digital restrictions."
+    "licence_note": "Public domain under US, UK, and Indian copyright laws (author died 1916, published 1897). Free of digital restrictions."
+  },
+  {
+    "repertory_id": "knerr_hering",
+    "source_name": "Repertory of Hering's Guiding Symptoms of our Materia Medica",
+    "author": "Calvin B. Knerr, M.D.",
+    "edition": "1st Edition",
+    "year": 1896,
+    "type": "repertory",
+    "licence": "public_domain",
+    "source_url": "https://collections.nlm.nih.gov/catalog/nlm:nlmuid-66550990R-bk",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain via US National Library of Medicine (NLM) digital archives (published 1896)."
+  },
+  {
+    "repertory_id": "boericke_rep",
+    "source_name": "Repertory of the Pocket Manual of Homoeopathic Materia Medica",
+    "author": "William Boericke, M.D. & Oscar E. Boericke, M.D.",
+    "edition": "9th Edition",
+    "year": 1927,
+    "type": "repertory",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/pocketmanualofho00boer",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (author died 1929; published 1927). Clean open source digitization via OOREP."
+  },
+  {
+    "repertory_id": "boenninghausen_rep",
+    "source_name": "Therapeutic Pocket Book for Homoeopathic Physicians",
+    "author": "Clemens Maria Franz von Boenninghausen, M.D.",
+    "edition": "Original Edition (Ed. T.F. Allen)",
+    "year": 1846,
+    "type": "repertory",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/boenninghausenst00boen",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (author died 1864, published 1846). Historical open domain reference."
+  },
+  {
+    "repertory_id": "boger_boenninghausen",
+    "source_name": "Boenninghausen's Characteristics and Repertory",
+    "author": "C.M. Boger, M.D.",
+    "edition": "1st Edition",
+    "year": 1905,
+    "type": "repertory",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/boenninghausens00bogegoog",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (published 1905, author died 1935). Open source repertorial indexing."
+  },
+  {
+    "repertory_id": "publicum",
+    "source_name": "Repertorium Publicum (OpenRep)",
+    "author": "Polony / OpenHomeopath Community",
+    "edition": "GPL-3.0 Open Data Build",
+    "year": 2008,
+    "type": "repertory",
+    "licence": "GPL-3.0 / open_data",
+    "source_url": "https://github.com/nondeterministic/oorep",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Open access community compiled repertory distribution under GPL-3.0 code and open data curation."
+  },
+  {
+    "repertory_id": "boericke_mm",
+    "source_name": "Pocket Manual of Homoeopathic Materia Medica",
+    "author": "William Boericke, M.D.",
+    "edition": "9th Edition Revised",
+    "year": 1927,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/pocketmanualofho00boer",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain. Standard clinical handbook covering keynotes, modalities, and organ affinity."
+  },
+  {
+    "repertory_id": "allen_keynotes",
+    "source_name": "Keynotes and Characteristics with Comparisons",
+    "author": "Henry C. Allen, M.D.",
+    "edition": "3rd Edition",
+    "year": 1898,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/keynotesandchar00allegoog",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (author died 1909, published 1898). Indispensable clinical keynotes and polychrests."
+  },
+  {
+    "repertory_id": "kent_lectures",
+    "source_name": "Lectures on Homoeopathic Materia Medica",
+    "author": "James Tyler Kent, A.M., M.D.",
+    "edition": "1st Edition",
+    "year": 1905,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/lecturesonhomoeo00kent",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (published 1905). Landmark clinical portrayals of remedies and mental constitutions."
+  },
+  {
+    "repertory_id": "clarke_dict",
+    "source_name": "A Dictionary of Practical Materia Medica",
+    "author": "John Henry Clarke, M.D.",
+    "edition": "1st Edition (3 Volumes)",
+    "year": 1902,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/b20407982_0001",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain under historical archive release (author died 1931, published 1902)."
+  },
+  {
+    "repertory_id": "hering_guiding",
+    "source_name": "The Guiding Symptoms of our Materia Medica",
+    "author": "Constantine Hering, M.D.",
+    "edition": "Complete 10-Volume Edition",
+    "year": 1879,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/guidingsymptomso01heri",
+    "acquisition_date": "2026-11-17",
+    "licence_note": "Public domain (author died 1880). Foundational clinical collection of cure-verified symptoms."
   }
 ]

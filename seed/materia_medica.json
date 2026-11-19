@@ -1,0 +1,513 @@
+[
+  {
+    "id": "ars",
+    "common_name": "Arsenicum Album",
+    "abbreviation": "Ars",
+    "latin_name": "Acidum Arsenicosum (White Oxide of Arsenic)",
+    "source_origin": "Mineral Kingdom (Mineral acid oxide)",
+    "constitution": "Debilitated, exhausted patients with nervous irritability; anemic, pale, cachectic diathesis. Markedly chilly individuals.",
+    "mind": "Great anguish and profound anxiety, particularly regarding health, incurable illness, and impending death. Restlessness drives patient from bed to chair, cannot rest in one place. Extreme fastidiousness; everything must be in order and spotless.",
+    "keynotes": [
+      "Burning pains felt throughout affected parts, strangely relieved by heat and hot applications.",
+      "Prostration out of all proportion to the severity of the acute illness.",
+      "Thirst for frequent sips of warm water; cold water distresses stomach and is vomited immediately.",
+      "Periodical nocturnal aggravations, typically sharpest between 1:00 AM and 2:00 AM."
+    ],
+    "modalities": {
+      "aggravation": "Cold air, wet weather, after midnight (1:00 - 2:00 AM), cold drinks, cold food, lying on affected side.",
+      "amelioration": "Warmth in all forms, hot drinks, hot applications, wrapping head warmly, keeping elevated."
+    },
+    "relationships": "Complementary: Allium cepa, Carbo veg, Phosphorus, Pyrogenium, Rhus tox, Secale. Inimical: Pulsatilla.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "A profound action on every organ and tissue. The disposition is full of fear, anguish, and restlessness. The greater the suffering, the greater the anguish, restlessness and fear of death. Burning pains, unquenchable thirst for small quantities, rapid prostration."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Keynotes",
+        "text": "Great prostration, with rapid sinking of the vital forces; fainting. The patient cannot rest in any place: continually changing position; moves from bed to chair. Pains: burning, lancinating, relieved by heat."
+      },
+      {
+        "book": "Lectures on Homoeopathic Materia Medica",
+        "author": "James Tyler Kent, A.M., M.D.",
+        "edition": "1st Edition (1905)",
+        "section": "Mind and Generalities",
+        "text": "Anxiety, restlessness, prostration, burning and cadaveric odors are the five red strands that run through Arsenicum. The Arsenic patient is fastidious; the pictures on the wall must hang straight, the disorder in the room creates distress."
+      }
+    ]
+  },
+  {
+    "id": "puls",
+    "common_name": "Pulsatilla Pratensis",
+    "abbreviation": "Puls",
+    "latin_name": "Anemone pratensis (Wind Flower)",
+    "source_origin": "Vegetable Kingdom (Ranunculaceae)",
+    "constitution": "Mild, gentle, yielding, timid disposition, easily moved to weeping. Predominantly warm-blooded (worse in heat, craves cool open air).",
+    "mind": "Tearful, melancholic, seeks sympathy and consolation, which ameliorates. Indecisive, changeable moods. Frightened easily, fear of the dark and ghosts.",
+    "keynotes": [
+      "Symptoms ever-shifting and changeable: no two chills, no two stools, no two attacks alike.",
+      "Thirstlessness accompanying almost all complaints, even with a dry mouth.",
+      "Discharges are thick, bland, yellowish-green; non-excoriating (except leucorrhoea).",
+      "Stomach easily deranged by rich, fatty foods, pork, ice-cream, or pastries."
+    ],
+    "modalities": {
+      "aggravation": "Warm close room, heat of stove, rich and fat foods, warm applications, evening, lying on left side.",
+      "amelioration": "Open cool fresh air, cool applications, gentle slow motion, weeping, consoling reassurance."
+    },
+    "relationships": "Complementary: Lycopodium, Kali sulphuricum, Silicea, Sulphuric acid. Inimical: Arsenicum.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "The weather-cock among remedies. Changeable symptoms; thirstlessness with nearly all complaints. Great sweet-tempered, emotional, tearful patient. Craves the open air; cannot breathe well in a warm room."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Characteristics",
+        "text": "Adapted to persons of indecisive, slow, phlegmatic temperament; affectionate, mild, gentle, timid, yielding, easily weeping. Symptoms ever changing; no two stools alike, no two chills alike."
+      }
+    ]
+  },
+  {
+    "id": "nux-v",
+    "common_name": "Nux Vomica",
+    "abbreviation": "Nux-v",
+    "latin_name": "Strychnos Nux-vomica (Poison Nut)",
+    "source_origin": "Vegetable Kingdom (Loganiaceae)",
+    "constitution": "Thin, quick, active, nervous, irritable persons leading sedentary or intellectual lives with prolonged mental strain.",
+    "mind": "Extremely irritable, impatient, spiteful, malicious, hypersensitive to external impressions (noise, light, odors, music). Cannot bear the least contradiction.",
+    "keynotes": [
+      "Frequent, ineffectual desire for stool and urination; passes little at a time and feels unfinished.",
+      "Oversensitiveness to all sensory stimuli; the least draft of air causes shivering and irritability.",
+      "Gastric derangement following stimulants, coffee, alcohol, over-eating, spices, or allopathic drugging.",
+      "Chilly; cannot uncover even the least without feeling chilly or sneezing."
+    ],
+    "modalities": {
+      "aggravation": "Early morning (waking at 3:00 - 4:00 AM), cold dry wind, mental exertion, spices, stimulants, tobacco.",
+      "amelioration": "Free evacuation of bowels, warmth, damp wet weather, evening, taking a short nap (cat-nap)."
+    },
+    "relationships": "Complementary: Sulphur, Sepia. Antidoted by: Coffea, Ignatia, Belladonna.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Mind and Modalities",
+        "text": "Nux is pre-eminently the remedy for many of the conditions incident to modern life. Sedentary habits, high living, prolonged mental exertion, loss of sleep, coffee, alcohol. Cannot tolerate noise, strong odors, light. Very chilly."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Keynotes",
+        "text": "Cannot bear the least, even suitable medicine; over-sensitiveness to all impressions. Sensation of a stone in stomach, some hours after eating. Frequent, ineffectual desire for stool."
+      }
+    ]
+  },
+  {
+    "id": "sulph",
+    "common_name": "Sulphur",
+    "abbreviation": "Sulph",
+    "latin_name": "Sublimed Sulphur (Brimstone)",
+    "source_origin": "Mineral Kingdom (Element)",
+    "constitution": "The classic psoric king. Lean, stoop-shouldered, ragged philosophers; dirty-skinned, averse to washing and bathing.",
+    "mind": "Philosophical, inventive mania; thinks rags and rubbish are beautiful. Selfish, irritable, lazy, hurried. Depression with religious or abstract ruminations.",
+    "keynotes": [
+      "Burning sensations in flashes: crown of head, soles of feet (sticks feet out of bedclothes at night).",
+      "Sudden hunger and empty, faint, all-gone sinking sensation in stomach promptly at 11:00 AM.",
+      "Redness of all external orifices (lips, eyelids, nostrils, anus, urethra) as if bathed in blood.",
+      "Skin eruptions with intense voluptuous itching, voluptuous scratching followed by terrible burning."
+    ],
+    "modalities": {
+      "aggravation": "Warmth of bed, standing still (worst position), washing and bathing, morning at 11:00 AM, alcoholic drinks.",
+      "amelioration": "Dry warm weather, lying on right side, motion."
+    },
+    "relationships": "Complementary: Aloe, Nux vomica, Psorinum, Pyrogenium. Inimical to: Silicea (if given consecutively without intercurrent).",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "This great Hahnemannian antipsoric affects all tissues and functional centers. Standing is the worst position for Sulphur patients; it is always uncomfortable. Sinking feeling at stomach about 11 AM. Great aversion to bathing."
+      },
+      {
+        "book": "Lectures on Homoeopathic Materia Medica",
+        "author": "James Tyler Kent, A.M., M.D.",
+        "edition": "1st Edition (1905)",
+        "section": "Sulphur Monograph",
+        "text": "Sulphur is full of heat. The head is hot, the feet burn, he thrusts them out of bed to find a cool place. He is hungry at 11 AM, his stomach feels as if empty, he must eat something or feel faint."
+      }
+    ]
+  },
+  {
+    "id": "lyc",
+    "common_name": "Lycopodium Clavatum",
+    "abbreviation": "Lyc",
+    "latin_name": "Lycopodium Clavatum (Club Moss / Wolf's Claw)",
+    "source_origin": "Vegetable Kingdom (Lycopodiaceae)",
+    "constitution": "Persons intellectually keen and precocious, but physically weak, with poor muscular development and chest weakness. Deep-seated liver and urinary diathesis.",
+    "mind": "Lack of self-confidence; dreads undertaking new responsibilities, examinations, or speaking in public, yet succeeds well once started. Imperious, irritable, dictatorial to subordinates, servile to superiors.",
+    "keynotes": [
+      "Right-sided remedy; symptoms travel typically from right to left (throat, chest, ovaries, kidney).",
+      "Regular time aggravation between 4:00 PM and 8:00 PM.",
+      "Excessive flatulence and abdominal distension, worse lower abdomen immediately after eating a few mouthfuls.",
+      "Desire for warm drinks and hot foods; cannot bear cold drinks (causes dyspepsia)."
+    ],
+    "modalities": {
+      "aggravation": "4:00 PM to 8:00 PM, cold drinks, pressure of clothes, warm rooms, oysters, cabbage, beans.",
+      "amelioration": "Warm drinks and foods, motion, getting cold, uncovering head, passing flatus or urine."
+    },
+    "relationships": "Complementary: Iodine, Chelidonium, Lachesis, Pulsatilla. Follows well: Nux vomica, Calcarea, Sulphur.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "Lycopodium is especially adapted to ailments gradually developing with functional power weakness. Manifests its greatest action upon the liver, digestive organs, and urinary system. Characteristic 4 to 8 PM aggravation. Great flatulence, fullness after a few mouthfuls."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Characteristics",
+        "text": "Affects right side most, or symptoms travel from right to left. Deep-seated progressive, chronic diseases. Excessive accumulation of flatulence in abdomen, which is constantly fermenting."
+      }
+    ]
+  },
+  {
+    "id": "bry",
+    "common_name": "Bryonia Alba",
+    "abbreviation": "Bry",
+    "latin_name": "Bryonia Alba (White Bryony)",
+    "source_origin": "Vegetable Kingdom (Cucurbitaceae)",
+    "constitution": "Rheumatic, gouty, bilious diathesis; robust, firm fiber, dark hair and complexion. Prone to serous membrane inflammations.",
+    "mind": "Excessively irritable, wishes to be left alone and quiet; talks constantly of business and daily labors when delirious. Anxious about financial future.",
+    "keynotes": [
+      "Stitching, tearing pains aggravated by the slightest physical motion, respiration, or cough.",
+      "Relief from absolute rest and firm pressure or lying on the painful side.",
+      "Great dryness of all mucous membranes: dry, parched, cracked lips, dry stool as if burnt.",
+      "Thirst for large quantities of cold water at long intervals."
+    ],
+    "modalities": {
+      "aggravation": "Motion of any kind, exertion, warmth, warm weather, morning on first moving, deep breathing.",
+      "amelioration": "Absolute rest, firm pressure, lying on painful side, cold applications, bandaging."
+    },
+    "relationships": "Complementary: Alumina, Rhus tox. Follows: Aconite, Nux vomica, Belladonna.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Characteristics",
+        "text": "The general character of the pain here is stitching, tearing, worse by motion, better on rest. Dryness of mucous membranes everywhere. Thirst for large quantities of cold water. Delirium about business."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Keynotes",
+        "text": "Every spot is tender to pressure. Pains: stitching, tearing, worse at night and on least movement. Relieved by lying on the affected side. Tongue coated white or dark brown."
+      }
+    ]
+  },
+  {
+    "id": "phos",
+    "common_name": "Phosphorus",
+    "abbreviation": "Phos",
+    "latin_name": "Phosphorus (Elemental)",
+    "source_origin": "Mineral Kingdom (Non-metallic element)",
+    "constitution": "Tall, slender, narrow-chested persons of quick perception and nervous temperament; sensitive to external impressions.",
+    "mind": "Sociable, affectionate, sympathetic, clairvoyant tendencies. Fear of dark, thunderstorms, ghosts, twilight, and being alone.",
+    "keynotes": [
+      "Hemorrhagic diathesis: slight wounds bleed profusely; blood bright red and incoagulable.",
+      "Desire for cold food, ice-cream, and icy-cold drinks, which are vomited as soon as they become warm in the stomach.",
+      "Burning sensations along spine, between shoulder blades, and palms.",
+      "Sensitiveness to sudden atmospheric changes, barometric drops, and thunder."
+    ],
+    "modalities": {
+      "aggravation": "Lying on left side, twilight, thunderstorms, cold air, mental or physical exertion.",
+      "amelioration": "Sleep (even short naps), eating, rubbing, cold food, lying on right side."
+    },
+    "relationships": "Complementary: Arsenicum, Cepa, Lycopodium, Silicea. Inimical to: Causticum.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "Phosphorus irritates, inflames and degenerates mucous membranes, serous membranes, bones, and nerve tissue. Tall, slender persons with transparent skin. Burning pains, crave cold food and drink. Fear of thunderstorms."
+      },
+      {
+        "book": "Lectures on Homoeopathic Materia Medica",
+        "author": "James Tyler Kent, A.M., M.D.",
+        "edition": "1st Edition (1905)",
+        "section": "Phosphorus Monograph",
+        "text": "Phosphorus is open, generous, expressive, and easily exhausted. He wants company; cannot be alone. He craves cold ice-water, which satisfies his thirst until it gets warm in the stomach, then up it comes."
+      }
+    ]
+  },
+  {
+    "id": "bell",
+    "common_name": "Belladonna",
+    "abbreviation": "Bell",
+    "latin_name": "Atropa Belladonna (Deadly Nightshade)",
+    "source_origin": "Vegetable Kingdom (Solanaceae)",
+    "constitution": "Plethoric, vigorous, intellectual persons with high nervous susceptibility and tendency to vascular congestions.",
+    "mind": "Furious delirium, hallucinations of monsters and animals; bites, strikes, tears clothes. Wild staring eyes with dilated pupils.",
+    "keynotes": [
+      "Suddenness and violence of onset: symptoms come on with lightning speed and depart just as abruptly.",
+      "Intense vascular throbbing and redness of face, carotid pulsation, hot dry skin with cold feet.",
+      "Hypersensitivity to light, noise, touch, and especially jar of the bed or floor.",
+      "Pains accompanied by great heat, redness, and swelling of affected parts."
+    ],
+    "modalities": {
+      "aggravation": "Touch, jarring, light, noise, motion, 3:00 PM, lying flat, draught of air on head.",
+      "amelioration": "Semi-erect posture, bending backward, resting in a warm room."
+    },
+    "relationships": "Complementary: Calcarea carbonica (chronic companion). Inimical to: Dulcamara.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Clinical Keynotes",
+        "text": "Belladonna stands for violence, heat, redness, and suddenness. Acute congestions, intense arterial excitation, bright red flushed face, throbbing carotids. Marked intolerance to light, noise, and jar."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Characteristics",
+        "text": "Great liability to take cold; sensitive to drafts of air, especially when uncovering head. Pains come suddenly, last indefinitely, and cease suddenly. Throbbing, pulsating, congestive headaches."
+      }
+    ]
+  },
+  {
+    "id": "rhus-t",
+    "common_name": "Rhus Toxicodendron",
+    "abbreviation": "Rhus-t",
+    "latin_name": "Toxicodendron radicans (Poison Ivy)",
+    "source_origin": "Vegetable Kingdom (Anacardiaceae)",
+    "constitution": "Rheumatic and fibrous tissue diathesis; ailments from sprains, over-lifting, getting wet while overheated.",
+    "mind": "Restless, apprehensive, anxious at night; weeping without knowing why; fear of poison.",
+    "keynotes": [
+      "Stiffness on beginning to move, gradually relieved by continued moderate motion (the classic Rhus modality).",
+      "Triangular red tip on a coated tongue.",
+      "Restlessness forces constant change of position in bed at night, giving temporary relief.",
+      "Vesicular skin eruptions with intense itching, burning, and erysipelatous inflammation."
+    ],
+    "modalities": {
+      "aggravation": "Rest, first beginning motion, cold wet rainy weather, after midnight, getting wet while perspiring.",
+      "amelioration": "Continued motion, warm dry weather, hot applications, bending double, rubbing."
+    },
+    "relationships": "Complementary: Bryonia, Calcarea fluorica, Medorrhinum. Follows well: Arnica, Sulphur.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Characteristics",
+        "text": "The effects of sprains, strains, over-lifting, and getting wet while perspiring. The characteristic keynote is: painful stiffness on beginning to move, which disappears on continuous motion. Worse in cold, damp weather."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Keynotes",
+        "text": "Ailments from over-lifting, straining single muscles or tendons; lying on damp ground; wetting while overheated. Lameness and stiffness and pain on first moving after rest, or on getting up in the morning."
+      }
+    ]
+  },
+  {
+    "id": "nat-m",
+    "common_name": "Natrum Muriaticum",
+    "abbreviation": "Nat-m",
+    "latin_name": "Sodium Chloride (Common Salt)",
+    "source_origin": "Mineral Kingdom (Salt)",
+    "constitution": "Anemic, cachectic, emaciated persons, especially losing flesh around the neck, despite eating well.",
+    "mind": "Silent grief, dwells on past disagreeable occurrences; wept when alone, aggravated by consolation or pity. Introverted, reserved, resentful of slights.",
+    "keynotes": [
+      "Consolation aggravates: becomes angry or weeps more vehemently if comforted.",
+      "Craving for salt and salty foods; aversion to bread, fats, and slimy foods.",
+      "Bursting, hammering, congestive headaches from sunrise to sunset, worse schoolgirls.",
+      "Herpetic vesicles (fever blisters / cold sores) like pearls on lips and corners of mouth."
+    ],
+    "modalities": {
+      "aggravation": "10:00 AM to 11:00 AM, sun exposure, heat, sea shore (or better), mental exertion, consolation.",
+      "amelioration": "Open air, cold bathing, lying on right side, skipping meals, tight pressure."
+    },
+    "relationships": "Complementary: Apis mellifica, Ignatia, Sepia. Follows: Bryonia, Pulsatilla.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Characteristics",
+        "text": "A great remedy for cachectic, chlorotic, and anemic states. Psychic causes producing disease: grief, fright, anger. Consolation aggravates. Great debility, worse morning in bed. Craving for salt."
+      },
+      {
+        "book": "Lectures on Homoeopathic Materia Medica",
+        "author": "James Tyler Kent, A.M., M.D.",
+        "edition": "1st Edition (1905)",
+        "section": "Natrum Muriaticum",
+        "text": "Natrum mur is full of tears, but she cries when alone. If anyone steps in to offer sympathy or ask what is the matter, she drives them away with angry indignation. Consolation aggravates her grief."
+      }
+    ]
+  },
+  {
+    "id": "sep",
+    "common_name": "Sepia Officinalis",
+    "abbreviation": "Sep",
+    "latin_name": "Inky Juice of the Cuttlefish",
+    "source_origin": "Animal Kingdom (Mollusca)",
+    "constitution": "Tall, slim women with narrow pelvis, dark hair, yellow-sallow complexion; yellow saddle across the nose and cheeks.",
+    "mind": "Profound indifference even to those loved best (children, husband, family); loss of occupational interest. Weeps easily, irritable, desires solitude.",
+    "keynotes": [
+      "Bearing-down sensation in pelvic region: feels as if pelvic organs would protrude through vulva; crosses legs to prevent it.",
+      "Indifference to loved ones and household duties.",
+      "Sinking, empty all-gone sensation in epigastrium, not relieved by eating.",
+      "Great relief from vigorous, violent physical exercise (aerobics, running, brisk dancing)."
+    ],
+    "modalities": {
+      "aggravation": "Morning and evening, washing, dampness, cold air, before thunderstorms, menopause.",
+      "amelioration": "Vigorous violent exercise, warm bed, crossing limbs, drawing knees up to chest."
+    },
+    "relationships": "Complementary: Natrum mur, Phosphorus, Sulphur. Inimical: Lachesis.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "Acts especially on the portal system, with venous congestion. Marked relaxation and bearing down of pelvic organs. Aversion to family, to those loved best; sympathetic indifference. Relief from violent exercise."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Characteristics",
+        "text": "Particularly suited to women during pregnancy, in childbed and during lactation. Sensation of ball in inner parts. Great apathy, neither desires work nor pleasure; indifferent to her own family."
+      }
+    ]
+  },
+  {
+    "id": "calc",
+    "common_name": "Calcarea Carbonica",
+    "abbreviation": "Calc",
+    "latin_name": "Calcarea Carbonica Ostrearum (Carbonate of Lime / Middle Oyster Shell)",
+    "source_origin": "Mineral / Animal Kingdom (Conchifera)",
+    "constitution": "Fat, flabby, fair, cold, damp, sluggish persons with lax fiber; scrofulous diathesis, large head with open fontanelles in children.",
+    "mind": "Apprehensive, fears loss of reason or that people will observe her mental confusion. Fears disease, infection, disaster, poverty. Sluggish, slow comprehension.",
+    "keynotes": [
+      "Profuse perspiration, especially cold sweat on head while sleeping, wetting the pillow.",
+      "Extreme coldness, general and local (cold damp feet as if wearing damp stockings).",
+      "Craving for boiled eggs and indigestible substances (chalk, coal, dirt, pencils); aversion to milk and meat.",
+      "Shortness of breath and palpitations on ascending even a slight incline or stairs."
+    ],
+    "modalities": {
+      "aggravation": "Cold air, wet weather, ascending stairs or hills, physical or mental exertion, full moon.",
+      "amelioration": "Dry warm weather, lying on painful side, morning after breakfast."
+    },
+    "relationships": "Complementary: Belladonna, Rhus tox, Lycopodium, Silica. Incompatible: Bryonia.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Characteristics",
+        "text": "This great Hahnemannian antipsoric is a chief remedy for impaired nutrition. Increased perspiration, chiefly of head, wetting pillow. Cold clammy feet. Aversion to fats, craves eggs. Worse ascending."
+      },
+      {
+        "book": "Lectures on Homoeopathic Materia Medica",
+        "author": "James Tyler Kent, A.M., M.D.",
+        "edition": "1st Edition (1905)",
+        "section": "Calcarea Carb Monograph",
+        "text": "Calcarea is cold, flabby, sour, and perspiring. The child soaks its pillow in cold sweat during sleep. Craving for eggs is a profound clinical symptom of Calcarea."
+      }
+    ]
+  },
+  {
+    "id": "acon",
+    "common_name": "Aconitum Napellus",
+    "abbreviation": "Acon",
+    "latin_name": "Aconitum Napellus (Monkshood / Wolfsbane)",
+    "source_origin": "Vegetable Kingdom (Ranunculaceae)",
+    "constitution": "Plethoric, robust, healthy persons; acute inflammatory fevers following sudden exposure to dry cold wind.",
+    "mind": "Intense fear and mental anguish; predictable fear of death, predicts the very hour or day of demise. Terrible restlessness and tossing about.",
+    "keynotes": [
+      "Sudden, storm-like onset of complaints following exposure to dry cold winds or severe shock/fright.",
+      "Agonizing anxiety, restless tossing, and fear of death accompanying every symptom.",
+      "Unquenchable thirst for cold water; everything tastes bitter except water.",
+      "Skin hot, dry, burning with rapid bounding full hard pulse; red face turning pale on rising."
+    ],
+    "modalities": {
+      "aggravation": "Evening and night, around midnight, lying on affected side, warm room, dry cold wind.",
+      "amelioration": "Open fresh air, resting quietly, profuse warm perspiration."
+    },
+    "relationships": "Complementary: Coffea, Sulphur. Antidoted by: Belladonna, Chamomilla.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "Characteristics",
+        "text": "A state of fear, anxiety; physical and mental restlessness. Acute, sudden, and violent invasion, with fever. Ailments from dry cold winds. Predicts the day and hour of death."
+      },
+      {
+        "book": "Keynotes and Characteristics with Comparisons",
+        "author": "Henry C. Allen, M.D.",
+        "edition": "3rd Edition (1898)",
+        "section": "Keynotes",
+        "text": "Great fear and anxiety of mind, with great nervous excitability; afraid to go out, to turn around, to go where there is any excitement or crowds. Bitter complaints and reproaches."
+      }
+    ]
+  },
+  {
+    "id": "sil",
+    "common_name": "Silicea Terra",
+    "abbreviation": "Sil",
+    "latin_name": "Pure Flint / Silica",
+    "source_origin": "Mineral Kingdom (Earth oxide)",
+    "constitution": "Nervous, irritable, scrofulous persons with defective assimilation and nutritional exhaustion. Lack of vital heat; chilly.",
+    "mind": "Timid, yielding, lack of self-confidence; dreads failure or public appearance, but executes tasks with high precision once begun. Obstinate, fixed ideas.",
+    "keynotes": [
+      "Extreme chilliness; wants head wrapped up warmly (ameliorates headache).",
+      "Promotes suppuration: ripens abscesses or resolves fistulae and indurated tissues.",
+      "Offensive, acrid foot sweat, the suppression of which brings severe systemic ailments.",
+      "Sensation of a hair on the tongue or in throat."
+    ],
+    "modalities": {
+      "aggravation": "Cold, draft of air, uncovering (especially head), damp weather, new moon, mental exertion.",
+      "amelioration": "Warmth, wrapping head warmly, profuse urination, magnetic rubbings."
+    },
+    "relationships": "Complementary: Thuja, Sanicula, Pulsatilla, Fluoric acid. Follows: Hepar sulph, Calcarea.",
+    "cited_passages": [
+      {
+        "book": "Pocket Manual of Homoeopathic Materia Medica",
+        "author": "William Boericke, M.D.",
+        "edition": "9th Edition (1927)",
+        "section": "General Characteristics",
+        "text": "Silicea can stimulate the organism to re-absorb fibrotic and suppurative exudates. Imperfect assimilation; great sensitivity to cold, desires to be wrapped up warmly. Offensive foot-sweats."
+      },
+      {
+        "book": "A Dictionary of Practical Materia Medica",
+        "author": "John Henry Clarke, M.D.",
+        "edition": "1st Edition (1902)",
+        "section": "Clinical & Characteristics",
+        "text": "Silica is the homoeopathic lancet; it controls suppuration, heals fistulae, expels foreign bodies from tissues. Lack of stamina, physical and mental grit. Head must be kept wrapped up warm."
+      }
+    ]
+  }
+]
