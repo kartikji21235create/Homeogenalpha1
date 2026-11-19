@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listMateriaMedica } from "@/lib/db/store";
 
-export async function GET(req?: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
-    const url = req?.url ? new URL(req.url) : null;
-    const search = url ? (url.searchParams.get("search") || url.searchParams.get("q") || undefined) : undefined;
+    const url = new URL(req.url);
+    const search = url.searchParams.get("search") || url.searchParams.get("q") || undefined;
 
     const remedies = await listMateriaMedica(search);
 

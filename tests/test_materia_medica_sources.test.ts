@@ -42,7 +42,8 @@ describe("Open Data Sources & Materia Medica Library (PRD Section 6, 10, 14)", (
   });
 
   it("lists all available Materia Medica monographs (GET /api/mm)", async () => {
-    const res = await getMateriaMedicaList();
+    const req = new NextRequest("http://localhost:3000/api/mm");
+    const res = await getMateriaMedicaList(req);
     assert.strictEqual(res.status, 200);
 
     const body = await res.json();
