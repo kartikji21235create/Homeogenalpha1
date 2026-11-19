@@ -52,8 +52,13 @@ export async function GET(
       day: "numeric",
     });
 
+    const prescribedMedicine = prescription?.medicine_id
+      ? db.remedies.find((r) => r.id === prescription.medicine_id)
+      : null;
     const remedyName =
-      prescription?.scoring_snapshot?.ranked?.[0]?.common_name || "Homoeopathic Simillimum";
+      prescribedMedicine?.common_name ||
+      prescription?.scoring_snapshot?.ranked?.[0]?.common_name ||
+      "Homoeopathic Simillimum";
 
     // Format 1: Official Medical Prescription Slip (Rx)
     if (type === "prescription" || type === "rx") {

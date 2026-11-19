@@ -36,3 +36,6 @@ next-env.d.ts
 
 # ci/cd (railway deploys directly via git trigger without github actions)
 .github/
+
+__pycache__/
+*.pyc

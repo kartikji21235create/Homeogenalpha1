@@ -20,6 +20,15 @@ interface MateriaMedicaRecord {
   source_origin: string;
   constitution: string;
   mind: string;
+  head_and_senses?: string;
+  throat?: string;
+  gastrointestinal?: string;
+  urinary_and_genital?: string;
+  respiratory?: string;
+  cardiovascular?: string;
+  locomotor?: string;
+  sleep_and_fever?: string;
+  skin?: string;
   keynotes: string[];
   modalities: {
     aggravation: string;
@@ -325,6 +334,115 @@ export default function MateriaMedicaPage() {
                   ))}
                 </ul>
               </div>
+
+              {/* Anatomical & Clinical Symptoms */}
+              {(selectedRemedy.head_and_senses ||
+                selectedRemedy.throat ||
+                selectedRemedy.gastrointestinal ||
+                selectedRemedy.respiratory ||
+                selectedRemedy.cardiovascular ||
+                selectedRemedy.urinary_and_genital ||
+                selectedRemedy.locomotor ||
+                selectedRemedy.sleep_and_fever ||
+                selectedRemedy.skin) && (
+                <div className="space-y-3 pt-2">
+                  <h3 className="text-xs font-bold text-accent uppercase tracking-wider">
+                    Anatomical &amp; Clinical Symptom Profiles
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {selectedRemedy.head_and_senses && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Head &amp; Special Senses
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.head_and_senses}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.throat && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Throat &amp; Pharynx
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.throat}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.gastrointestinal && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Gastrointestinal &amp; Stool
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.gastrointestinal}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.respiratory && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Respiratory &amp; Cough
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.respiratory}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.cardiovascular && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Cardiovascular &amp; Circulation
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.cardiovascular}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.urinary_and_genital && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Urinary &amp; Genital Organs
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.urinary_and_genital}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.locomotor && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Locomotor, Back &amp; Extremities
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.locomotor}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.sleep_and_fever && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Sleep, Chill &amp; Fever
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.sleep_and_fever}
+                        </p>
+                      </div>
+                    )}
+                    {selectedRemedy.skin && (
+                      <div className="rounded-lg border border-border bg-surface-raised p-3.5 space-y-1 md:col-span-2">
+                        <span className="text-[11px] font-bold text-accent uppercase tracking-wide">
+                          Skin &amp; Eruptions
+                        </span>
+                        <p className="text-xs text-text-primary leading-relaxed">
+                          {selectedRemedy.skin}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* Modalities: Aggravation & Amelioration */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">

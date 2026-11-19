@@ -135,6 +135,15 @@ export interface MateriaMedicaRecord {
   source_origin: string;
   constitution: string;
   mind: string;
+  head_and_senses?: string;
+  throat?: string;
+  gastrointestinal?: string;
+  urinary_and_genital?: string;
+  respiratory?: string;
+  cardiovascular?: string;
+  locomotor?: string;
+  sleep_and_fever?: string;
+  skin?: string;
   keynotes: string[];
   modalities: {
     aggravation: string;
