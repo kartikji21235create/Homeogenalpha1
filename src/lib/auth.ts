@@ -20,9 +20,10 @@ const DEV_DOCTOR_ID = "00000000-0000-0000-0000-000000000001";
  * Automatically falls back to dev doctor in development mode.
  */
 export async function getAuthenticatedDoctor(): Promise<AuthenticatedDoctor | null> {
-  // Development bypass: allow running without real Supabase auth
+  // Development or test bypass: allow running without real Supabase auth
   if (
     process.env.AUTH_BYPASS === "true" ||
+    process.env.NODE_ENV === "test" ||
     (process.env.NODE_ENV === "development" && !process.env.SUPABASE_AUTH_REQUIRED)
   ) {
     return { doctorId: DEV_DOCTOR_ID };

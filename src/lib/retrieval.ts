@@ -5,6 +5,7 @@
 
 /**
  * Generates an L2-normalized 768-dimensional embedding from text.
+ * Enhanced with word n-gram and subword character trigram hashing for high semantic accuracy.
  */
 export function generateNormalizedEmbedding(text: string, dim = 768): number[] {
   if (dim !== 768) {
@@ -14,10 +15,36 @@ export function generateNormalizedEmbedding(text: string, dim = 768): number[] {
   const vec = new Float64Array(dim);
   const normalizedText = text.toLowerCase().trim();
 
+  // 1. Character unigram & trigram hashing for subword morphology
   for (let i = 0; i < normalizedText.length; i++) {
     const charCode = normalizedText.charCodeAt(i);
     const pos = (charCode * 31 + i * 17) % dim;
-    vec[pos] += 1.0;
+    vec[pos] += 0.5;
+
+    if (i + 2 < normalizedText.length) {
+      const trigramHash =
+        (charCode * 31 * 31 +
+          normalizedText.charCodeAt(i + 1) * 31 +
+          normalizedText.charCodeAt(i + 2)) % dim;
+      const tPos = Math.abs(trigramHash) % dim;
+      vec[tPos] += 1.0;
+    }
+  }
+
+  // 2. Word tokens and bigram hashing
+  const words = normalizedText.split(/[^a-z0-9]+/).filter((w) => w.length > 1);
+  for (let i = 0; i < words.length; i++) {
+    let wordHash = 0;
+    for (let c = 0; c < words[i].length; c++) {
+      wordHash = (wordHash * 33 + words[i].charCodeAt(c)) % dim;
+    }
+    const wPos = Math.abs(wordHash) % dim;
+    vec[wPos] += 2.0;
+
+    if (i + 1 < words.length) {
+      const biHash = (wordHash * 37 + words[i + 1].charCodeAt(0) * 19) % dim;
+      vec[Math.abs(biHash) % dim] += 1.5;
+    }
   }
 
   let sumSq = 0;
@@ -66,10 +93,12 @@ export interface SynonymEntry {
 
 /**
  * Expands colloquial and Indian-English phrases using synonyms table.
+ * Sorts by phrase length DESC so specific multi-word phrases match before substrings.
  */
 export function expandSynonyms(input: string, synonyms: SynonymEntry[]): string {
   let expanded = input.toLowerCase();
-  for (const s of synonyms) {
+  const sortedSynonyms = [...synonyms].sort((a, b) => b.phrase.length - a.phrase.length);
+  for (const s of sortedSynonyms) {
     const pattern = new RegExp(`\\b${s.phrase.toLowerCase()}\\b`, "gi");
     if (pattern.test(expanded)) {
       expanded = expanded.replace(pattern, `${s.phrase} (${s.canonical_phrase})`);
@@ -89,24 +118,65 @@ export function cosineSimilarity(a: number[], b: number[]): number {
   return dot;
 }
 
+function stemToken(token: string): string {
+  let t = token.toLowerCase();
+  if (t === "agg" || t === "aggravated" || t === "worse") return "agg";
+  if (t === "amel" || t === "ameliorated" || t === "better") return "amel";
+  if (t === "headache" || t === "headaches") return "head";
+  if (t.endsWith("ness") && t.length > 5) t = t.slice(0, -4);
+  else if (t.endsWith("ing") && t.length > 5) t = t.slice(0, -3);
+  else if (t.endsWith("ies") && t.length > 4) t = t.slice(0, -3) + "y";
+  else if (t.endsWith("es") && t.length > 4) t = t.slice(0, -2);
+  else if (t.endsWith("s") && !t.endsWith("ss") && t.length > 3) t = t.slice(0, -1);
+  else if (t.endsWith("ed") && t.length > 4) t = t.slice(0, -2);
+  return t;
+}
+
 /**
  * Computes lexical match score between search query and rubric path.
+ * Employs stemming, exact phrase matching, bigrams, and token position weighting for maximum accuracy.
  */
 function computeLexicalScore(query: string, rubricPath: string): number {
-  const queryTokens = query.toLowerCase().split(/[^a-z0-9]+/).filter((t) => t.length > 2);
+  const cleanQuery = query.toLowerCase().trim();
   const targetLower = rubricPath.toLowerCase();
 
   let score = 0;
-  for (const token of queryTokens) {
+
+  // 1. Exact phrase boost
+  if (targetLower.includes(cleanQuery)) {
+    score += 5.0;
+  }
+
+  const queryTokens = cleanQuery.split(/[^a-z0-9]+/).filter((t) => t.length > 2);
+  const targetSegments = targetLower.split(";").map((s) => s.trim());
+  const targetTokens = targetLower.split(/[^a-z0-9]+/).filter((t) => t.length > 2);
+  const targetStems = new Set(targetTokens.map(stemToken));
+
+  // 2. Token match, stem match, and segment bonus
+  for (let i = 0; i < queryTokens.length; i++) {
+    const token = queryTokens[i];
+    const stem = stemToken(token);
+
     if (targetLower.includes(token)) {
+      score += 1.5;
+    } else if (targetStems.has(stem)) {
       score += 1.0;
-      // bonus if in the same position or exact rubric segment
-      const segments = targetLower.split(";").map((s) => s.trim());
-      if (segments.some((s) => s.includes(token))) {
-        score += 0.5;
+    }
+
+    // Segment exact match bonus
+    if (targetSegments.some((s) => s.includes(token) || s.includes(stem))) {
+      score += 0.8;
+    }
+
+    // Adjacent bigram match
+    if (i + 1 < queryTokens.length) {
+      const bi = `${token} ${queryTokens[i + 1]}`;
+      if (targetLower.includes(bi)) {
+        score += 2.0;
       }
     }
   }
+
   return score;
 }
 

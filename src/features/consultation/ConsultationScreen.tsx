@@ -889,20 +889,38 @@ export function ConsultationScreen() {
               )}
             </div>
 
-            <div className="flex justify-center gap-4 pt-4">
+            <div className="flex justify-center gap-3 pt-4 flex-wrap">
+              <a
+                href={`/api/cases/${consultationId}/pdf?type=prescription&autoprint=1`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg bg-accent px-6 py-2.5 text-xs font-bold text-bg hover:bg-accent-strong transition shadow-sm inline-flex items-center gap-1.5"
+                title="Open and download official medical prescription slip in PDF format"
+              >
+                📥 Download Prescription (PDF)
+              </a>
+              <a
+                href={`/api/cases/${consultationId}/pdf?autoprint=1`}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg border border-border bg-surface px-5 py-2.5 text-xs font-semibold text-text-primary hover:border-accent transition inline-flex items-center gap-1.5"
+                title="Open and print full clinical decision support report"
+              >
+                📄 Clinical Report (PDF)
+              </a>
               <a
                 href={`/api/cases/${consultationId}/export`}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg border border-border bg-surface px-5 py-2 text-xs font-semibold text-text-primary hover:border-accent transition"
+                className="rounded-lg border border-border bg-surface px-4 py-2.5 text-xs font-semibold text-text-secondary hover:text-text-primary transition"
               >
-                Export Case Report (JSON)
+                JSON
               </a>
               <button
                 onClick={handleResetToNewConsultation}
-                className="rounded-lg bg-accent px-5 py-2 text-xs font-semibold text-bg hover:bg-accent-strong transition"
+                className="rounded-lg border border-accent/40 bg-accent/10 px-5 py-2.5 text-xs font-semibold text-accent hover:bg-accent hover:text-bg transition"
               >
-                New Consultation
+                + New Consultation
               </button>
             </div>
           </section>

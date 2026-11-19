@@ -265,12 +265,23 @@ export default function CasesPage() {
                   </a>
 
                   <a
+                    href={`/api/cases/${c.id}/pdf?type=prescription&autoprint=1`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded bg-accent px-3 py-1 text-bg font-bold hover:bg-accent-strong transition text-[11px] inline-flex items-center gap-1"
+                    title="Download Official Medical Prescription PDF"
+                  >
+                    Rx PDF 📥
+                  </a>
+
+                  <a
                     href={`/api/cases/${c.id}/pdf`}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded bg-accent/20 border border-accent/40 px-3 py-1 text-accent font-semibold hover:bg-accent hover:text-bg transition"
+                    className="rounded border border-border px-2.5 py-1 text-text-secondary hover:text-text-primary hover:border-accent transition text-[11px]"
+                    title="Print Full Clinical Report"
                   >
-                    Print PDF &rarr;
+                    Report
                   </a>
                 </div>
               </div>

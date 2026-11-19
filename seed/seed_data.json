@@ -25,7 +25,9 @@
     { "common_name": "Glonoine", "abbreviation": "Glon", "aliases": ["Glonoinum"] },
     { "common_name": "Chamomilla", "abbreviation": "Cham", "aliases": ["Chamomilla recutita"] },
     { "common_name": "Medorrhinum", "abbreviation": "Med", "aliases": ["Medorrhin"] },
-    { "common_name": "Hyoscyamus Niger", "abbreviation": "Hyos", "aliases": ["Hyoscyamus"] }
+    { "common_name": "Hyoscyamus Niger", "abbreviation": "Hyos", "aliases": ["Hyoscyamus"] },
+    { "common_name": "Aloe Socotrina", "abbreviation": "Aloe", "aliases": ["Aloe"] },
+    { "common_name": "Mercurius Solubilis", "abbreviation": "Merc", "aliases": ["Merc sol"] }
   ],
   "rubrics": [
     {
@@ -355,6 +357,107 @@
         { "abbrev": "Puls", "grade": 2 },
         { "abbrev": "Sep", "grade": 2 }
       ]
+    },
+    {
+      "chapter": "Head",
+      "rubric_path": "Head; Pain; pulsating",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "142" }],
+      "mappings": [
+        { "abbrev": "Bell", "grade": 4 },
+        { "abbrev": "Glon", "grade": 3 },
+        { "abbrev": "Nat-m", "grade": 3 },
+        { "abbrev": "Sulph", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Head",
+      "rubric_path": "Head; Pain; sun, from exposure to",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "151" }],
+      "mappings": [
+        { "abbrev": "Glon", "grade": 3 },
+        { "abbrev": "Nat-c", "grade": 3 },
+        { "abbrev": "Nat-m", "grade": 2 },
+        { "abbrev": "Bell", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Thirstless",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "530" }],
+      "mappings": [
+        { "abbrev": "Apis", "grade": 3 },
+        { "abbrev": "Puls", "grade": 3 },
+        { "abbrev": "Sep", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Stomach",
+      "rubric_path": "Stomach; Desires; salt, salty things",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "486" }],
+      "mappings": [
+        { "abbrev": "Nat-m", "grade": 3 },
+        { "abbrev": "Phos", "grade": 2 },
+        { "abbrev": "Carb-v", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Rectum",
+      "rubric_path": "Rectum; Diarrhoea; morning; bed, driving out of",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "610" }],
+      "mappings": [
+        { "abbrev": "Sulph", "grade": 3 },
+        { "abbrev": "Aloe", "grade": 3 },
+        { "abbrev": "Puls", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Rectum",
+      "rubric_path": "Rectum; Constipation; ineffectual urging, with",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "606" }],
+      "mappings": [
+        { "abbrev": "Nux-v", "grade": 3 },
+        { "abbrev": "Lyc", "grade": 2 },
+        { "abbrev": "Sulph", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Extremities",
+      "rubric_path": "Extremities; Pain; joints; motion, on beginning; amel. continued motion",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1028" }],
+      "mappings": [
+        { "abbrev": "Rhus-t", "grade": 4 },
+        { "abbrev": "Calc", "grade": 2 },
+        { "abbrev": "Lyc", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Extremities",
+      "rubric_path": "Extremities; Pain; motion, agg.",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1032" }],
+      "mappings": [
+        { "abbrev": "Bry", "grade": 4 },
+        { "abbrev": "Bell", "grade": 2 },
+        { "abbrev": "Nux-v", "grade": 2 }
+      ]
+    },
+    {
+      "chapter": "Skin",
+      "rubric_path": "Skin; Itching; warmth of bed, agg.",
+      "repertory_id": "kent_1897",
+      "sources": [{ "book": "Kent", "edition": "1897", "page": "1308" }],
+      "mappings": [
+        { "abbrev": "Sulph", "grade": 3 },
+        { "abbrev": "Merc", "grade": 3 },
+        { "abbrev": "Puls", "grade": 2 }
+      ]
     }
   ],
   "synonyms": [
@@ -376,6 +479,20 @@
     { "phrase": "excessive thirst for cold water", "canonical_phrase": "Stomach; Desires; cold drinks, ice cold", "locale": "en" },
     { "phrase": "sips of water frequently", "canonical_phrase": "Stomach; Thirst; small quantities, for; often", "locale": "en" },
     { "phrase": "restless tossing about in bed", "canonical_phrase": "Mind; Restlessness, nervousness; night", "locale": "en" },
-    { "phrase": "cannot stand messy or untidy things", "canonical_phrase": "Mind; Fastidious", "locale": "en" }
+    { "phrase": "cannot stand messy or untidy things", "canonical_phrase": "Mind; Fastidious", "locale": "en" },
+    { "phrase": "throbbing headache", "canonical_phrase": "Head; Pain; pulsating", "locale": "en" },
+    { "phrase": "head pounding", "canonical_phrase": "Head; Pain; pulsating", "locale": "en" },
+    { "phrase": "headache in sun", "canonical_phrase": "Head; Pain; sun, from exposure to", "locale": "en" },
+    { "phrase": "headache worse from sun exposure", "canonical_phrase": "Head; Pain; sun, from exposure to", "locale": "en" },
+    { "phrase": "no thirst at all", "canonical_phrase": "Stomach; Thirstless", "locale": "en" },
+    { "phrase": "mouth dry but not thirsty", "canonical_phrase": "Stomach; Thirstless", "locale": "en" },
+    { "phrase": "craves salt and pickles", "canonical_phrase": "Stomach; Desires; salt, salty things", "locale": "en" },
+    { "phrase": "extra salt on food", "canonical_phrase": "Stomach; Desires; salt, salty things", "locale": "en-IN" },
+    { "phrase": "early morning loose motions driving out of bed", "canonical_phrase": "Rectum; Diarrhoea; morning; bed, driving out of", "locale": "en-IN" },
+    { "phrase": "unsatisfactory stool with frequent urging", "canonical_phrase": "Rectum; Constipation; ineffectual urging, with", "locale": "en" },
+    { "phrase": "stiff joints better when moving around", "canonical_phrase": "Extremities; Pain; joints; motion, on beginning; amel. continued motion", "locale": "en" },
+    { "phrase": "body ache worse from slightest movement", "canonical_phrase": "Extremities; Pain; motion, agg.", "locale": "en" },
+    { "phrase": "severe itching in warm bed", "canonical_phrase": "Skin; Itching; warmth of bed, agg.", "locale": "en" },
+    { "phrase": "fear of death and darkness", "canonical_phrase": "Mind; Fear; death, of", "locale": "en" }
   ]
 }
