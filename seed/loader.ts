@@ -12,6 +12,8 @@
 
 import * as fs from "fs";
 import * as path from "path";
+import { generateNormalizedEmbedding } from "../src/lib/retrieval";
+export { generateNormalizedEmbedding };
 
 export interface DataSource {
   repertory_id: string;
@@ -72,46 +74,6 @@ export interface LoadSummary {
   timestamp: string;
 }
 
-/**
- * Generates an L2-normalized 768-dimensional embedding from text.
- * Deterministic pseudo-embedding based on bag-of-words character hashing
- * ensuring repeatable, unit-length 768-dim vectors.
- */
-export function generateNormalizedEmbedding(text: string, dim = 768): number[] {
-  if (dim !== 768) {
-    throw new Error(`Invalid embedding dimension ${dim}. Expected 768.`);
-  }
-
-  const vec = new Float64Array(dim);
-  const normalizedText = text.toLowerCase().trim();
-
-  // Simple, deterministic feature hashing
-  for (let i = 0; i < normalizedText.length; i++) {
-    const charCode = normalizedText.charCodeAt(i);
-    const pos = (charCode * 31 + i * 17) % dim;
-    vec[pos] += 1.0;
-  }
-
-  // Calculate L2 norm
-  let sumSq = 0;
-  for (let i = 0; i < dim; i++) {
-    sumSq += vec[i] * vec[i];
-  }
-
-  const norm = Math.sqrt(sumSq);
-  if (norm === 0) {
-    // Unit vector on axis 0
-    vec[0] = 1.0;
-    return Array.from(vec);
-  }
-
-  // Normalize to unit length (L2)
-  for (let i = 0; i < dim; i++) {
-    vec[i] = vec[i] / norm;
-  }
-
-  return Array.from(vec);
-}
 
 export function runLoader(
   targetRepertoryId = "kent_1897",

@@ -208,5 +208,19 @@ SYNONYMS = [
     {"phrase": "puncture wound from nail or needle", "canonical_phrase": "Generalities; Injuries; puncture wounds; bites; stings", "locale": "en"},
     {"phrase": "catching cold in damp rainy weather", "canonical_phrase": "Generalities; Cold, damp weather; agg.; working in cold water", "locale": "en-IN"},
     {"phrase": "complaints worse 4 to 8 pm", "canonical_phrase": "Generalities; Time; 4 to 8 p.m., agg.", "locale": "en-IN"},
-    {"phrase": "fainting in crowded hot room", "canonical_phrase": "Generalities; Faintness; fainting; crowded room; heat; standing", "locale": "en"}
+    {"phrase": "fainting in crowded hot room", "canonical_phrase": "Generalities; Faintness; fainting; crowded room; heat; standing", "locale": "en"},
+
+    # Case-Taking Precision Enhancements & Canonical Nuances
+    {"phrase": "sip frequently", "canonical_phrase": "thirst small quantities often", "locale": "en"},
+    {"phrase": "sips frequently", "canonical_phrase": "thirst small quantities often", "locale": "en"},
+    {"phrase": "warm water to sip", "canonical_phrase": "desires warm drinks thirst small quantities", "locale": "en"},
+    {"phrase": "asks for warm water", "canonical_phrase": "desires warm drinks", "locale": "en"},
+    {"phrase": "tries to console", "canonical_phrase": "consolation agg", "locale": "en"},
+    {"phrase": "worse if anyone tries to console", "canonical_phrase": "consolation agg weeping", "locale": "en"},
+    {"phrase": "loves sweet things", "canonical_phrase": "desires sweets", "locale": "en"},
+    {"phrase": "worse from the slightest motion", "canonical_phrase": "motion agg", "locale": "en"},
+    {"phrase": "cannot stand warmth", "canonical_phrase": "warmth agg warm room", "locale": "en"},
+    {"phrase": "craves salt", "canonical_phrase": "desires salt salty things", "locale": "en"},
+    {"phrase": "headaches pulsating like hammering", "canonical_phrase": "headache pulsating throbbing hammering", "locale": "en"},
+    {"phrase": "patient lies completely still", "canonical_phrase": "motion agg rest amel", "locale": "en"}
 ]

@@ -192,9 +192,9 @@ function computeLexicalScore(query: string, rubricPath: string): number {
 }
 
 /**
- * Hybrid search using Reciprocal Rank Fusion (RRF) over full-text and vector embeddings.
+ * Internal single-aspect hybrid search using Reciprocal Rank Fusion (RRF) over full-text and vector embeddings.
  */
-export function hybridSearch(
+function singleAspectHybridSearch(
   query: string,
   rubrics: StoredRubric[],
   synonyms: SynonymEntry[] = [],
@@ -257,4 +257,57 @@ export function hybridSearch(
 
   fused.sort((a, b) => b.rrf_score - a.rrf_score);
   return fused.slice(0, limit);
+}
+
+/**
+ * Hybrid search using Reciprocal Rank Fusion (RRF) and fair-coverage multi-clause interleaved ranking.
+ * Guarantees balanced representation across all clinical symptom clauses in a narrative.
+ */
+export function hybridSearch(
+  query: string,
+  rubrics: StoredRubric[],
+  synonyms: SynonymEntry[] = [],
+  options: { rrf_k?: number; limit?: number } = {}
+): CandidateRubric[] {
+  const limit = options.limit ?? 20;
+
+  // Split query into distinct clinical clauses
+  const rawClauses = query
+    .split(/[,;.]+|\band\b/i)
+    .map((s) => s.trim())
+    .filter((s) => s.length >= 4);
+
+  // If query is a single clause or short search string, run direct single-aspect hybrid search
+  if (rawClauses.length <= 1) {
+    return singleAspectHybridSearch(query, rubrics, synonyms, options);
+  }
+
+  // Multi-clause narrative query:
+  // 1. Run single aspect search on full query + each clause
+  const clauseResults: CandidateRubric[][] = [];
+  clauseResults.push(singleAspectHybridSearch(query, rubrics, synonyms, { ...options, limit: Math.max(limit, 15) }));
+  for (const cl of rawClauses) {
+    clauseResults.push(singleAspectHybridSearch(cl, rubrics, synonyms, { ...options, limit: 10 }));
+  }
+
+  // 2. Round-robin interleave to guarantee fair representation of every symptom clause
+  const seenIds = new Set<number>();
+  const finalCandidates: CandidateRubric[] = [];
+  const maxDepth = Math.max(...clauseResults.map((r) => r.length));
+
+  for (let depth = 0; depth < maxDepth; depth++) {
+    for (const resList of clauseResults) {
+      if (depth < resList.length) {
+        const cand = resList[depth];
+        if (!seenIds.has(cand.rubric_id)) {
+          seenIds.add(cand.rubric_id);
+          finalCandidates.push(cand);
+          if (finalCandidates.length >= limit) break;
+        }
+      }
+    }
+    if (finalCandidates.length >= limit) break;
+  }
+
+  return finalCandidates.slice(0, limit);
 }
