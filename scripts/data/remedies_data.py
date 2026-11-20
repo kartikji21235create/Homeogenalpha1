@@ -1,6 +1,6 @@
 # scripts/data/remedies_data.py
 
-REMEDIES = [
+CORE_REMEDIES = [
     # Canonical First 28 Remedies (preserves exact historical DB ID mapping: 1 = Ars, 2 = Puls, etc.)
     {"common_name": "Arsenicum Album", "abbreviation": "Ars", "aliases": ["Arsenic", "Arsenicum", "Ars alb"]},
     {"common_name": "Pulsatilla Pratensis", "abbreviation": "Puls", "aliases": ["Pulsatilla", "Puls nig"]},
@@ -117,3 +117,11 @@ REMEDIES = [
     {"common_name": "Urtica Urens", "abbreviation": "Urt-u", "aliases": ["Urtica", "Stinging nettle"]},
     {"common_name": "Zincum Metallicum", "abbreviation": "Zinc", "aliases": ["Zincum", "Zinc"]}
 ]
+
+try:
+    from .remedies_data_extended import REMEDIES_EXTENDED
+except ImportError:
+    from data.remedies_data_extended import REMEDIES_EXTENDED
+
+REMEDIES = CORE_REMEDIES + REMEDIES_EXTENDED
+
