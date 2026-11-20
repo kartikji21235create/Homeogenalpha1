@@ -10,6 +10,8 @@ from data.rubrics_data import RUBRICS
 from data.synonyms_data import SYNONYMS
 from data.mm_data import MATERIA_MEDICA
 from data.mm_data_part2 import MATERIA_MEDICA_PART2
+from data.mm_data_part3 import MATERIA_MEDICA_PART3
+from data.mm_data_part4 import MATERIA_MEDICA_PART4
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SEED_DIR = os.path.join(BASE_DIR, "seed")
@@ -90,7 +92,7 @@ def validate_and_generate():
     print("      All 31 canonical chapters verified present and populated!")
 
     # 4. Merge Materia Medica monographs
-    all_mm = MATERIA_MEDICA + MATERIA_MEDICA_PART2
+    all_mm = MATERIA_MEDICA + MATERIA_MEDICA_PART2 + MATERIA_MEDICA_PART3 + MATERIA_MEDICA_PART4
     mm_ids = set()
     for mm in all_mm:
         mm_id = mm["id"]

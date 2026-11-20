@@ -708,7 +708,20 @@ export async function listMateriaMedica(search?: string): Promise<MateriaMedicaR
       m.common_name.toLowerCase().includes(q) ||
       m.abbreviation.toLowerCase().includes(q) ||
       m.latin_name.toLowerCase().includes(q) ||
-      m.keynotes.some((k) => k.toLowerCase().includes(q))
+      m.keynotes.some((k) => k.toLowerCase().includes(q)) ||
+      (m.constitution && m.constitution.toLowerCase().includes(q)) ||
+      (m.mind && m.mind.toLowerCase().includes(q)) ||
+      (m.head_and_senses && m.head_and_senses.toLowerCase().includes(q)) ||
+      (m.throat && m.throat.toLowerCase().includes(q)) ||
+      (m.gastrointestinal && m.gastrointestinal.toLowerCase().includes(q)) ||
+      (m.urinary_and_genital && m.urinary_and_genital.toLowerCase().includes(q)) ||
+      (m.respiratory && m.respiratory.toLowerCase().includes(q)) ||
+      (m.cardiovascular && m.cardiovascular.toLowerCase().includes(q)) ||
+      (m.locomotor && m.locomotor.toLowerCase().includes(q)) ||
+      (m.sleep_and_fever && m.sleep_and_fever.toLowerCase().includes(q)) ||
+      (m.skin && m.skin.toLowerCase().includes(q)) ||
+      (m.modalities?.aggravation && m.modalities.aggravation.toLowerCase().includes(q)) ||
+      (m.modalities?.amelioration && m.modalities.amelioration.toLowerCase().includes(q))
   );
 }
 
@@ -745,12 +758,26 @@ export async function searchMateriaMedicaPassages(query: string): Promise<
   }> = [];
 
   for (const remedy of db.materiaMedica) {
+    const remedyMatches =
+      remedy.common_name.toLowerCase().includes(q) ||
+      remedy.keynotes.some((k) => k.toLowerCase().includes(q)) ||
+      (remedy.constitution && remedy.constitution.toLowerCase().includes(q)) ||
+      (remedy.mind && remedy.mind.toLowerCase().includes(q)) ||
+      (remedy.head_and_senses && remedy.head_and_senses.toLowerCase().includes(q)) ||
+      (remedy.throat && remedy.throat.toLowerCase().includes(q)) ||
+      (remedy.gastrointestinal && remedy.gastrointestinal.toLowerCase().includes(q)) ||
+      (remedy.urinary_and_genital && remedy.urinary_and_genital.toLowerCase().includes(q)) ||
+      (remedy.respiratory && remedy.respiratory.toLowerCase().includes(q)) ||
+      (remedy.cardiovascular && remedy.cardiovascular.toLowerCase().includes(q)) ||
+      (remedy.locomotor && remedy.locomotor.toLowerCase().includes(q)) ||
+      (remedy.sleep_and_fever && remedy.sleep_and_fever.toLowerCase().includes(q)) ||
+      (remedy.skin && remedy.skin.toLowerCase().includes(q));
+
     for (const passage of remedy.cited_passages) {
       if (
         passage.text.toLowerCase().includes(q) ||
         passage.section.toLowerCase().includes(q) ||
-        remedy.common_name.toLowerCase().includes(q) ||
-        remedy.keynotes.some((k) => k.toLowerCase().includes(q))
+        remedyMatches
       ) {
         results.push({
           remedy_id: remedy.id,

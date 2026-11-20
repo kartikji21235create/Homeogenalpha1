@@ -120,9 +120,20 @@ export function cosineSimilarity(a: number[], b: number[]): number {
 
 function stemToken(token: string): string {
   let t = token.toLowerCase();
-  if (t === "agg" || t === "aggravated" || t === "worse") return "agg";
-  if (t === "amel" || t === "ameliorated" || t === "better") return "amel";
-  if (t === "headache" || t === "headaches") return "head";
+  if (t === "agg" || t === "aggravated" || t === "aggravates" || t === "worse" || t === "worsened") return "agg";
+  if (t === "amel" || t === "ameliorated" || t === "ameliorates" || t === "better" || t === "relieved") return "amel";
+  if (t === "headache" || t === "headaches" || t === "migraine") return "head";
+  if (t === "diarrhea" || t === "diarrhoea" || t === "motions") return "diarrh";
+  if (t === "hemorrhoids" || t === "haemorrhoids" || t === "piles") return "haemorrhoid";
+  if (t === "perspiration" || t === "sweating" || t === "sweat" || t === "sweats") return "perspir";
+  if (t === "coughing" || t === "coughs" || t === "cough") return "cough";
+  if (t === "burning" || t === "burns" || t === "scalds") return "burn";
+  if (t === "throbbing" || t === "pulsating" || t === "pounding") return "pulsat";
+  if (t === "stitching" || t === "stitches" || t === "stitch") return "stitch";
+  if (t === "vomiting" || t === "vomits" || t === "vomit") return "vomit";
+  if (t === "cramping" || t === "cramps" || t === "cramp") return "cramp";
+  if (t === "itching" || t === "itches" || t === "itch") return "itch";
+  if (t === "swelling" || t === "swollen" || t === "swells") return "swell";
   if (t.endsWith("ness") && t.length > 5) t = t.slice(0, -4);
   else if (t.endsWith("ing") && t.length > 5) t = t.slice(0, -3);
   else if (t.endsWith("ies") && t.length > 4) t = t.slice(0, -3) + "y";
