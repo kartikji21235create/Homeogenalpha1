@@ -4330,6 +4330,245 @@
       "aliases": [
         "Meadow Parsnip"
       ]
+    },
+    {
+      "common_name": "Agnus Castus",
+      "abbreviation": "Agn",
+      "aliases": [
+        "Chaste Tree",
+        "Vitex agnus-castus"
+      ]
+    },
+    {
+      "common_name": "Baryta Carbonica",
+      "abbreviation": "Bar-c",
+      "aliases": [
+        "Barium carbonicum"
+      ]
+    },
+    {
+      "common_name": "Baryta Muriatica",
+      "abbreviation": "Bar-m",
+      "aliases": [
+        "Barium muriaticum"
+      ]
+    },
+    {
+      "common_name": "Benzoic Acid",
+      "abbreviation": "Benz-ac",
+      "aliases": [
+        "Acidum benzoicum"
+      ]
+    },
+    {
+      "common_name": "Berberis Vulgaris",
+      "abbreviation": "Berb",
+      "aliases": [
+        "Berberis vulgaris"
+      ]
+    },
+    {
+      "common_name": "Bismuthum",
+      "abbreviation": "Bism",
+      "aliases": [
+        "Bismuthum subnitricum"
+      ]
+    },
+    {
+      "common_name": "Bovista",
+      "abbreviation": "Bov",
+      "aliases": [
+        "Bovista lycoperdon"
+      ]
+    },
+    {
+      "common_name": "Bromium",
+      "abbreviation": "Brom",
+      "aliases": [
+        "Bromum"
+      ]
+    },
+    {
+      "common_name": "Bufo Rana",
+      "abbreviation": "Bufo",
+      "aliases": [
+        "Bufo bufo"
+      ]
+    },
+    {
+      "common_name": "Cadmium Sulphuricum",
+      "abbreviation": "Cadm-s",
+      "aliases": [
+        "Cadmium sulphuricum"
+      ]
+    },
+    {
+      "common_name": "Caladium Seguinum",
+      "abbreviation": "Calad",
+      "aliases": [
+        "Caladium seguinum"
+      ]
+    },
+    {
+      "common_name": "Calcarea Fluorica",
+      "abbreviation": "Calc-f",
+      "aliases": [
+        "Calcium fluoratum"
+      ]
+    },
+    {
+      "common_name": "Calcarea Sulphurica",
+      "abbreviation": "Calc-s",
+      "aliases": [
+        "Calcium sulphuricum"
+      ]
+    },
+    {
+      "common_name": "Cannabis Indica",
+      "abbreviation": "Cann-i",
+      "aliases": [
+        "Cannabis indica"
+      ]
+    },
+    {
+      "common_name": "Cannabis Sativa",
+      "abbreviation": "Cann-s",
+      "aliases": [
+        "Cannabis sativa"
+      ]
+    },
+    {
+      "common_name": "Capsicum",
+      "abbreviation": "Caps",
+      "aliases": [
+        "Capsicum annuum"
+      ]
+    },
+    {
+      "common_name": "Carbo Animalis",
+      "abbreviation": "Carb-an",
+      "aliases": [
+        "Carbo animalis"
+      ]
+    },
+    {
+      "common_name": "Carboneum Sulphuratum",
+      "abbreviation": "Carbn-s",
+      "aliases": [
+        "Carboneum sulphuratum"
+      ]
+    },
+    {
+      "common_name": "Caulophyllum",
+      "abbreviation": "Caul",
+      "aliases": [
+        "Caulophyllum thalictroides"
+      ]
+    },
+    {
+      "common_name": "Chininum Sulphuricum",
+      "abbreviation": "Chin-s",
+      "aliases": [
+        "Chininum sulphuricum"
+      ]
+    },
+    {
+      "common_name": "Cicuta Virosa",
+      "abbreviation": "Cic",
+      "aliases": [
+        "Cicuta virosa"
+      ]
+    },
+    {
+      "common_name": "Cina",
+      "abbreviation": "Cina",
+      "aliases": [
+        "Artemisia cina"
+      ]
+    },
+    {
+      "common_name": "Clematis Erecta",
+      "abbreviation": "Clem",
+      "aliases": [
+        "Clematis recta"
+      ]
+    },
+    {
+      "common_name": "Crocus Sativus",
+      "abbreviation": "Croc",
+      "aliases": [
+        "Crocus sativus"
+      ]
+    },
+    {
+      "common_name": "Crotalus Horridus",
+      "abbreviation": "Crot-h",
+      "aliases": [
+        "Crotalus horridus"
+      ]
+    },
+    {
+      "common_name": "Croton Tiglium",
+      "abbreviation": "Crot-t",
+      "aliases": [
+        "Croton tiglium"
+      ]
+    },
+    {
+      "common_name": "Fluoricum Acidum",
+      "abbreviation": "Fl-ac",
+      "aliases": [
+        "Acidum fluoricum"
+      ]
+    },
+    {
+      "common_name": "Guaiacum",
+      "abbreviation": "Guaj",
+      "aliases": [
+        "Guaiacum officinale"
+      ]
+    },
+    {
+      "common_name": "Ipecacuanha",
+      "abbreviation": "Ip",
+      "aliases": [
+        "Cephaelis ipecacuanha"
+      ]
+    },
+    {
+      "common_name": "Oleander",
+      "abbreviation": "Olnd",
+      "aliases": [
+        "Nerium oleander"
+      ]
+    },
+    {
+      "common_name": "Plumbum Metallicum",
+      "abbreviation": "Plb",
+      "aliases": [
+        "Plumbum metallicum"
+      ]
+    },
+    {
+      "common_name": "Podophyllum",
+      "abbreviation": "Podo",
+      "aliases": [
+        "Podophyllum peltatum"
+      ]
+    },
+    {
+      "common_name": "Stannum Metallicum",
+      "abbreviation": "Stann",
+      "aliases": [
+        "Stannum metallicum"
+      ]
+    },
+    {
+      "common_name": "Viburnum Opulus",
+      "abbreviation": "Vib",
+      "aliases": [
+        "Viburnum opulus"
+      ]
     }
   ],
   "rubrics": [
