@@ -12,6 +12,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { redactIdentifiers, assertNoIdentifiersLeaked } from "./redaction";
 import { detectEmergencySigns, EmergencyCheckResult } from "./emergency";
 import { hybridSearch, StoredRubric, SynonymEntry, CandidateRubric } from "../retrieval";
+import { parseClauses, clauseHint } from "./clause_parser";
 
 export interface ExtractedSymptom {
   id: string; // client/session UUID
@@ -270,31 +271,48 @@ export function fallbackToTopCandidates(
 }
 
 /**
- * Deterministic rule-based symptom extraction fallback
+ * Deterministic rule-based symptom extraction fallback powered by clause parsing
  */
 function mockRuleBasedExtract(text: string): {
   symptoms: ExtractedSymptom[];
   missing_info: string[];
 } {
   const symptoms: ExtractedSymptom[] = [];
-  const sentences = text
-    .split(/[.;\n]+/)
-    .map((s) => s.trim())
-    .filter((s) => s.length >= 5);
+  const clauses = parseClauses(text);
 
-  sentences.forEach((phrase, idx) => {
-    const isNegated = /\b(no|not|never|without|denies|lacks)\b/i.test(phrase);
+  clauses.forEach((c, idx) => {
+    const phrase = c.text;
+    if (phrase.length < 3) return;
+
     let category: ExtractedSymptom["category"] = "PARTICULAR";
-    if (/\b(anxious|anxiety|fear|weep|crying|angry|irritab|restless|fastidious|mind)\b/i.test(phrase)) {
+    if (
+      /\b(anxious|anxiety|fear|weep|crying|angry|irritab|restless|fastidious|mind|gussa|darr|udasi|chidchidapan|ghabrahat)\b/i.test(
+        phrase
+      )
+    ) {
       category = "MENTAL_GENERAL";
-    } else if (/\b(warmth|cold|chilly|motion|heat|weather|general)\b/i.test(phrase)) {
+    } else if (
+      /\b(warmth|cold|chilly|motion|heat|weather|general|thand|garmi|baarish)\b/i.test(phrase)
+    ) {
       category = "PHYSICAL_GENERAL";
     }
 
     let modalityNotes: string | null = null;
-    const modMatch = phrase.match(/\b(worse|better|agg|amel|after|from)\s+([a-z0-9\s]+)/i);
-    if (modMatch) {
-      modalityNotes = modMatch[0];
+    if (c.modalities.length > 0) {
+      modalityNotes = c.modalities
+        .map((m) => `${m.direction} from ${m.factor}`)
+        .join(", ");
+    } else {
+      const modMatch = phrase.match(/\b(worse|better|agg|amel|after|from)\s+([a-z0-9\s]+)/i);
+      if (modMatch) {
+        modalityNotes = modMatch[0];
+      }
+    }
+
+    if (c.timeOfDay && !modalityNotes?.includes(c.timeOfDay)) {
+      modalityNotes = modalityNotes
+        ? `${modalityNotes}; at ${c.timeOfDay}`
+        : `worse at ${c.timeOfDay}`;
     }
 
     const startPos = text.indexOf(phrase);
@@ -303,7 +321,7 @@ function mockRuleBasedExtract(text: string): {
       category,
       phrase,
       english_translation: phrase,
-      negation: isNegated,
+      negation: c.negated,
       modality_notes: modalityNotes,
       source_span_start: startPos >= 0 ? startPos : 0,
       source_span_end: startPos >= 0 ? startPos + phrase.length : phrase.length,
@@ -313,13 +331,13 @@ function mockRuleBasedExtract(text: string): {
   });
 
   const missing: string[] = [];
-  if (!/\b(thirst|drinks|water)\b/i.test(text)) {
+  if (!/\b(thirst|drinks|water|pyaas)\b/i.test(text)) {
     missing.push("Thirst: Is the patient thirsty, thirstless, or wanting small sips?");
   }
-  if (!/\b(warmth|cold|chilly|hot)\b/i.test(text)) {
+  if (!/\b(warmth|cold|chilly|hot|thand|garmi)\b/i.test(text)) {
     missing.push("Thermal state: Is the patient generally chilly or hot-blooded?");
   }
-  if (!/\b(sleep|dreams|night)\b/i.test(text)) {
+  if (!/\b(sleep|dreams|night|neend|raat)\b/i.test(text)) {
     missing.push("Sleep: Any particular sleep position, insomnia, or restless tossing?");
   }
 

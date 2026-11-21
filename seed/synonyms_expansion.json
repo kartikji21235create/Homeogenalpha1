@@ -1,0 +1,1336 @@
+{
+ "_readme": "Layman/Hinglish/Hindi phrase -> classical search terms. These feed the retrieval synonym expander; they do NOT assert any repertory grade or rubric. Have a native-speaking practitioner review before release, then grow this list from real search logs (queries that returned no accepted rubric). Spellings in romanised Hindi vary - add variants as they appear in logs.",
+ "count": 143,
+ "entries": [
+  {
+   "term": "chubhne wala dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "stitching"
+   ]
+  },
+  {
+   "term": "sui chubhne jaisa dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "stitching"
+   ]
+  },
+  {
+   "term": "phatne jaisa dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "bursting"
+   ]
+  },
+  {
+   "term": "dhadakne wala dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "throbbing"
+   ]
+  },
+  {
+   "term": "kaatne jaisa dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "cutting"
+   ]
+  },
+  {
+   "term": "jalan wala dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "burning"
+   ]
+  },
+  {
+   "term": "dabane wala dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "pressing"
+   ]
+  },
+  {
+   "term": "khinchne wala dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "drawing"
+   ]
+  },
+  {
+   "term": "marodne jaisa dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "twisting",
+    "griping"
+   ]
+  },
+  {
+   "term": "kuchalne jaisa dard",
+   "lang": "hinglish",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "bruised",
+    "sore"
+   ]
+  },
+  {
+   "term": "stabbing pain",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "stitching"
+   ]
+  },
+  {
+   "term": "shooting pain",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "pain",
+    "shooting"
+   ]
+  },
+  {
+   "term": "pins and needles",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "numbness",
+    "tingling"
+   ]
+  },
+  {
+   "term": "pounding headache",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "head",
+    "pain",
+    "throbbing"
+   ]
+  },
+  {
+   "term": "splitting headache",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "head",
+    "pain",
+    "bursting"
+   ]
+  },
+  {
+   "term": "like a band around the head",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "head",
+    "pain",
+    "constricting band"
+   ]
+  },
+  {
+   "term": "burning sensation",
+   "lang": "en-colloquial",
+   "category": "pain-character",
+   "canonical": [
+    "burning"
+   ]
+  },
+  {
+   "term": "sir dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "head",
+    "pain"
+   ]
+  },
+  {
+   "term": "aadhe sir ka dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "head",
+    "pain",
+    "one-sided"
+   ]
+  },
+  {
+   "term": "pet dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "abdomen",
+    "pain"
+   ]
+  },
+  {
+   "term": "pet phoolna",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "abdomen",
+    "distension",
+    "flatulence"
+   ]
+  },
+  {
+   "term": "pet mein gas",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "abdomen",
+    "flatulence"
+   ]
+  },
+  {
+   "term": "seene mein dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "chest",
+    "pain"
+   ]
+  },
+  {
+   "term": "kamar dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "back",
+    "pain",
+    "lumbar"
+   ]
+  },
+  {
+   "term": "gardan dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "back",
+    "pain",
+    "cervical"
+   ]
+  },
+  {
+   "term": "ghutne mein dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "extremities",
+    "pain",
+    "knee"
+   ]
+  },
+  {
+   "term": "jodon ka dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "extremities",
+    "pain",
+    "joints"
+   ]
+  },
+  {
+   "term": "kaan dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "ear",
+    "pain"
+   ]
+  },
+  {
+   "term": "aankh mein jalan",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "eye",
+    "burning"
+   ]
+  },
+  {
+   "term": "aankh se paani",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "eye",
+    "lachrymation"
+   ]
+  },
+  {
+   "term": "gale mein dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "throat",
+    "pain"
+   ]
+  },
+  {
+   "term": "gala kharab",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "throat",
+    "pain",
+    "soreness"
+   ]
+  },
+  {
+   "term": "daant dard",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "teeth",
+    "pain"
+   ]
+  },
+  {
+   "term": "peshab mein jalan",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "urinary organs",
+    "urination",
+    "burning"
+   ]
+  },
+  {
+   "term": "baar baar peshab",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "urinary organs",
+    "urination",
+    "frequent"
+   ]
+  },
+  {
+   "term": "baal jhadna",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "head",
+    "hair",
+    "falling"
+   ]
+  },
+  {
+   "term": "muh mein chaale",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "mouth",
+    "ulcers",
+    "aphthae"
+   ]
+  },
+  {
+   "term": "pairon mein jalan",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "extremities",
+    "burning",
+    "feet"
+   ]
+  },
+  {
+   "term": "haath pair thande",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "extremities",
+    "coldness"
+   ]
+  },
+  {
+   "term": "talwon mein jalan",
+   "lang": "hinglish",
+   "category": "region",
+   "canonical": [
+    "extremities",
+    "burning",
+    "soles"
+   ]
+  },
+  {
+   "term": "kabz",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "rectum",
+    "constipation"
+   ]
+  },
+  {
+   "term": "kabj",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "rectum",
+    "constipation"
+   ]
+  },
+  {
+   "term": "dast",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stool",
+    "diarrhoea"
+   ]
+  },
+  {
+   "term": "patle dast",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stool",
+    "diarrhoea",
+    "watery"
+   ]
+  },
+  {
+   "term": "ulti",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "vomiting"
+   ]
+  },
+  {
+   "term": "ji michlana",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "nausea"
+   ]
+  },
+  {
+   "term": "khatti dakar",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "eructations",
+    "sour"
+   ]
+  },
+  {
+   "term": "seene mein jalan",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "heartburn"
+   ]
+  },
+  {
+   "term": "bhookh nahi lagti",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "appetite",
+    "diminished"
+   ]
+  },
+  {
+   "term": "bhookh zyada lagti hai",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "stomach",
+    "appetite",
+    "increased"
+   ]
+  },
+  {
+   "term": "khansi",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "cough"
+   ]
+  },
+  {
+   "term": "sukhi khansi",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "cough",
+    "dry"
+   ]
+  },
+  {
+   "term": "balgam wali khansi",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "cough",
+    "loose",
+    "expectoration"
+   ]
+  },
+  {
+   "term": "kaali khansi",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "cough",
+    "whooping",
+    "spasmodic"
+   ]
+  },
+  {
+   "term": "saans phoolna",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "respiration",
+    "difficult"
+   ]
+  },
+  {
+   "term": "saans lene mein taklif",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "respiration",
+    "difficult"
+   ]
+  },
+  {
+   "term": "sine mein ghar-ghar",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "chest",
+    "rattling",
+    "mucus"
+   ]
+  },
+  {
+   "term": "zukam",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "nose",
+    "coryza"
+   ]
+  },
+  {
+   "term": "jukam",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "nose",
+    "coryza"
+   ]
+  },
+  {
+   "term": "naak behna",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "nose",
+    "discharge"
+   ]
+  },
+  {
+   "term": "naak band",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "nose",
+    "obstruction"
+   ]
+  },
+  {
+   "term": "chheenk",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "nose",
+    "sneezing"
+   ]
+  },
+  {
+   "term": "gala baithna",
+   "lang": "hinglish",
+   "category": "digestive-respiratory",
+   "canonical": [
+    "larynx",
+    "hoarseness"
+   ]
+  },
+  {
+   "term": "gussa",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "anger"
+   ]
+  },
+  {
+   "term": "chidchidapan",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "irritability"
+   ]
+  },
+  {
+   "term": "ghabrahat",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "anxiety"
+   ]
+  },
+  {
+   "term": "darr lagna",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "fear"
+   ]
+  },
+  {
+   "term": "udasi",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "sadness"
+   ]
+  },
+  {
+   "term": "rona aana",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "weeping"
+   ]
+  },
+  {
+   "term": "akela rehna pasand",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "company",
+    "aversion to"
+   ]
+  },
+  {
+   "term": "akelepan se darr",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "fear",
+    "alone, of being"
+   ]
+  },
+  {
+   "term": "sab kuch bhool jana",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "forgetful"
+   ]
+  },
+  {
+   "term": "dhyan nahi lagta",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "concentration",
+    "difficult"
+   ]
+  },
+  {
+   "term": "sandeh karna",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "suspicious"
+   ]
+  },
+  {
+   "term": "bechaini",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "restlessness"
+   ]
+  },
+  {
+   "term": "jaldbaazi",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "hurry"
+   ]
+  },
+  {
+   "term": "sharmila",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "timidity",
+    "bashful"
+   ]
+  },
+  {
+   "term": "sehanubhuti pasand nahi",
+   "lang": "hinglish",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "consolation",
+    "aggravates"
+   ]
+  },
+  {
+   "term": "keeps everything bottled up",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "reserved",
+    "ailments from suppressed emotions"
+   ]
+  },
+  {
+   "term": "cries easily",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "weeping",
+    "easily"
+   ]
+  },
+  {
+   "term": "hates being consoled",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "consolation",
+    "aggravates"
+   ]
+  },
+  {
+   "term": "afraid of the dark",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "fear",
+    "dark, of"
+   ]
+  },
+  {
+   "term": "snaps at people",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "irritability"
+   ]
+  },
+  {
+   "term": "panic attacks",
+   "lang": "en-colloquial",
+   "category": "mind",
+   "canonical": [
+    "mind",
+    "anxiety",
+    "attacks, in"
+   ]
+  },
+  {
+   "term": "neend nahi aati",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "sleep",
+    "sleeplessness"
+   ]
+  },
+  {
+   "term": "raat ko neend khulti hai",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "sleep",
+    "waking",
+    "night"
+   ]
+  },
+  {
+   "term": "dara-wane sapne",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "sleep",
+    "dreams",
+    "frightful"
+   ]
+  },
+  {
+   "term": "bukhar",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "fever"
+   ]
+  },
+  {
+   "term": "kaanp kar bukhar",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "chill",
+    "shaking"
+   ]
+  },
+  {
+   "term": "thand lagna",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "chill"
+   ]
+  },
+  {
+   "term": "pasina",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "perspiration"
+   ]
+  },
+  {
+   "term": "raat ko pasina",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "perspiration",
+    "night"
+   ]
+  },
+  {
+   "term": "badbudar pasina",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "perspiration",
+    "odour",
+    "offensive"
+   ]
+  },
+  {
+   "term": "khujli",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "skin",
+    "itching"
+   ]
+  },
+  {
+   "term": "daane",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "skin",
+    "eruptions"
+   ]
+  },
+  {
+   "term": "phunsiyan",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "skin",
+    "eruptions",
+    "pustular"
+   ]
+  },
+  {
+   "term": "daad",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "skin",
+    "eruptions",
+    "ringworm"
+   ]
+  },
+  {
+   "term": "sookhi chamdi",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "skin",
+    "dryness"
+   ]
+  },
+  {
+   "term": "chakkar",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "vertigo"
+   ]
+  },
+  {
+   "term": "kamzori",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "generalities",
+    "weakness"
+   ]
+  },
+  {
+   "term": "thakaan",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "generalities",
+    "weariness"
+   ]
+  },
+  {
+   "term": "sujan",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "generalities",
+    "swelling"
+   ]
+  },
+  {
+   "term": "pyaas zyada",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "thirst",
+    "increased"
+   ]
+  },
+  {
+   "term": "pyaas nahi",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "thirst",
+    "absent"
+   ]
+  },
+  {
+   "term": "thanda paani pasand",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "desires",
+    "cold drinks"
+   ]
+  },
+  {
+   "term": "meetha khane ki ichha",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "desires",
+    "sweets"
+   ]
+  },
+  {
+   "term": "namkeen khane ki ichha",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "desires",
+    "salt"
+   ]
+  },
+  {
+   "term": "khatta pasand",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "stomach",
+    "desires",
+    "sour"
+   ]
+  },
+  {
+   "term": "thand bardasht nahi",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "generalities",
+    "cold",
+    "aggravates",
+    "chilly"
+   ]
+  },
+  {
+   "term": "garmi bardasht nahi",
+   "lang": "hinglish",
+   "category": "systemic",
+   "canonical": [
+    "generalities",
+    "heat",
+    "aggravates",
+    "hot-blooded"
+   ]
+  },
+  {
+   "term": "thand se badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "cold"
+   ]
+  },
+  {
+   "term": "garmi se badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "heat"
+   ]
+  },
+  {
+   "term": "nami se badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "damp weather"
+   ]
+  },
+  {
+   "term": "raat ko badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "night"
+   ]
+  },
+  {
+   "term": "subah badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "morning"
+   ]
+  },
+  {
+   "term": "hilne se badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "motion"
+   ]
+  },
+  {
+   "term": "hilne se aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "motion"
+   ]
+  },
+  {
+   "term": "dabane se aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "pressure"
+   ]
+  },
+  {
+   "term": "garmi se aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "warmth"
+   ]
+  },
+  {
+   "term": "thand se aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "cold"
+   ]
+  },
+  {
+   "term": "khuli hawa mein aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "open air"
+   ]
+  },
+  {
+   "term": "lete rehne se aaram",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "better",
+    "lying"
+   ]
+  },
+  {
+   "term": "khane ke baad badhna",
+   "lang": "hinglish",
+   "category": "modality",
+   "canonical": [
+    "worse",
+    "after eating"
+   ]
+  },
+  {
+   "term": "सिर दर्द",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "head",
+    "pain"
+   ]
+  },
+  {
+   "term": "पेट दर्द",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "abdomen",
+    "pain"
+   ]
+  },
+  {
+   "term": "कब्ज",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "rectum",
+    "constipation"
+   ]
+  },
+  {
+   "term": "दस्त",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "stool",
+    "diarrhoea"
+   ]
+  },
+  {
+   "term": "उल्टी",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "stomach",
+    "vomiting"
+   ]
+  },
+  {
+   "term": "खांसी",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "cough"
+   ]
+  },
+  {
+   "term": "जुकाम",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "nose",
+    "coryza"
+   ]
+  },
+  {
+   "term": "बुखार",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "fever"
+   ]
+  },
+  {
+   "term": "खुजली",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "skin",
+    "itching"
+   ]
+  },
+  {
+   "term": "चक्कर",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "vertigo"
+   ]
+  },
+  {
+   "term": "कमज़ोरी",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "generalities",
+    "weakness"
+   ]
+  },
+  {
+   "term": "घबराहट",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "mind",
+    "anxiety"
+   ]
+  },
+  {
+   "term": "गुस्सा",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "mind",
+    "anger"
+   ]
+  },
+  {
+   "term": "डर",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "mind",
+    "fear"
+   ]
+  },
+  {
+   "term": "नींद न आना",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "sleep",
+    "sleeplessness"
+   ]
+  },
+  {
+   "term": "प्यास",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "stomach",
+    "thirst"
+   ]
+  },
+  {
+   "term": "पसीना",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "perspiration"
+   ]
+  },
+  {
+   "term": "कमर दर्द",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "back",
+    "pain",
+    "lumbar"
+   ]
+  },
+  {
+   "term": "जोड़ों का दर्द",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "extremities",
+    "pain",
+    "joints"
+   ]
+  },
+  {
+   "term": "गला खराब",
+   "lang": "hi",
+   "category": "devanagari",
+   "canonical": [
+    "throat",
+    "pain",
+    "soreness"
+   ]
+  }
+ ]
+}

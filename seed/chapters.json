@@ -1,0 +1,9 @@
+{
+  "_note": "'chapters' = accepted first path segments (your 31). Add more ONLY after confirming against the book's table of contents. 'verify_against_scan' lists chapters I believe some Kent editions print separately (instead of one merged 'Urinary Organs'); they are NOT accepted until you move them into 'chapters'.",
+  "chapters": [
+    "Mind","Vertigo","Head","Eye","Vision","Ear","Hearing","Nose","Face","Mouth","Teeth","Throat",
+    "Stomach","Abdomen","Rectum","Stool","Urinary Organs","Genitalia","Larynx & Trachea","Respiration",
+    "Cough","Expectoration","Chest","Back","Extremities","Sleep","Chill","Fever","Perspiration","Skin","Generalities"
+  ],
+  "verify_against_scan": ["External Throat","Bladder","Kidneys","Prostate Gland","Urethra","Urine"]
+}

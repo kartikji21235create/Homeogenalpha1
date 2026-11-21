@@ -1,0 +1,15 @@
+{
+  "_readme": "Each case must be verified by >=1 practising homoeopath and carry a source. Keep ~70% 'dev', ~30% 'test'. Never tune against 'test'. Target >=100 cases before trusting any metric, 300 for per-chapter breakdowns.",
+  "cases": [
+    {
+      "id": "EXAMPLE-DO-NOT-USE",
+      "split": "dev",
+      "narrative": "<anonymised narrative as typed by the doctor>",
+      "expectedRubricIds": ["<rubric id a physician would confirm>"],
+      "confirmedRubrics": [{ "id": "<rubric id>", "weight": 3 }],
+      "expectedRemedyIds": [0],
+      "source": "<e.g. Kent Lectures, case name | clinic case id (anonymised)>",
+      "verifiedBy": []
+    }
+  ]
+}

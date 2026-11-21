@@ -1,0 +1,12 @@
+{
+  "_note": "Per-source grade scale. max_grade MUST be set from the book's own legend/preface; the pipeline refuses sources with null/0. grade_map converts a source's raw grade to your canonical 1..4 (omit for identity). merge_priority = which source wins when sources disagree (all grades are still kept in 'sources' provenance and listed in grade_conflicts_report.json).",
+  "merge_priority": ["kent_1897", "boenninghausen_rep", "boger_boenninghausen", "knerr_hering", "boericke_rep", "publicum"],
+  "sources": {
+    "kent_1897":            { "max_grade": 3, "grade_map": {}, "verify": "Kent's typography is plain/italic/bold (3 grades) as far as I know - confirm in the preface. Your report lists grades 1-4 for Kent; decide and record the conversion rule here." },
+    "boenninghausen_rep":   { "max_grade": null, "grade_map": {}, "verify": "set from the book legend" },
+    "boger_boenninghausen": { "max_grade": null, "grade_map": {}, "verify": "set from the book legend" },
+    "knerr_hering":         { "max_grade": null, "grade_map": {}, "verify": "set from the book legend" },
+    "boericke_rep":         { "max_grade": null, "grade_map": {}, "verify": "set from the book legend (many Boericke entries are ungraded - decide a default)" },
+    "publicum":             { "max_grade": null, "grade_map": {}, "verify": "check OpenRep's grade scale and licence terms" }
+  }
+}
