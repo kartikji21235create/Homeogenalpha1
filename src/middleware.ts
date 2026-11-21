@@ -16,7 +16,7 @@ const WINDOW_MS = 60 * 1000; // 1 minute window
 const MAX_REQUESTS_PER_MINUTE = 60;
 
 // Routes that do NOT require authentication
-const PUBLIC_ROUTES = ["/login", "/privacy-notice", "/api/auth", "/share"];
+const PUBLIC_ROUTES = ["/login", "/privacy-notice", "/api/auth", "/api/health", "/share"];
 
 function getClientIdentifier(req: NextRequest): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -32,8 +32,8 @@ function isPublicRoute(pathname: string): boolean {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // 1. Rate limiting for API routes
-  if (pathname.startsWith("/api")) {
+  // 1. Rate limiting for API routes (exclude health probes)
+  if (pathname.startsWith("/api") && pathname !== "/api/health") {
     const clientKey = getClientIdentifier(req);
     const now = Date.now();
 

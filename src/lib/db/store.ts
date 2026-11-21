@@ -13,6 +13,7 @@ import {
   RankedMedicineResult,
   ScoringSnapshot,
 } from "../scoring";
+import { scoreV2, PROFILE_KENTIAN, ConfirmedRubric as V2ConfirmedRubric, Mapping as V2Mapping } from "../scoring_v2";
 
 export interface DoctorRecord {
   id: string;
@@ -153,6 +154,26 @@ export interface MateriaMedicaRecord {
   cited_passages: MateriaMedicaPassage[];
 }
 
+export interface AuditLogRecord {
+  id: string;
+  doctor_id: string;
+  action: string;
+  target_type: "consultation" | "rubric" | "prescription" | "patient";
+  target_id: string;
+  details?: Record<string, any>;
+  created_at: string;
+}
+
+export interface SearchMissRecord {
+  id: string;
+  doctor_id?: string;
+  query: string;
+  chapter?: string;
+  results_count: number;
+  reason?: string;
+  created_at: string;
+}
+
 class InMemoryDb {
   public doctors = new Map<string, DoctorRecord>();
   public patients = new Map<string, PatientRecord>();
@@ -171,6 +192,8 @@ class InMemoryDb {
   public remedyMappings: any[] = [];
   public synonyms: SynonymEntry[] = [];
   public rubricPathLookup = new Map<number, string>();
+  public auditLogs: AuditLogRecord[] = [];
+  public searchMisses: SearchMissRecord[] = [];
 
   constructor() {
     this.initSeedData();
@@ -285,13 +308,15 @@ export async function saveConfirmedRubrics(
     confirmed_at: new Date().toISOString(),
   }));
   db.confirmedRubrics.set(consultationId, records);
+  await logAuditTrail(doctorId, "confirm_rubrics", "rubric", consultationId, { count: items.length });
 }
 
 export async function executeDeterministicScoring(
   consultationId: string,
   expectedRevision: number,
-  repertoryId = "kent_1897"
-): Promise<{ rubric_revision: number; scoring_mode: string; ranked: RankedMedicineResult[] }> {
+  repertoryId = "kent_1897",
+  scoringVersion?: "v1" | "v2"
+): Promise<{ rubric_revision: number; scoring_mode: string; scoring_version: string; ranked: RankedMedicineResult[] }> {
   const consultation = await getConsultation(consultationId);
   if (!consultation) {
     throw new Error("Consultation not found");
@@ -322,17 +347,61 @@ export async function executeDeterministicScoring(
     throw error;
   }
 
-  const confirmedItems: ConfirmedRubricItem[] = confirmed.map((c) => ({
-    rubric_id: c.rubric_id,
-    weight: c.weight,
-  }));
+  const activeVersion = scoringVersion || (process.env.SCORING_VERSION === "v2" ? "v2" : "v1");
+  let ranked: RankedMedicineResult[] = [];
 
-  const ranked = calculateRepertorizationScore(
-    confirmedItems,
-    db.remedyMappings,
-    db.remedies,
-    12
-  );
+  if (activeVersion === "v2") {
+    // Scoring v2: type multipliers, eliminators, parent-child overlap handling
+    const v2Confirmed: V2ConfirmedRubric[] = confirmed.map((c) => {
+      const rubricObj = db.rubrics.find((r) => r.id === c.rubric_id);
+      const ch = rubricObj?.chapter?.toLowerCase() || "";
+      const rubricType: "mental" | "general" | "particular" =
+        ch === "mind" ? "mental" : ch === "generalities" ? "general" : "particular";
+      return {
+        id: String(c.rubric_id),
+        type: rubricType,
+        weight: c.weight as 1 | 2 | 3 | 4,
+      };
+    });
+
+    const v2Mappings: V2Mapping[] = db.remedyMappings.map((m) => ({
+      remedyId: m.medicine_id,
+      rubricId: String(m.rubric_id),
+      grade: m.grade as 1 | 2 | 3 | 4,
+    }));
+
+    const v2Scores = scoreV2(v2Confirmed, v2Mappings, {
+      typeMultiplierPct: PROFILE_KENTIAN,
+      limit: 12,
+    });
+
+    const remedyMap = new Map<number, any>(db.remedies.map((r) => [r.id, r]));
+    ranked = v2Scores.map((s) => ({
+      medicine_id: s.remedyId,
+      common_name: remedyMap.get(s.remedyId)?.common_name || `Remedy #${s.remedyId}`,
+      score: s.score,
+      rubrics_covered: s.rubricsCovered,
+      breakdown: s.breakdown.map((b) => ({
+        rubric_id: Number(b.rubricId),
+        grade: b.grade,
+        weight: b.weight,
+        subtotal: b.centi / 100,
+      })),
+    }));
+  } else {
+    // Scoring v1: classical additive grade * weight with stable tiebreaker
+    const confirmedItems: ConfirmedRubricItem[] = confirmed.map((c) => ({
+      rubric_id: c.rubric_id,
+      weight: c.weight,
+    }));
+
+    ranked = calculateRepertorizationScore(
+      confirmedItems,
+      db.remedyMappings,
+      db.remedies,
+      12
+    );
+  }
 
   consultation.state = "REVIEW_MEDICINES";
   consultation.updated_at = new Date().toISOString();
@@ -341,6 +410,7 @@ export async function executeDeterministicScoring(
   return {
     rubric_revision: consultation.rubric_revision,
     scoring_mode: consultation.scoring_mode,
+    scoring_version: activeVersion,
     ranked,
   };
 }
@@ -415,6 +485,12 @@ export async function createPrescriptionRecord(
   consultation.state = "DONE";
   consultation.updated_at = new Date().toISOString();
   await saveConsultation(consultation);
+
+  await logAuditTrail(payload.doctor_id, "issue_prescription", "prescription", prescription.id, {
+    medicine_id: payload.medicine_id,
+    potency: payload.potency,
+    consultation_id: payload.consultation_id,
+  });
 
   // Automatically record prescription event in case timeline
   const remedyName = db.remedies.find((r) => r.id === payload.medicine_id)?.common_name || "Remedy";
@@ -790,4 +866,65 @@ export async function searchMateriaMedicaPassages(query: string): Promise<
   }
 
   return results;
+}
+
+/**
+ * Audit Trail Logging (Clinical Governance)
+ */
+export async function logAuditTrail(
+  doctorId: string,
+  action: string,
+  targetType: AuditLogRecord["target_type"],
+  targetId: string,
+  details?: Record<string, any>
+): Promise<AuditLogRecord> {
+  const record: AuditLogRecord = {
+    id: `audit_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    doctor_id: doctorId,
+    action,
+    target_type: targetType,
+    target_id: targetId,
+    details,
+    created_at: new Date().toISOString(),
+  };
+  db.auditLogs.push(record);
+  return record;
+}
+
+export async function getAuditLogs(
+  doctorId?: string,
+  targetId?: string
+): Promise<AuditLogRecord[]> {
+  return db.auditLogs.filter((log) => {
+    if (doctorId && log.doctor_id !== doctorId) return false;
+    if (targetId && log.target_id !== targetId) return false;
+    return true;
+  });
+}
+
+/**
+ * Search Misses Logging (Synonym Mining & Lexical Gaps)
+ */
+export async function logSearchMiss(
+  query: string,
+  resultsCount: number,
+  doctorId?: string,
+  chapter?: string,
+  reason?: string
+): Promise<SearchMissRecord> {
+  const record: SearchMissRecord = {
+    id: `miss_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    doctor_id: doctorId,
+    query,
+    chapter,
+    results_count: resultsCount,
+    reason,
+    created_at: new Date().toISOString(),
+  };
+  db.searchMisses.push(record);
+  return record;
+}
+
+export async function getSearchMisses(limit = 100): Promise<SearchMissRecord[]> {
+  return db.searchMisses.slice(-limit);
 }

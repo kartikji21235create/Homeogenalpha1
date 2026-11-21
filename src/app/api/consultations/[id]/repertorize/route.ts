@@ -12,7 +12,7 @@ export async function POST(
 
     const { id } = await context.params;
     const body = await req.json().catch(() => ({}));
-    const { base_revision, repertory_id = "kent_1897" } = body;
+    const { base_revision, repertory_id = "kent_1897", scoring_version } = body;
 
     const consultation = await getConsultation(id);
     if (!consultation) {
@@ -49,7 +49,8 @@ export async function POST(
     const result = await executeDeterministicScoring(
       id,
       base_revision,
-      repertory_id
+      repertory_id,
+      scoring_version
     );
 
     return NextResponse.json({
