@@ -158,7 +158,7 @@ async function main() {
         };
       });
 
-      const scored = scoreV2(v2Confirmed, v2Mappings, remedies.map((r) => r.id), {
+      const scored = scoreV2(v2Confirmed, v2Mappings, {
         typeMultiplierPct: PROFILE_KENTIAN,
         limit: 20,
       });
