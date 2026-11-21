@@ -7,10 +7,19 @@ interface RateLimitRecord {
   resetAt: number;
 }
 
-// In-memory rate limiting map: ip/token -> record
-// NOTE: In serverless environments (Vercel, Cloud Run), this map resets on each
-// cold start. For multi-instance production, use Redis or Vercel KV.
+// Bounded in-memory rate limiting map with LRU eviction and cleanup
 const rateLimitMap = new Map<string, RateLimitRecord>();
+const MAX_RATE_LIMIT_ENTRIES = 5000;
+
+function cleanupRateLimitMap(now: number) {
+  if (rateLimitMap.size > MAX_RATE_LIMIT_ENTRIES) {
+    for (const [key, record] of rateLimitMap.entries()) {
+      if (now > record.resetAt) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }
+}
 
 const WINDOW_MS = 60 * 1000; // 1 minute window
 const MAX_REQUESTS_PER_MINUTE = 60;
@@ -32,10 +41,12 @@ function isPublicRoute(pathname: string): boolean {
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // 1. Rate limiting for API routes (exclude health probes)
-  if (pathname.startsWith("/api") && pathname !== "/api/health") {
+  // 1. Rate limiting for API routes (exclude health probes and admin backups)
+  if (pathname.startsWith("/api") && pathname !== "/api/health" && pathname !== "/api/admin/backup") {
     const clientKey = getClientIdentifier(req);
     const now = Date.now();
+
+    cleanupRateLimitMap(now);
 
     const record = rateLimitMap.get(clientKey);
 

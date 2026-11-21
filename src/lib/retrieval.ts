@@ -73,7 +73,9 @@ export interface CandidateRubric {
   fts_rank?: number;
   vector_rank?: number;
   repertory_id?: string;
-  sources?: Array<{ book: string; edition?: string; page?: string }>;
+  sources?: Array<{ book: string; edition?: string; page?: string; verified?: boolean; verified_by?: string }>;
+  verification_status?: "VERIFIED" | "PROPOSED" | "AUDITED";
+  see_also?: string[];
 }
 
 export interface StoredRubric {
@@ -82,7 +84,9 @@ export interface StoredRubric {
   rubric_path: string;
   embedding: number[];
   repertory_id?: string;
-  sources?: Array<{ book: string; edition?: string; page?: string }>;
+  sources?: Array<{ book: string; edition?: string; page?: string; verified?: boolean; verified_by?: string }>;
+  verification_status?: "VERIFIED" | "PROPOSED" | "AUDITED";
+  see_also?: string[];
 }
 
 export interface SynonymEntry {
@@ -252,6 +256,8 @@ function singleAspectHybridSearch(
       vector_rank: vRank,
       repertory_id: r.repertory_id,
       sources: r.sources,
+      verification_status: r.verification_status || "VERIFIED",
+      see_also: r.see_also || [],
     };
   });
 

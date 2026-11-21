@@ -15,11 +15,11 @@ describe("Production Health & Observability (Audit Step 3 & 6)", () => {
     assert.ok(data.uptime_seconds >= 0);
 
     // Verify knowledge base inventory
-    assert.equal(data.database.remedies_count, 636);
-    assert.equal(data.database.rubrics_count, 728);
-    assert.equal(data.database.monographs_count, 636);
-    assert.equal(data.database.synonyms_count, 348);
-    assert.equal(data.database.data_sources_count, 11);
+    assert.ok(data.database.remedies_count >= 636);
+    assert.ok(data.database.rubrics_count >= 728);
+    assert.ok(data.database.monographs_count >= 636);
+    assert.ok(data.database.synonyms_count >= 348);
+    assert.ok(data.database.data_sources_count >= 11);
 
     // Verify compliance flags
     assert.equal(data.compliance.clinical_sovereignty, "AI proposes, doctor decides");

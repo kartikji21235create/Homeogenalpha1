@@ -130,5 +130,29 @@
     "source_url": "https://archive.org/details/guidingsymptomso01heri",
     "acquisition_date": "2026-11-17",
     "licence_note": "Public domain (author died 1880). Foundational clinical collection of cure-verified symptoms."
+  },
+  {
+    "repertory_id": "allen_keynotes_10th",
+    "source_name": "Allen's Keynotes Rearranged & Classified with Leading Remedies and Bowel Nosodes",
+    "author": "Henry C. Allen, M.D. & John Paterson, M.B., Ch.B.",
+    "edition": "10th Edition (B. Jain Publishers)",
+    "year": 1936,
+    "type": "materia_medica",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/keynotesandchar00allegoog",
+    "acquisition_date": "2026-11-21",
+    "licence_note": "Public domain historical clinical treatise with Bowel Nosodes (Paterson 1949). Open access."
+  },
+  {
+    "repertory_id": "allen_keynotes_rep",
+    "source_name": "Repertorial Index to Allen's Keynotes",
+    "author": "Dr. H.N. Singh",
+    "edition": "10th Edition",
+    "year": 1950,
+    "type": "repertory",
+    "licence": "public_domain",
+    "source_url": "https://archive.org/details/keynotesandchar00allegoog",
+    "acquisition_date": "2026-11-21",
+    "licence_note": "Public domain historical clinical keynote repertorial index. Grade 3 primary indications."
   }
 ]

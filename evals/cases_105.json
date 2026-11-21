@@ -1,0 +1,3469 @@
+{
+  "_meta": {
+    "total": 105,
+    "dev": 75,
+    "test": 30
+  },
+  "cases": [
+    {
+      "id": "eval_001",
+      "split": "dev",
+      "narrative": "Patient presents with extreme anxiety about health and fear of death, intense restlessness, moving from bed to bed. Complains of burning pains in stomach relieved by warm sips of water. Prostration is out of proportion to illness.",
+      "expectedRubricIds": [
+        "1",
+        "39",
+        "2",
+        "13",
+        "96"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "1",
+          "weight": 4
+        },
+        {
+          "id": "39",
+          "weight": 3
+        },
+        {
+          "id": "2",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 3
+        },
+        {
+          "id": "96",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        1
+      ],
+      "source": "Kent Lectures on Materia Medica, p. 128",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_002",
+      "split": "dev",
+      "narrative": "Young female patient is weeping gently while describing her symptoms, extremely affectionate and desires consolation which improves her mood. Has a dry mouth but completely thirstless. Worse in a warm close room, craves open fresh air.",
+      "expectedRubricIds": [
+        "546",
+        "1",
+        "14",
+        "168",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "546",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 3
+        },
+        {
+          "id": "14",
+          "weight": 4
+        },
+        {
+          "id": "168",
+          "weight": 3
+        },
+        {
+          "id": "8",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        2
+      ],
+      "source": "H.C. Allen Keynotes, Pulsatilla Nigricans",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_003",
+      "split": "dev",
+      "narrative": "Executive patient is highly irritable, impatient, cannot bear noise or light or being questioned. Suffers from chronic indigestion after alcohol and rich coffee, constant ineffectual urge to stool. Extremely chilly, cannot uncover without shivering.",
+      "expectedRubricIds": [
+        "4",
+        "1",
+        "34",
+        "17",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "4",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 3
+        },
+        {
+          "id": "34",
+          "weight": 4
+        },
+        {
+          "id": "17",
+          "weight": 3
+        },
+        {
+          "id": "9",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        3
+      ],
+      "source": "E.B. Nash Leaders in Homoeopathic Therapeutics, Nux Vomica",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_004",
+      "split": "dev",
+      "narrative": "Patient lies completely motionless on painful side. Any slight motion or coughing causes stitching chest pain. Has immense thirst for large quantities of cold water at long intervals. Dry parched lips and hard dry stool as if burnt.",
+      "expectedRubricIds": [
+        "132",
+        "10",
+        "273",
+        "103",
+        "11"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "132",
+          "weight": 4
+        },
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "273",
+          "weight": 4
+        },
+        {
+          "id": "103",
+          "weight": 3
+        },
+        {
+          "id": "11",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        6
+      ],
+      "source": "Kent Clinical Cases, Case #42 (Pleurisy)",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_005",
+      "split": "dev",
+      "narrative": "Patient has severe stiffness and pain in lower back and joints after getting wet in rain. Pain is agonizing on first moving after rest, but gradually eases up with continued gentle motion. Extremely restless at night, constantly tossing in bed.",
+      "expectedRubricIds": [
+        "10",
+        "11",
+        "9",
+        "2",
+        "136"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        },
+        {
+          "id": "2",
+          "weight": 3
+        },
+        {
+          "id": "136",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        9
+      ],
+      "source": "Boger Synoptic Key, Rhus Tox characteristics",
+      "verifiedBy": [
+        "DR_BOGER_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_006",
+      "split": "dev",
+      "narrative": "Tall, slender, open and sociable patient with intense burning pains in palms, spine and stomach. Great thirst for ice-cold water, which feels pleasant initially but is vomited as soon as it becomes warm in the stomach. Fear of thunderstorms, dark, and being alone.",
+      "expectedRubricIds": [
+        "22",
+        "544",
+        "13",
+        "95",
+        "158"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "22",
+          "weight": 3
+        },
+        {
+          "id": "544",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 4
+        },
+        {
+          "id": "95",
+          "weight": 4
+        },
+        {
+          "id": "158",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        7
+      ],
+      "source": "Kent Lectures, Phosphorus p. 780",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_007",
+      "split": "dev",
+      "narrative": "Patient complains of excessive flatulence and abdominal distension, especially after eating very little. Symptoms noticeably aggravate between 4 PM and 8 PM. Sore throat and liver pain start on right side and spread to left side. Craves warm drinks and sweets.",
+      "expectedRubricIds": [
+        "19",
+        "163",
+        "638",
+        "15",
+        "16"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "19",
+          "weight": 4
+        },
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "638",
+          "weight": 4
+        },
+        {
+          "id": "15",
+          "weight": 3
+        },
+        {
+          "id": "16",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        5
+      ],
+      "source": "Nash Leaders, Lycopodium",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_008",
+      "split": "dev",
+      "narrative": "Philosophical, untidy patient with burning heat on vertex and soles of feet at night, sticks feet out of bedclothes. Urgently driven out of bed at 5 AM by watery, painless diarrhea. Intense itching of skin, worse from warm bath and scratching.",
+      "expectedRubricIds": [
+        "33",
+        "21",
+        "52",
+        "37",
+        "476"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "33",
+          "weight": 4
+        },
+        {
+          "id": "21",
+          "weight": 4
+        },
+        {
+          "id": "52",
+          "weight": 3
+        },
+        {
+          "id": "37",
+          "weight": 4
+        },
+        {
+          "id": "476",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        4
+      ],
+      "source": "Kent Lectures, Sulphur p. 910",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_009",
+      "split": "dev",
+      "narrative": "Leucophlegmatic constitution with pale skin and tendency to sweat profusely on the head and neck during sleep, wetting pillow. Extremely chilly, sensitive to damp cold air. Chronic constipation, yet feels physically better when constipated. Craves boiled eggs.",
+      "expectedRubricIds": [
+        "594",
+        "9",
+        "92",
+        "34"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "594",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        },
+        {
+          "id": "92",
+          "weight": 4
+        },
+        {
+          "id": "34",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        12
+      ],
+      "source": "H.C. Allen Keynotes, Calcarea Carbonica",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_010",
+      "split": "dev",
+      "narrative": "Reserved patient holding silent unresolved grief and disappointment in love. Worse from consolation which makes her angry and resentful. Severe throbbing bursting headache in forehead and temples, worse from exposure to sun and mental exertion. Marked craving for salt.",
+      "expectedRubricIds": [
+        "5",
+        "41",
+        "31",
+        "32"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "5",
+          "weight": 4
+        },
+        {
+          "id": "41",
+          "weight": 4
+        },
+        {
+          "id": "31",
+          "weight": 4
+        },
+        {
+          "id": "32",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        10
+      ],
+      "source": "Kent Lectures, Natrum Muriaticum",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_011",
+      "split": "dev",
+      "narrative": "Yielding, timid patient lacking self-confidence, yet obstinate when pushed. Extremely sensitive to cold, wears a woolen cap even in summer to wrap head warmly. Recurrent suppurating ingrown toenails and boils. Profuse, foul-smelling foot sweat that burns between toes.",
+      "expectedRubricIds": [
+        "184",
+        "9",
+        "54",
+        "155",
+        "159"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "184",
+          "weight": 3
+        },
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "54",
+          "weight": 4
+        },
+        {
+          "id": "155",
+          "weight": 4
+        },
+        {
+          "id": "159",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        14
+      ],
+      "source": "Kent Lectures, Silicea",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_012",
+      "split": "dev",
+      "narrative": "Tired, exhausted mother expressing total emotional indifference to her family and children whom she usually loves dearly. Severe sensation of bearing down in pelvic organs, crosses limbs to prevent protrusion. Great amelioration of all symptoms from vigorous exertion and dancing.",
+      "expectedRubricIds": [
+        "178",
+        "115",
+        "11",
+        "76",
+        "12"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "178",
+          "weight": 4
+        },
+        {
+          "id": "115",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        },
+        {
+          "id": "76",
+          "weight": 3
+        },
+        {
+          "id": "12",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        11
+      ],
+      "source": "Nash Leaders, Sepia",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_013",
+      "split": "dev",
+      "narrative": "Sudden violent high fever with hot dry skin, tachycardia, and intense anxiety after exposure to dry cold wind. Patient is in agonizing state of fear and predicts the exact hour of death. Great unquenchable thirst for cold water.",
+      "expectedRubricIds": [
+        "538",
+        "150",
+        "12",
+        "9",
+        "2"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "538",
+          "weight": 4
+        },
+        {
+          "id": "150",
+          "weight": 4
+        },
+        {
+          "id": "12",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        },
+        {
+          "id": "2",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        13
+      ],
+      "source": "Kent Clinical Cases, Case #1 (Acute Sthenic Fever)",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_014",
+      "split": "dev",
+      "narrative": "Sudden onset of intense congestive throbbing headache, centered over right forehead and eye. Face is bright red, skin burning hot to touch, pupils widely dilated and glistening. Extremely sensitive to jarring of bed, touch, or bright light.",
+      "expectedRubricIds": [
+        "53",
+        "8",
+        "242",
+        "208",
+        "150"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "53",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "242",
+          "weight": 4
+        },
+        {
+          "id": "208",
+          "weight": 3
+        },
+        {
+          "id": "150",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        8
+      ],
+      "source": "H.C. Allen Keynotes, Belladonna",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_015",
+      "split": "dev",
+      "narrative": "Loquacious, jealous, suspicious patient whose symptoms strictly begin on left side and move to right side. Wakes up into an aggravation of symptoms, gasping for breath. Cannot tolerate any tight collars, neckties, or waistband touching throat or abdomen.",
+      "expectedRubricIds": [
+        "179",
+        "42",
+        "8",
+        "86"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "179",
+          "weight": 3
+        },
+        {
+          "id": "42",
+          "weight": 3
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "86",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        70
+      ],
+      "source": "Kent Lectures, Lachesis",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_016",
+      "split": "dev",
+      "narrative": "Patient has acute grief and deep emotional shock following a sudden bereavement. Frequently taking involuntary deep sighs. Mood changes rapidly from weeping to laughter. Throat has sensation of a lump (globus hystericus) not relieved by swallowing.",
+      "expectedRubricIds": [
+        "41",
+        "521",
+        "1",
+        "348"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "41",
+          "weight": 4
+        },
+        {
+          "id": "521",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 3
+        },
+        {
+          "id": "348",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        62
+      ],
+      "source": "Boger Synoptic Key, Ignatia",
+      "verifiedBy": [
+        "DR_BOGER_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_017",
+      "split": "dev",
+      "narrative": "Patient had a severe fall with blunt trauma and bruised contusion. Body feels so sore and beaten all over that the bed feels too hard and he constantly shifts position. Claims stubbornly that nothing is wrong with him and sends the doctor away.",
+      "expectedRubricIds": [
+        "38",
+        "8",
+        "103",
+        "410"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "38",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "103",
+          "weight": 4
+        },
+        {
+          "id": "410",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        34
+      ],
+      "source": "Kent Lectures, Arnica Montana",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_018",
+      "split": "dev",
+      "narrative": "Patient presents with complete muscular weakness, heaviness of eyelids, and trembling of hands after stage fright and nervous anticipation. Dull, drowsy state with occipital headache extending over vertex. Completely thirstless during fever.",
+      "expectedRubricIds": [
+        "527",
+        "205",
+        "167",
+        "14",
+        "51"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "527",
+          "weight": 4
+        },
+        {
+          "id": "205",
+          "weight": 4
+        },
+        {
+          "id": "167",
+          "weight": 3
+        },
+        {
+          "id": "14",
+          "weight": 4
+        },
+        {
+          "id": "51",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        57
+      ],
+      "source": "Nash Leaders, Gelsemium",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_019",
+      "split": "dev",
+      "narrative": "Patient is intensely hypersensitive to pain and cannot tolerate the slightest draft of cold air, even pulling hand from under blanket causes coughing. Sharp splinter-like stitching pain in throat radiating to ear on swallowing. Wants head wrapped up warmly.",
+      "expectedRubricIds": [
+        "8",
+        "9",
+        "86",
+        "54"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "86",
+          "weight": 4
+        },
+        {
+          "id": "54",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        59
+      ],
+      "source": "H.C. Allen Keynotes, Hepar Sulphur",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_020",
+      "split": "dev",
+      "narrative": "Patient experiences marked worsening of all symptoms at night in bed. Profuse nocturnal perspiration which affords zero relief. Mouth shows swollen tongue with indentations of teeth along the edges, offensive fetid breath, and excessive bloody salivation.",
+      "expectedRubricIds": [
+        "77",
+        "79",
+        "81",
+        "148",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "77",
+          "weight": 4
+        },
+        {
+          "id": "79",
+          "weight": 4
+        },
+        {
+          "id": "81",
+          "weight": 4
+        },
+        {
+          "id": "148",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        28
+      ],
+      "source": "Kent Lectures, Mercurius",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_021",
+      "split": "dev",
+      "narrative": "Patient presents with chronic health deterioration ever since smallpox vaccination. Displays fixed idea that strange persons are at her side and limbs are made of glass. Examination shows prominent pedunculated fig-warts and condylomata on skin and genitals.",
+      "expectedRubricIds": [
+        "22",
+        "164",
+        "160"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "22",
+          "weight": 3
+        },
+        {
+          "id": "164",
+          "weight": 4
+        },
+        {
+          "id": "160",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        110
+      ],
+      "source": "Kent Lectures, Thuja Occidentalis",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_022",
+      "split": "dev",
+      "narrative": "Deeply compassionate patient who cannot endure injustice or see others suffer without weeping. Suffers from chronic hoarseness in morning and involuntary spurting of urine when coughing or sneezing. Symptoms better in damp wet weather and worse in clear fine weather.",
+      "expectedRubricIds": [
+        "7",
+        "116",
+        "306",
+        "416"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "7",
+          "weight": 4
+        },
+        {
+          "id": "116",
+          "weight": 4
+        },
+        {
+          "id": "306",
+          "weight": 4
+        },
+        {
+          "id": "416",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        15
+      ],
+      "source": "Nash Leaders, Causticum",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_023",
+      "split": "dev",
+      "narrative": "Patient develops severe nervous trembling and burning in urethra after mortification and suppressed anger from being insulted. History of recurrent styes on eyelids leaving hard chalazion nodules, and crumbling carious teeth with black borders.",
+      "expectedRubricIds": [
+        "169",
+        "170",
+        "603",
+        "82"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "169",
+          "weight": 4
+        },
+        {
+          "id": "170",
+          "weight": 4
+        },
+        {
+          "id": "603",
+          "weight": 4
+        },
+        {
+          "id": "82",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        103
+      ],
+      "source": "H.C. Allen Keynotes, Staphysagria",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_024",
+      "split": "dev",
+      "narrative": "Patient is in state of vital collapse after severe acute illness: body feels cold and cyanotic with cold breath and cold sweat on forehead, yet insists on being fanned vigorously close to the face. Severe upper abdominal bloating with frequent sour eructations.",
+      "expectedRubricIds": [
+        "166",
+        "269"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "166",
+          "weight": 4
+        },
+        {
+          "id": "269",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        21
+      ],
+      "source": "Kent Lectures, Carbo Veg (The Great Reviver)",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_025",
+      "split": "dev",
+      "narrative": "Child during dentition is in violent unmanageable rage, snatches toys and throws them away, only pacified when carried constantly. Severe earache and diarrhea resembling chopped spinach with rotten egg odor. One cheek hot and red, other cheek pale and cold.",
+      "expectedRubricIds": [
+        "121",
+        "4",
+        "76",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "121",
+          "weight": 4
+        },
+        {
+          "id": "4",
+          "weight": 4
+        },
+        {
+          "id": "76",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        24
+      ],
+      "source": "Kent Clinical Cases, Case #12 (Pediatric Dentition)",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_026",
+      "split": "dev",
+      "narrative": "Chronically rushed patient who feels time passes too slowly. Suffers from chronic asthma which is remarkably ameliorated by lying flat on abdomen or resting in knee-chest position. Intense burning in soles of feet at night, and marked general amelioration at the seashore.",
+      "expectedRubricIds": [
+        "1",
+        "119",
+        "21",
+        "11"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "1",
+          "weight": 3
+        },
+        {
+          "id": "119",
+          "weight": 4
+        },
+        {
+          "id": "21",
+          "weight": 3
+        },
+        {
+          "id": "11",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        25
+      ],
+      "source": "H.C. Allen Keynotes, Medorrhinum",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_027",
+      "split": "dev",
+      "narrative": "Patient dreads the approach of night because severe tearing bone pains in tibia and skull start at sunset and continue until sunrise. Compulsive hand-washing mania due to constant fear of contamination. Great physical and mental prostration on waking.",
+      "expectedRubricIds": [
+        "1",
+        "163",
+        "64",
+        "22"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "1",
+          "weight": 4
+        },
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "64",
+          "weight": 4
+        },
+        {
+          "id": "22",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        542
+      ],
+      "source": "H.C. Allen Keynotes, Syphilinum",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_028",
+      "split": "dev",
+      "narrative": "Patient has an intense cosmopolitan craving for travel and cannot remain long in any one place. Rapidly takes cold from the slightest change of temperature. Narrow sunken chest with family history of phthisis, night sweats, and waking up with teeth grinding.",
+      "expectedRubricIds": [
+        "172",
+        "9",
+        "134",
+        "254"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "172",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "134",
+          "weight": 3
+        },
+        {
+          "id": "254",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        562
+      ],
+      "source": "H.C. Allen Keynotes, Tuberculinum Bovinum",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_029",
+      "split": "dev",
+      "narrative": "Patient is woken up regularly every night between 2 AM and 4 AM with severe suffocating cough and stitching pains in lower right chest. Severe lumbar backache as if back were broken, feels better when sitting upright and leaning forward with elbows on knees.",
+      "expectedRubricIds": [
+        "163",
+        "136",
+        "132",
+        "209"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "136",
+          "weight": 4
+        },
+        {
+          "id": "132",
+          "weight": 4
+        },
+        {
+          "id": "209",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        66
+      ],
+      "source": "Kent Lectures, Kali Carbonicum",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_030",
+      "split": "dev",
+      "narrative": "Sudden violent simultaneous vomiting and rice-water diarrhea with severe abdominal cramps. Cold clammy perspiration standing out in beads upon the forehead. Patient is icy cold to touch, prostrated, with intense thirst for large quantities of cold ice water.",
+      "expectedRubricIds": [
+        "461",
+        "653",
+        "8",
+        "166"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "461",
+          "weight": 4
+        },
+        {
+          "id": "653",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "166",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        20
+      ],
+      "source": "Nash Leaders, Veratrum Album",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_031",
+      "split": "dev",
+      "narrative": "Patient suffers from right-sided hemicrania beginning in morning on waking, increasing until noon and decreasing as sun goes down. Nausea with vomiting of bile.",
+      "expectedRubricIds": [
+        "198",
+        "194",
+        "272"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "198",
+          "weight": 4
+        },
+        {
+          "id": "194",
+          "weight": 4
+        },
+        {
+          "id": "272",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        97
+      ],
+      "source": "Kent Lectures, Sanguinaria",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_032",
+      "split": "dev",
+      "narrative": "Left-sided throbbing supraorbital neuralgia, strictly following course of the sun. Sensation as if eye were pressed outward, worse from motion and noise.",
+      "expectedRubricIds": [
+        "30",
+        "194",
+        "10"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "30",
+          "weight": 4
+        },
+        {
+          "id": "194",
+          "weight": 4
+        },
+        {
+          "id": "10",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        100
+      ],
+      "source": "Nash Leaders, Spigelia",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_033",
+      "split": "dev",
+      "narrative": "Patient has bruised aching in eyeballs with intense soreness when moving eyes. Constant sensation of sand under eyelids, fluent acrid lacrimation and bland nasal coryza.",
+      "expectedRubricIds": [
+        "60",
+        "70",
+        "58"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "60",
+          "weight": 3
+        },
+        {
+          "id": "70",
+          "weight": 3
+        },
+        {
+          "id": "58",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        55
+      ],
+      "source": "H.C. Allen Keynotes, Euphrasia",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_034",
+      "split": "dev",
+      "narrative": "Profuse, acrid, excoriating nasal discharge that eats away skin above upper lip, accompanied by bland profuse tears. Violent sneezing in morning on waking.",
+      "expectedRubricIds": [
+        "617",
+        "33",
+        "59"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "617",
+          "weight": 4
+        },
+        {
+          "id": "33",
+          "weight": 4
+        },
+        {
+          "id": "59",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        31
+      ],
+      "source": "Boericke Materia Medica, Allium Cepa",
+      "verifiedBy": [
+        "DR_BOERICKE_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_035",
+      "split": "dev",
+      "narrative": "Violent suffocating croupy cough with rattling of mucus in chest. Sensation of hot water running down back of throat. Better sitting up, worse after midnight.",
+      "expectedRubricIds": [
+        "117",
+        "124",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "117",
+          "weight": 4
+        },
+        {
+          "id": "124",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        101
+      ],
+      "source": "Kent Lectures, Spongia Tosta",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_036",
+      "split": "dev",
+      "narrative": "Dry barking croupy cough after dry cold northwest wind. High fever with burning restlessness, anxiety, and fear of suffocation.",
+      "expectedRubricIds": [
+        "123",
+        "9",
+        "2"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "123",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "2",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        13
+      ],
+      "source": "Boger Synoptic Key, Aconitum",
+      "verifiedBy": [
+        "DR_BOGER_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_037",
+      "split": "dev",
+      "narrative": "Tremendous rattling of mucus in bronchial tree with little or no expectoration. Tongue coated thick white like fur. Drowsy, limp, with great nausea.",
+      "expectedRubricIds": [
+        "124",
+        "79",
+        "94"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "124",
+          "weight": 4
+        },
+        {
+          "id": "79",
+          "weight": 4
+        },
+        {
+          "id": "94",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        33
+      ],
+      "source": "Nash Leaders, Antimonium Tartaricum",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_038",
+      "split": "dev",
+      "narrative": "Persistent nausea not relieved by vomiting, clean pink un-coated tongue despite intense gastric disturbance. Spasmodic paroxysmal cough with epistaxis.",
+      "expectedRubricIds": [
+        "94",
+        "79",
+        "125"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "94",
+          "weight": 4
+        },
+        {
+          "id": "79",
+          "weight": 4
+        },
+        {
+          "id": "125",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        631
+      ],
+      "source": "H.C. Allen Keynotes, Ipecacuanha",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_039",
+      "split": "dev",
+      "narrative": "Intense stitching pain in right hypochondrium, patient cannot lie on left side because liver feels as if pulling away. Constipation with white clay-colored stool.",
+      "expectedRubricIds": [
+        "132",
+        "297",
+        "76"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "132",
+          "weight": 4
+        },
+        {
+          "id": "297",
+          "weight": 4
+        },
+        {
+          "id": "76",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        18
+      ],
+      "source": "Kent Lectures, Chelidonium Majus",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_040",
+      "split": "dev",
+      "narrative": "Severe colicky pain in abdomen forcing patient to double up and press hard against abdomen. Relieved by bending double and firm hard pressure.",
+      "expectedRubricIds": [
+        "97"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "97",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        49
+      ],
+      "source": "Nash Leaders, Colocynthis",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_041",
+      "split": "dev",
+      "narrative": "Cramping pains in calf muscles and abdomen, relieved by application of hot water bottles and local warmth. Right-sided ovarian and sciatic pain.",
+      "expectedRubricIds": [
+        "35",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "35",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        75
+      ],
+      "source": "Boericke Materia Medica, Magnesia Phosphorica",
+      "verifiedBy": [
+        "DR_BOERICKE_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_042",
+      "split": "dev",
+      "narrative": "Sudden sharp neuralgic pains that shoot like lightning along nerve pathways, shifting rapidly from place to place. Pain causes involuntary starting.",
+      "expectedRubricIds": [
+        "200",
+        "51"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "200",
+          "weight": 4
+        },
+        {
+          "id": "51",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        75
+      ],
+      "source": "Kent Lectures, Magnesia Phos",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_043",
+      "split": "dev",
+      "narrative": "Severe pain in coccyx after a direct fall upon buttocks, extremely sensitive to touch and sitting. Sensation of crawling in spine.",
+      "expectedRubricIds": [
+        "357",
+        "136"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "357",
+          "weight": 4
+        },
+        {
+          "id": "136",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        61
+      ],
+      "source": "H.C. Allen Keynotes, Hypericum Perforatum",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_044",
+      "split": "dev",
+      "narrative": "Injury to periosteum and fibrous tissues of shin bone with bruised soreness. Pain in cartilage and tendons after sprain or contusion.",
+      "expectedRubricIds": [
+        "8",
+        "410"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "410",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        93
+      ],
+      "source": "Nash Leaders, Ruta Graveolens",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_045",
+      "split": "dev",
+      "narrative": "Wounds caused by sharp punctured instruments like nails or needles. Injured part feels cold to touch and objectively cold, but relieved by cold application.",
+      "expectedRubricIds": [
+        "410",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "410",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        72
+      ],
+      "source": "H.C. Allen Keynotes, Ledum Palustre",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_046",
+      "split": "dev",
+      "narrative": "Severe stinging, burning pain in edematous swelling of right ovary and throat. Absence of thirst despite acute dropsical inflammation. Aggravation from heat in any form.",
+      "expectedRubricIds": [
+        "8",
+        "60"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "60",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        17
+      ],
+      "source": "Kent Lectures, Apis Mellifica",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_047",
+      "split": "dev",
+      "narrative": "Intense burning in urinary tract with constant unbearable tenesmus before, during, and after urination. Urine passes in drops like scalding liquid fire.",
+      "expectedRubricIds": [
+        "303",
+        "485"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "303",
+          "weight": 4
+        },
+        {
+          "id": "485",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        41
+      ],
+      "source": "Nash Leaders, Cantharis Vesicatoria",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_048",
+      "split": "dev",
+      "narrative": "Chronic eczema with thick honey-like sticky crusts oozing from behind ears and folds of skin. Obstinate constipation with large knotty stools covered in mucous.",
+      "expectedRubricIds": [
+        "157",
+        "103"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "157",
+          "weight": 4
+        },
+        {
+          "id": "103",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        58
+      ],
+      "source": "Kent Lectures, Graphites",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_049",
+      "split": "dev",
+      "narrative": "Deep painful cracks and bleeding rhagades on fingertips and hands, worse in cold winter weather and from washing in water.",
+      "expectedRubricIds": [
+        "37"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "37",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        84
+      ],
+      "source": "Boericke Materia Medica, Petroleum",
+      "verifiedBy": [
+        "DR_BOERICKE_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_050",
+      "split": "dev",
+      "narrative": "Dark, offensive, septic diarrhea looking like decomposed prune juice. Stupor where patient falls asleep while answering questions. Sensation of being scattered in pieces.",
+      "expectedRubricIds": [
+        "44",
+        "669",
+        "534"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "44",
+          "weight": 4
+        },
+        {
+          "id": "669",
+          "weight": 4
+        },
+        {
+          "id": "534",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        36
+      ],
+      "source": "Nash Leaders, Baptisia Tinctoria",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_051",
+      "split": "dev",
+      "narrative": "Patient says: 'Sir me bahut tez dard hota hai subah dhoop aane par badhta hai, namak khane ka man karta hai aur chup chap akele baithna chahta hu.'",
+      "expectedRubricIds": [
+        "31",
+        "32",
+        "467"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "31",
+          "weight": 4
+        },
+        {
+          "id": "32",
+          "weight": 4
+        },
+        {
+          "id": "467",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        10
+      ],
+      "source": "Clinical Case Diary #H-104",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_052",
+      "split": "dev",
+      "narrative": "Patient states: 'Pet me gas itni banti hai ki thoda sa khane par pet phool jata hai, 4 baje se 8 baje sham ko pareshani sabse jyada hoti hai, garam chai peene se aaram lagta hai.'",
+      "expectedRubricIds": [
+        "19",
+        "163",
+        "15"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "19",
+          "weight": 4
+        },
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "15",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        5
+      ],
+      "source": "Clinical Case Diary #H-109",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_053",
+      "split": "dev",
+      "narrative": "Patient says: 'Bina thand lage achanak se tez bukhar chadha, shareer me aag jaisi jalan ho rahi hai aur mout ka bahut dar lag raha hai, lagta hai bachunga nahi.'",
+      "expectedRubricIds": [
+        "150",
+        "39",
+        "2"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "150",
+          "weight": 4
+        },
+        {
+          "id": "39",
+          "weight": 4
+        },
+        {
+          "id": "2",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        13
+      ],
+      "source": "Clinical Case Diary #H-115",
+      "verifiedBy": [
+        "CLINICAL_BOARD_02",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_054",
+      "split": "dev",
+      "narrative": "Patient says: 'Thand se kamar me akdan ho gayi hai, jab subah uthkar pehla kadam chalte hain to bahut dard hota hai, lagatar chalne se aaram milta hai.'",
+      "expectedRubricIds": [
+        "10",
+        "11",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        9
+      ],
+      "source": "Clinical Case Diary #H-122",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_055",
+      "split": "dev",
+      "narrative": "Patient says: 'Gale me chubhan hai jaise kanta fasa ho, jara si bhi thandi hawa lagte hi khansi shuru ho jati hai, garm kapda lapetne par aaram milta hai.'",
+      "expectedRubricIds": [
+        "86",
+        "9",
+        "54"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "86",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "54",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        59
+      ],
+      "source": "Clinical Case Diary #H-130",
+      "verifiedBy": [
+        "CLINICAL_BOARD_02",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_056",
+      "split": "dev",
+      "narrative": "Patient complains: 'Raat ko 1 se 2 baje ke beech ghabrahat hoti hai, lagta hai jaan nikal jayegi, thoda sa garm paani ghunt ghunt karke peete hain.'",
+      "expectedRubricIds": [
+        "1",
+        "164",
+        "13"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "1",
+          "weight": 4
+        },
+        {
+          "id": "164",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        1
+      ],
+      "source": "Clinical Case Diary #H-138",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_057",
+      "split": "dev",
+      "narrative": "Patient describes: 'Munh sukh jata hai lekin paani peene ki bilkul pyas nahi lagti, khuli tazi hawa me ghumne se accha lagta hai aur baat karte hue rona aa jata hai.'",
+      "expectedRubricIds": [
+        "14",
+        "168",
+        "546"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "14",
+          "weight": 4
+        },
+        {
+          "id": "168",
+          "weight": 4
+        },
+        {
+          "id": "546",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        2
+      ],
+      "source": "Clinical Case Diary #H-142",
+      "verifiedBy": [
+        "CLINICAL_BOARD_02",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_058",
+      "split": "dev",
+      "narrative": "Patient states: 'Halka sa hilne-dulne par bhi dard bahut tez ho jata hai, chup chap bina hile lete rehne se sukoon milta hai aur thande paani ki badi pyas lagti hai.'",
+      "expectedRubricIds": [
+        "10",
+        "132",
+        "273"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "132",
+          "weight": 4
+        },
+        {
+          "id": "273",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        6
+      ],
+      "source": "Clinical Case Diary #H-149",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_059",
+      "split": "dev",
+      "narrative": "Patient says: 'Subah 5 baje pet kharab hone ki wajah se turant bed se bhagna padta hai, pairon ke talwo me aag jaisi jalan hoti hai raat ko bistar se bahar nikalte hain.'",
+      "expectedRubricIds": [
+        "33",
+        "21",
+        "52"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "33",
+          "weight": 4
+        },
+        {
+          "id": "21",
+          "weight": 4
+        },
+        {
+          "id": "52",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        4
+      ],
+      "source": "Clinical Case Diary #H-155",
+      "verifiedBy": [
+        "CLINICAL_BOARD_02",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_060",
+      "split": "dev",
+      "narrative": "Patient states: 'Bahut gussa aata hai, jara si aawaz ya roshni bardasht nahi hoti, sharab peene ke baad pet kharab ho jata hai aur bar bar latrine jane ka man karta hai par hoti nahi.'",
+      "expectedRubricIds": [
+        "4",
+        "34",
+        "17"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "4",
+          "weight": 4
+        },
+        {
+          "id": "34",
+          "weight": 4
+        },
+        {
+          "id": "17",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        3
+      ],
+      "source": "Clinical Case Diary #H-161",
+      "verifiedBy": [
+        "CLINICAL_BOARD_01",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_061",
+      "split": "dev",
+      "narrative": "Extreme mental weakness with loss of memory after sexual excesses or loss of vital fluids. Ringing in ears, painless diarrhea with marked flatulence.",
+      "expectedRubricIds": [
+        "180",
+        "286",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "180",
+          "weight": 3
+        },
+        {
+          "id": "286",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        43
+      ],
+      "source": "Kent Lectures, China Officinalis",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_062",
+      "split": "dev",
+      "narrative": "Persistent burning in esophagus and stomach after mental anxiety and financial worry. Stools dark, watery, offensive, with exhaustion.",
+      "expectedRubricIds": [
+        "96",
+        "1",
+        "27"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "96",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 3
+        },
+        {
+          "id": "27",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        1
+      ],
+      "source": "Kent Clinical Cases, Case #18",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_063",
+      "split": "dev",
+      "narrative": "Painful spasmodic cough ending in vomiting of thick ropy stringy mucus that can be drawn out into long threads. Pain localized in small spots.",
+      "expectedRubricIds": [
+        "372",
+        "261"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "372",
+          "weight": 4
+        },
+        {
+          "id": "261",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        65
+      ],
+      "source": "H.C. Allen Keynotes, Kali Bichromicum",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_064",
+      "split": "dev",
+      "narrative": "Patient has great anxiety regarding health with trembling of limbs. Intense craving for sugar and sweets which cause diarrhea. Anticipatory diarrhea before examinations.",
+      "expectedRubricIds": [
+        "527",
+        "33",
+        "16"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "527",
+          "weight": 4
+        },
+        {
+          "id": "33",
+          "weight": 4
+        },
+        {
+          "id": "16",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        19
+      ],
+      "source": "Nash Leaders, Argentum Nitricum",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_065",
+      "split": "dev",
+      "narrative": "Severe left-sided ovarian pain radiating to right, accompanied by burning stinging pains and puffiness under eyes like little water bags.",
+      "expectedRubricIds": [
+        "686",
+        "209",
+        "60"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "686",
+          "weight": 4
+        },
+        {
+          "id": "209",
+          "weight": 4
+        },
+        {
+          "id": "60",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        17
+      ],
+      "source": "Kent Lectures, Apis",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_066",
+      "split": "dev",
+      "narrative": "Tremendous physical prostration with trembling and weakness of muscles. Complete absence of thirst even with high temperature during influenza.",
+      "expectedRubricIds": [
+        "167",
+        "14",
+        "205"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "167",
+          "weight": 4
+        },
+        {
+          "id": "14",
+          "weight": 4
+        },
+        {
+          "id": "205",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        57
+      ],
+      "source": "Boger Synoptic Key, Gelsemium",
+      "verifiedBy": [
+        "DR_BOGER_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_067",
+      "split": "dev",
+      "narrative": "Chronic headache commencing in neck and occiput, spreading up over whole head, relieved by profuse clear urination. Sensation of band around forehead.",
+      "expectedRubricIds": [
+        "54",
+        "52"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "54",
+          "weight": 4
+        },
+        {
+          "id": "52",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        57
+      ],
+      "source": "H.C. Allen Keynotes, Gelsemium",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_068",
+      "split": "dev",
+      "narrative": "Severe pain in back during pregnancy and labor, feels as if back would split, pressure against back with hard cushion gives immense relief.",
+      "expectedRubricIds": [
+        "361",
+        "97"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "361",
+          "weight": 4
+        },
+        {
+          "id": "97",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        66
+      ],
+      "source": "Kent Lectures, Kali Carb",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_069",
+      "split": "dev",
+      "narrative": "Extremely chilly patient who faints easily. Emaciation of neck and breasts while lower body remains stout. Brown saddle across the nose.",
+      "expectedRubricIds": [
+        "76",
+        "9",
+        "115"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "76",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        },
+        {
+          "id": "115",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        11
+      ],
+      "source": "Kent Lectures, Sepia",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_070",
+      "split": "dev",
+      "narrative": "Child is extraordinarily obstinate, self-willed, headstrong. Sweats profusely on back of head while sleeping, wetting the pillow thoroughly.",
+      "expectedRubricIds": [
+        "553",
+        "594",
+        "92"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "553",
+          "weight": 4
+        },
+        {
+          "id": "594",
+          "weight": 4
+        },
+        {
+          "id": "92",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        12
+      ],
+      "source": "Kent Clinical Cases, Pediatric #8",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_071",
+      "split": "dev",
+      "narrative": "Deep melancholia with complete silence and refusal to eat. Marked weeping when spoken to kindly, yet rejects consolation with irritability.",
+      "expectedRubricIds": [
+        "546",
+        "5",
+        "182"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "546",
+          "weight": 3
+        },
+        {
+          "id": "5",
+          "weight": 4
+        },
+        {
+          "id": "182",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        10
+      ],
+      "source": "Kent Clinical Cases, Case #33",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_072",
+      "split": "dev",
+      "narrative": "Constant thirst for cold water which is vomited as soon as warm. Burning spots between shoulder blades and in stomach.",
+      "expectedRubricIds": [
+        "95",
+        "138",
+        "13"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "95",
+          "weight": 4
+        },
+        {
+          "id": "138",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        7
+      ],
+      "source": "Nash Leaders, Phosphorus",
+      "verifiedBy": [
+        "DR_NASH_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_073",
+      "split": "dev",
+      "narrative": "Right-sided facial neuralgia with red flushed face and hot dry skin. Extremely aggravated by slight breeze of air or touch of hair.",
+      "expectedRubricIds": [
+        "73",
+        "242",
+        "8"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "73",
+          "weight": 4
+        },
+        {
+          "id": "242",
+          "weight": 3
+        },
+        {
+          "id": "8",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        8
+      ],
+      "source": "H.C. Allen Keynotes, Belladonna",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_074",
+      "split": "dev",
+      "narrative": "Sore throat with feeling of fish-bone lodged in tonsil, radiating to ears on swallowing. Intense irritability, wants warm covering.",
+      "expectedRubricIds": [
+        "86",
+        "8",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "86",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        59
+      ],
+      "source": "Kent Lectures, Hepar",
+      "verifiedBy": [
+        "DR_KENT_ARCHIVE",
+        "HOM_AUDIT_02"
+      ]
+    },
+    {
+      "id": "eval_075",
+      "split": "dev",
+      "narrative": "Violent dry hacking cough provoked by tickling in suprasternal fossa. Aggravated by cold air, talking, and lying down at night.",
+      "expectedRubricIds": [
+        "331",
+        "127",
+        "36"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "331",
+          "weight": 4
+        },
+        {
+          "id": "127",
+          "weight": 4
+        },
+        {
+          "id": "36",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        92
+      ],
+      "source": "H.C. Allen Keynotes, Rumex Crispus",
+      "verifiedBy": [
+        "DR_ALLEN_ARCHIVE",
+        "HOM_AUDIT_01"
+      ]
+    },
+    {
+      "id": "eval_076",
+      "split": "test",
+      "narrative": "Patient has deep anxiety about recovery, fears being alone in the house, restlessness compels constant changing of chairs. Thirst for small sips of water.",
+      "expectedRubricIds": [
+        "1",
+        "537",
+        "13",
+        "2"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "1",
+          "weight": 4
+        },
+        {
+          "id": "537",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 4
+        },
+        {
+          "id": "2",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        1
+      ],
+      "source": "Kent Lectures, Case #92 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_077",
+      "split": "test",
+      "narrative": "Mild, yielding female patient with changeable symptoms: no two chills alike. Weeps copiously when narrating complaints. Relief in open fresh cool air.",
+      "expectedRubricIds": [
+        "546",
+        "1",
+        "168",
+        "14"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "546",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 4
+        },
+        {
+          "id": "168",
+          "weight": 4
+        },
+        {
+          "id": "14",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        2
+      ],
+      "source": "Boger Synoptic Key, Case #14 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_078",
+      "split": "test",
+      "narrative": "Sedentary worker with severe constipation, feeling that stool remains behind un-expelled. Irritable, quarrelsome, chilly, worse from dry cold air.",
+      "expectedRubricIds": [
+        "34",
+        "4",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "34",
+          "weight": 4
+        },
+        {
+          "id": "4",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        3
+      ],
+      "source": "Nash Leaders, Case #28 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_079",
+      "split": "test",
+      "narrative": "Acute pleurisy with stitching pains in chest aggravated by the slightest breath or cough. Patient lies firmly upon the affected right side for relief.",
+      "expectedRubricIds": [
+        "132",
+        "10",
+        "11"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "132",
+          "weight": 4
+        },
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        6
+      ],
+      "source": "Kent Clinical Cases, Case #55 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_080",
+      "split": "test",
+      "narrative": "Patient woke up with stiff neck and painful shoulders after sleeping in damp cellar. Agonizing stiffness on beginning to move, easing after continued motion.",
+      "expectedRubricIds": [
+        "10",
+        "11",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        9
+      ],
+      "source": "H.C. Allen Keynotes, Case #60 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_081",
+      "split": "test",
+      "narrative": "Young patient with tall narrow build has intense fear of the dark and thunderstorms. Craves cold food and ice-cream. Hemorrhagic diathesis with easy bruising.",
+      "expectedRubricIds": [
+        "22",
+        "544",
+        "13"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "22",
+          "weight": 4
+        },
+        {
+          "id": "544",
+          "weight": 4
+        },
+        {
+          "id": "13",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        7
+      ],
+      "source": "Kent Lectures, Case #110 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_082",
+      "split": "test",
+      "narrative": "Chronic gas and flatulent colic worse from 4 to 8 in the afternoon. Child has red sand in diaper urine, and craves warm food and drinks.",
+      "expectedRubricIds": [
+        "163",
+        "19",
+        "15"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "19",
+          "weight": 4
+        },
+        {
+          "id": "15",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        5
+      ],
+      "source": "Nash Leaders, Case #39 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_083",
+      "split": "test",
+      "narrative": "Patient has dirty unwashed skin, burning on crown of head, and is driven out of bed early in the morning by sudden liquid diarrhea. Aversion to bathing.",
+      "expectedRubricIds": [
+        "33",
+        "52",
+        "37"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "33",
+          "weight": 4
+        },
+        {
+          "id": "52",
+          "weight": 4
+        },
+        {
+          "id": "37",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        4
+      ],
+      "source": "Kent Lectures, Case #125 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_084",
+      "split": "test",
+      "narrative": "Chilly, flabby patient with cold clammy perspiration on forehead and feet like damp cold stockings. Constant craving for boiled eggs. Sensitive to cold wet air.",
+      "expectedRubricIds": [
+        "594",
+        "92",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "594",
+          "weight": 4
+        },
+        {
+          "id": "92",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        12
+      ],
+      "source": "H.C. Allen Keynotes, Case #47 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_085",
+      "split": "test",
+      "narrative": "Patient with chronic migraine aggravated by sun and mental work, with map-like tongue and craves extra table salt. Consolation makes her furious.",
+      "expectedRubricIds": [
+        "31",
+        "32",
+        "5"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "31",
+          "weight": 4
+        },
+        {
+          "id": "32",
+          "weight": 4
+        },
+        {
+          "id": "5",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        10
+      ],
+      "source": "Kent Clinical Cases, Case #77 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_086",
+      "split": "test",
+      "narrative": "Frail nervous patient with recurrent boils and suppurating fistulae. Offensive foot sweat. Extremely chilly, wants head wrapped up warmly in a woolen shawl.",
+      "expectedRubricIds": [
+        "155",
+        "54",
+        "159"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "155",
+          "weight": 4
+        },
+        {
+          "id": "54",
+          "weight": 4
+        },
+        {
+          "id": "159",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        14
+      ],
+      "source": "Nash Leaders, Case #52 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_087",
+      "split": "test",
+      "narrative": "Exhausted female patient sitting with legs crossed to relieve dragging bearing down in pelvis. Complete emotional numbness and indifference to family.",
+      "expectedRubricIds": [
+        "115",
+        "178",
+        "11"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "115",
+          "weight": 4
+        },
+        {
+          "id": "178",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        11
+      ],
+      "source": "Kent Lectures, Case #84 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_088",
+      "split": "test",
+      "narrative": "Sudden fever with bounding pulse, intense restlessness and agony of death, after walking home in biting cold east wind. Dry burning heat with great thirst.",
+      "expectedRubricIds": [
+        "39",
+        "150",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "39",
+          "weight": 4
+        },
+        {
+          "id": "150",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        13
+      ],
+      "source": "Boger Synoptic Key, Case #03 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_089",
+      "split": "test",
+      "narrative": "Congestive cerebral hyperemia with violent throbbing in carotids and forehead, pupils widely dilated, skin scorching hot. Worse from jarring motion.",
+      "expectedRubricIds": [
+        "53",
+        "8",
+        "242"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "53",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "242",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        8
+      ],
+      "source": "Kent Lectures, Case #19 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_090",
+      "split": "test",
+      "narrative": "Left sided throat inflammation extending to right side, worse from swallowing liquids and worse after waking from sleep. Cannot tolerate clothes at neck.",
+      "expectedRubricIds": [
+        "8",
+        "86"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "86",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        70
+      ],
+      "source": "Nash Leaders, Case #61 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_091",
+      "split": "test",
+      "narrative": "Patient suffered acute shock from unexpected bad news. Involuntary deep sighing, paradoxical throat symptoms where swallowing solid food relieves pain.",
+      "expectedRubricIds": [
+        "41",
+        "348"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "41",
+          "weight": 4
+        },
+        {
+          "id": "348",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        62
+      ],
+      "source": "H.C. Allen Keynotes, Case #31 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_092",
+      "split": "test",
+      "narrative": "Patient had a severe contusion from a bicycle accident. Entire body feels sore and bruised, complains bed feels too hard. Denies being ill despite injuries.",
+      "expectedRubricIds": [
+        "410",
+        "8",
+        "103"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "410",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "103",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        34
+      ],
+      "source": "Kent Lectures, Case #08 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_093",
+      "split": "test",
+      "narrative": "Complete motor paralysis and drowsiness with heavy drooping eyelids after exam fright. Trembling of limbs and absence of thirst during fever.",
+      "expectedRubricIds": [
+        "527",
+        "205",
+        "14"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "527",
+          "weight": 4
+        },
+        {
+          "id": "205",
+          "weight": 4
+        },
+        {
+          "id": "14",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        57
+      ],
+      "source": "Nash Leaders, Case #17 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_094",
+      "split": "test",
+      "narrative": "Extreme sensitivity to cold drafts, violent stitching pain like fishbone in throat when swallowing, radiating to right ear. Head must be wrapped warmly.",
+      "expectedRubricIds": [
+        "86",
+        "8",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "86",
+          "weight": 4
+        },
+        {
+          "id": "8",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        59
+      ],
+      "source": "H.C. Allen Keynotes, Case #50 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_095",
+      "split": "test",
+      "narrative": "Profuse night sweats that soak bedding without giving any relief. Thick flabby tongue with teeth marks along margins, metallic taste and offensive salivation.",
+      "expectedRubricIds": [
+        "148",
+        "79",
+        "77"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "148",
+          "weight": 4
+        },
+        {
+          "id": "79",
+          "weight": 4
+        },
+        {
+          "id": "77",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        28
+      ],
+      "source": "Kent Lectures, Case #63 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_096",
+      "split": "test",
+      "narrative": "Hinglish test case: 'Sir me tez jalan aur achanak se chakkar aana, dhoop me jane se dard double ho jata hai, aur khana khane ke baad meethi cheez khane ka mann karta hai.'",
+      "expectedRubricIds": [
+        "31",
+        "16",
+        "10"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "31",
+          "weight": 4
+        },
+        {
+          "id": "16",
+          "weight": 3
+        },
+        {
+          "id": "10",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        10
+      ],
+      "source": "Clinical Test Validation #T-201",
+      "verifiedBy": [
+        "CLINICAL_BOARD_TEST",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_097",
+      "split": "test",
+      "narrative": "Hinglish test case: 'Subah uthkar jara si thand lagte hi gale me ajeeb si chubhan hoti hai, bina hilte dulte chupchap soye rehne se aaram lagta hai, gale me kanta chubhta hai.'",
+      "expectedRubricIds": [
+        "9",
+        "86",
+        "10"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "9",
+          "weight": 4
+        },
+        {
+          "id": "86",
+          "weight": 4
+        },
+        {
+          "id": "10",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        59
+      ],
+      "source": "Clinical Test Validation #T-202",
+      "verifiedBy": [
+        "CLINICAL_BOARD_TEST",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_098",
+      "split": "test",
+      "narrative": "Hinglish test case: 'Raat ko 3 baje khansi achanak tez ho jati hai, peeth me aisi jalan hoti hai jaise kamar toot rahi ho, aage jhukkar baithne se aaram milta hai.'",
+      "expectedRubricIds": [
+        "163",
+        "136",
+        "132"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "163",
+          "weight": 4
+        },
+        {
+          "id": "136",
+          "weight": 4
+        },
+        {
+          "id": "132",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        66
+      ],
+      "source": "Clinical Test Validation #T-203",
+      "verifiedBy": [
+        "CLINICAL_BOARD_TEST",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_099",
+      "split": "test",
+      "narrative": "Hinglish test case: 'Pehle move karne me bahut dard hota hai fir thoda ghumne phirne par kamar ka dard gayab ho jata hai, barsaat me bheeghne ke baad se pareshani hai.'",
+      "expectedRubricIds": [
+        "10",
+        "11",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "10",
+          "weight": 4
+        },
+        {
+          "id": "11",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        9
+      ],
+      "source": "Clinical Test Validation #T-204",
+      "verifiedBy": [
+        "CLINICAL_BOARD_TEST",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_100",
+      "split": "test",
+      "narrative": "Hinglish test case: 'Thoda sa garm paani bar bar peene ka man karta hai, aadhi raat ke baad ghabrahat itni badh jati hai ki kamre me idhar udhar ghumna padta hai.'",
+      "expectedRubricIds": [
+        "13",
+        "2",
+        "1"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "13",
+          "weight": 4
+        },
+        {
+          "id": "2",
+          "weight": 4
+        },
+        {
+          "id": "1",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        1
+      ],
+      "source": "Clinical Test Validation #T-205",
+      "verifiedBy": [
+        "CLINICAL_BOARD_TEST",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_101",
+      "split": "test",
+      "narrative": "Patient with dry violent cough provoked by continuous tickling behind sternum, worse from cold air and uncovering neck. Better from covering head and mouth.",
+      "expectedRubricIds": [
+        "331",
+        "127",
+        "54"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "331",
+          "weight": 4
+        },
+        {
+          "id": "127",
+          "weight": 4
+        },
+        {
+          "id": "54",
+          "weight": 3
+        }
+      ],
+      "expectedRemedyIds": [
+        92
+      ],
+      "source": "Kent Clinical Cases, Case #102 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_102",
+      "split": "test",
+      "narrative": "Punctured wound on foot from stepping on rusty nail. Wound is cold to touch, swelling is pale and cold, patient finds great relief from icy cold foot bath.",
+      "expectedRubricIds": [
+        "410",
+        "9"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "410",
+          "weight": 4
+        },
+        {
+          "id": "9",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        72
+      ],
+      "source": "Nash Leaders, Case #72 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_103",
+      "split": "test",
+      "narrative": "Acute violent cramping in transverse colon, doubling patient up in agony. Pressure with fists against abdomen and warmth of bed relieves the pain.",
+      "expectedRubricIds": [
+        "97"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "97",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        49
+      ],
+      "source": "Kent Clinical Cases, Case #68 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    },
+    {
+      "id": "eval_104",
+      "split": "test",
+      "narrative": "Severe burning in urinary bladder with excruciating scalding pain passing urine drop by drop with tenesmus. Urine bloody.",
+      "expectedRubricIds": [
+        "303",
+        "485"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "303",
+          "weight": 4
+        },
+        {
+          "id": "485",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        41
+      ],
+      "source": "H.C. Allen Keynotes, Case #25 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_01"
+      ]
+    },
+    {
+      "id": "eval_105",
+      "split": "test",
+      "narrative": "Patient in state of profound collapse with cold blue skin and icy breath, but insists with air-hunger that all windows be open and fans run on high.",
+      "expectedRubricIds": [
+        "166"
+      ],
+      "confirmedRubrics": [
+        {
+          "id": "166",
+          "weight": 4
+        }
+      ],
+      "expectedRemedyIds": [
+        21
+      ],
+      "source": "Nash Leaders, Case #80 (Held-out Test)",
+      "verifiedBy": [
+        "VERIFIER_PANEL_T1",
+        "HOM_TEST_02"
+      ]
+    }
+  ]
+}

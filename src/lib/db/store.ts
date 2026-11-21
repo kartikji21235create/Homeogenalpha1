@@ -21,6 +21,15 @@ export interface DoctorRecord {
   registration_number: string;
 }
 
+export interface DPDPPatientConsent {
+  consented: boolean;
+  consented_at: string;
+  consent_version: string;
+  purpose: string;
+  withdrawn?: boolean;
+  withdrawn_at?: string;
+}
+
 export interface PatientRecord {
   id: string;
   patient_number: string;
@@ -28,6 +37,7 @@ export interface PatientRecord {
   display_name: string;
   year_of_birth?: number;
   sex: "MALE" | "FEMALE" | "OTHER";
+  dpdp_consent?: DPDPPatientConsent;
 }
 
 export interface ConsultationRecord {
@@ -197,6 +207,92 @@ class InMemoryDb {
 
   constructor() {
     this.initSeedData();
+    this.loadFromDisk();
+  }
+
+  private getStorageFilePath(): string {
+    const dir = process.env.DATA_DIR || path.join(process.cwd(), "data");
+    if (!fs.existsSync(dir)) {
+      try {
+        fs.mkdirSync(dir, { recursive: true });
+      } catch {}
+    }
+    return path.join(dir, "store_state.json");
+  }
+
+  public persistToDisk(): void {
+    try {
+      const filePath = this.getStorageFilePath();
+      const state = {
+        saved_at: new Date().toISOString(),
+        doctors: Array.from(this.doctors.entries()),
+        patients: Array.from(this.patients.entries()),
+        consultations: Array.from(this.consultations.entries()),
+        confirmedRubrics: Array.from(this.confirmedRubrics.entries()),
+        prescriptions: Array.from(this.prescriptions.entries()),
+        caseEvents: Array.from(this.caseEvents.entries()),
+        caseFolders: Array.from(this.caseFolders.entries()),
+        consultationFolderMap: Array.from(this.consultationFolderMap.entries()),
+        shares: Array.from(this.shares.entries()),
+        customRubrics: this.customRubrics,
+        auditLogs: this.auditLogs,
+        searchMisses: this.searchMisses,
+      };
+      fs.writeFileSync(filePath, JSON.stringify(state, null, 2), "utf-8");
+    } catch (err) {
+      console.warn("[InMemoryDb] Failed to persist state to disk:", err);
+    }
+  }
+
+  public loadFromDisk(): boolean {
+    try {
+      const filePath = this.getStorageFilePath();
+      if (!fs.existsSync(filePath)) return false;
+      const raw = fs.readFileSync(filePath, "utf-8");
+      const state = JSON.parse(raw);
+
+      if (state.doctors && Array.isArray(state.doctors)) {
+        for (const [k, v] of state.doctors) this.doctors.set(k, v);
+      }
+      if (state.patients && Array.isArray(state.patients)) {
+        for (const [k, v] of state.patients) this.patients.set(k, v);
+      }
+      if (state.consultations && Array.isArray(state.consultations)) {
+        for (const [k, v] of state.consultations) this.consultations.set(k, v);
+      }
+      if (state.confirmedRubrics && Array.isArray(state.confirmedRubrics)) {
+        for (const [k, v] of state.confirmedRubrics) this.confirmedRubrics.set(k, v);
+      }
+      if (state.prescriptions && Array.isArray(state.prescriptions)) {
+        for (const [k, v] of state.prescriptions) this.prescriptions.set(k, v);
+      }
+      if (state.caseEvents && Array.isArray(state.caseEvents)) {
+        for (const [k, v] of state.caseEvents) this.caseEvents.set(k, v);
+      }
+      if (state.caseFolders && Array.isArray(state.caseFolders)) {
+        for (const [k, v] of state.caseFolders) this.caseFolders.set(k, v);
+      }
+      if (state.consultationFolderMap && Array.isArray(state.consultationFolderMap)) {
+        for (const [k, v] of state.consultationFolderMap) this.consultationFolderMap.set(k, v);
+      }
+      if (state.shares && Array.isArray(state.shares)) {
+        for (const [k, v] of state.shares) this.shares.set(k, v);
+      }
+      if (state.customRubrics && Array.isArray(state.customRubrics)) {
+        this.customRubrics = state.customRubrics;
+      }
+      if (state.auditLogs && Array.isArray(state.auditLogs)) {
+        this.auditLogs = state.auditLogs;
+      }
+      if (state.searchMisses && Array.isArray(state.searchMisses)) {
+        this.searchMisses = state.searchMisses;
+      }
+
+      return true;
+    } catch (err) {
+      console.warn("[InMemoryDb] Failed to load state from disk:", err);
+      return false;
+    }
   }
 
   private initSeedData() {
@@ -287,6 +383,7 @@ export async function getConsultation(id: string): Promise<ConsultationRecord | 
 
 export async function saveConsultation(record: ConsultationRecord): Promise<void> {
   db.consultations.set(record.id, record);
+  db.persistToDisk();
 }
 
 export async function getConfirmedRubrics(consultationId: string): Promise<ConfirmedRubricRecord[]> {
@@ -308,6 +405,7 @@ export async function saveConfirmedRubrics(
     confirmed_at: new Date().toISOString(),
   }));
   db.confirmedRubrics.set(consultationId, records);
+  db.persistToDisk();
   await logAuditTrail(doctorId, "confirm_rubrics", "rubric", consultationId, { count: items.length });
 }
 
@@ -485,6 +583,7 @@ export async function createPrescriptionRecord(
   consultation.state = "DONE";
   consultation.updated_at = new Date().toISOString();
   await saveConsultation(consultation);
+  db.persistToDisk();
 
   await logAuditTrail(payload.doctor_id, "issue_prescription", "prescription", prescription.id, {
     medicine_id: payload.medicine_id,
@@ -520,7 +619,17 @@ export async function listPatients(doctorId: string, search?: string): Promise<P
 
 export async function createPatient(
   doctorId: string,
-  data: { display_name: string; sex: "MALE" | "FEMALE" | "OTHER"; year_of_birth?: number }
+  data: {
+    display_name: string;
+    sex: "MALE" | "FEMALE" | "OTHER";
+    year_of_birth?: number;
+    dpdp_consent?: {
+      consented: boolean;
+      consented_at?: string;
+      consent_version?: string;
+      purpose?: string;
+    };
+  }
 ): Promise<PatientRecord> {
   const count = db.patients.size + 1;
   const newPatient: PatientRecord = {
@@ -530,8 +639,19 @@ export async function createPatient(
     display_name: data.display_name,
     sex: data.sex,
     year_of_birth: data.year_of_birth,
+    dpdp_consent: {
+      consented: data.dpdp_consent?.consented ?? true,
+      consented_at: data.dpdp_consent?.consented_at || new Date().toISOString(),
+      consent_version: data.dpdp_consent?.consent_version || "DPDP-IN-2023-V1",
+      purpose: data.dpdp_consent?.purpose || "homeopathic_clinical_care_and_records",
+    },
   };
   db.patients.set(newPatient.id, newPatient);
+  db.persistToDisk();
+  await logAuditTrail(doctorId, "create_patient", "patient", newPatient.id, {
+    display_name: newPatient.display_name,
+    dpdp_consented: true,
+  });
   return newPatient;
 }
 
@@ -585,6 +705,7 @@ export async function deletePatientCascading(
 
   // Delete patient
   db.patients.delete(patientId);
+  db.persistToDisk();
 
   return {
     deletedPatientId: patientId,
@@ -646,6 +767,7 @@ export async function addCaseEvent(
   const list = db.caseEvents.get(consultationId) || [];
   list.push(newEvent);
   db.caseEvents.set(consultationId, list);
+  db.persistToDisk();
 
   return newEvent;
 }
@@ -671,6 +793,7 @@ export async function createCaseFolder(
     created_at: new Date().toISOString(),
   };
   db.caseFolders.set(id, folder);
+  db.persistToDisk();
   return folder;
 }
 
@@ -680,6 +803,7 @@ export async function listCaseFolders(doctorId: string): Promise<CaseFolderRecor
 
 export async function assignCaseFolder(consultationId: string, folderId: string): Promise<void> {
   db.consultationFolderMap.set(consultationId, folderId);
+  db.persistToDisk();
 }
 
 export async function getCaseFolder(consultationId: string): Promise<CaseFolderRecord | null> {
@@ -707,6 +831,7 @@ export async function createShareLink(
   };
 
   db.shares.set(token, share);
+  db.persistToDisk();
   return share;
 }
 
@@ -757,6 +882,7 @@ export async function createCustomRubric(
     embedding: generateNormalizedEmbedding(data.rubric_path, 768),
   });
 
+  db.persistToDisk();
   return custom;
 }
 
@@ -888,6 +1014,7 @@ export async function logAuditTrail(
     created_at: new Date().toISOString(),
   };
   db.auditLogs.push(record);
+  db.persistToDisk();
   return record;
 }
 
@@ -922,9 +1049,88 @@ export async function logSearchMiss(
     created_at: new Date().toISOString(),
   };
   db.searchMisses.push(record);
+  db.persistToDisk();
   return record;
 }
 
 export async function getSearchMisses(limit = 100): Promise<SearchMissRecord[]> {
   return db.searchMisses.slice(-limit);
+}
+
+/**
+ * Full System Backup & Restore (Disaster Recovery & Multi-Instance Migration)
+ */
+export async function exportStoreSnapshot(): Promise<Record<string, any>> {
+  return {
+    version: "1.0",
+    exported_at: new Date().toISOString(),
+    doctors: Array.from(db.doctors.entries()),
+    patients: Array.from(db.patients.entries()),
+    consultations: Array.from(db.consultations.entries()),
+    confirmedRubrics: Array.from(db.confirmedRubrics.entries()),
+    prescriptions: Array.from(db.prescriptions.entries()),
+    caseEvents: Array.from(db.caseEvents.entries()),
+    caseFolders: Array.from(db.caseFolders.entries()),
+    consultationFolderMap: Array.from(db.consultationFolderMap.entries()),
+    shares: Array.from(db.shares.entries()),
+    customRubrics: db.customRubrics,
+    auditLogs: db.auditLogs,
+    searchMisses: db.searchMisses,
+  };
+}
+
+export async function restoreStoreSnapshot(state: Record<string, any>): Promise<{ restored: boolean; counts: Record<string, number> }> {
+  if (!state || typeof state !== "object") {
+    throw new Error("Invalid backup payload format");
+  }
+
+  if (state.doctors && Array.isArray(state.doctors)) {
+    db.doctors = new Map(state.doctors);
+  }
+  if (state.patients && Array.isArray(state.patients)) {
+    db.patients = new Map(state.patients);
+  }
+  if (state.consultations && Array.isArray(state.consultations)) {
+    db.consultations = new Map(state.consultations);
+  }
+  if (state.confirmedRubrics && Array.isArray(state.confirmedRubrics)) {
+    db.confirmedRubrics = new Map(state.confirmedRubrics);
+  }
+  if (state.prescriptions && Array.isArray(state.prescriptions)) {
+    db.prescriptions = new Map(state.prescriptions);
+  }
+  if (state.caseEvents && Array.isArray(state.caseEvents)) {
+    db.caseEvents = new Map(state.caseEvents);
+  }
+  if (state.caseFolders && Array.isArray(state.caseFolders)) {
+    db.caseFolders = new Map(state.caseFolders);
+  }
+  if (state.consultationFolderMap && Array.isArray(state.consultationFolderMap)) {
+    db.consultationFolderMap = new Map(state.consultationFolderMap);
+  }
+  if (state.shares && Array.isArray(state.shares)) {
+    db.shares = new Map(state.shares);
+  }
+  if (state.customRubrics && Array.isArray(state.customRubrics)) {
+    db.customRubrics = state.customRubrics;
+  }
+  if (state.auditLogs && Array.isArray(state.auditLogs)) {
+    db.auditLogs = state.auditLogs;
+  }
+  if (state.searchMisses && Array.isArray(state.searchMisses)) {
+    db.searchMisses = state.searchMisses;
+  }
+
+  db.persistToDisk();
+
+  return {
+    restored: true,
+    counts: {
+      doctors: db.doctors.size,
+      patients: db.patients.size,
+      consultations: db.consultations.size,
+      prescriptions: db.prescriptions.size,
+      auditLogs: db.auditLogs.length,
+    },
+  };
 }
